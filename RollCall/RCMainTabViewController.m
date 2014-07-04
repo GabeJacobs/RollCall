@@ -1,22 +1,18 @@
 //
-//  RCLoginViewController.m
+//  RCMainTabViewController.m
 //  RollCall
 //
 //  Created by Gabe Jacobs on 7/4/14.
 //  Copyright (c) 2014 Gabe Jacobs. All rights reserved.
 //
 
-#import "RCLoginViewController.h"
-#import <FacebookSDK/FacebookSDK.h>
+#import "RCMainTabViewController.h"
 
-@interface RCLoginViewController ()
-
-@property (nonatomic) UIImageView*	backgroundView;
-@property (nonatomic) FBLoginView*	loginView;
+@interface RCMainTabViewController ()
 
 @end
 
-@implementation RCLoginViewController
+@implementation RCMainTabViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,14 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
-	[self.view addSubview:self.backgroundView];
-	
-	self.loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]];
-	self.loginView.frame = CGRectOffset(self.loginView.frame, (self.view.center.x - (self.loginView.frame.size.width / 2)), 400);
-	[self.view addSubview:self.loginView];
-	
     // Do any additional setup after loading the view.
 }
 
