@@ -20,6 +20,14 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+	
+	self.loginViewController = [[RCLoginViewController alloc] init];
+	self.rootNavigationController = [[RCRootNavigationViewController alloc] initWithRootViewController:self.loginViewController];
+
+	self.window.rootViewController = self.rootNavigationController;
+
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     return YES;
 }
 

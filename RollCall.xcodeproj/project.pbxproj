@@ -24,6 +24,8 @@
 		23553FE11967405B00CE49CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23553FDF1967405B00CE49CD /* InfoPlist.strings */; };
 		23553FE31967405B00CE49CD /* RollCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FE21967405B00CE49CD /* RollCallTests.m */; };
 		23553FF41967453E00CE49CD /* RCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FF31967453E00CE49CD /* RCLoginViewController.m */; };
+		23553FF7196746A900CE49CD /* RCRootNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FF6196746A900CE49CD /* RCRootNavigationViewController.m */; };
+		23553FF91967522100CE49CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FF81967522100CE49CD /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,9 @@
 		23553FE21967405B00CE49CD /* RollCallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollCallTests.m; sourceTree = "<group>"; };
 		23553FF21967453E00CE49CD /* RCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLoginViewController.h; sourceTree = "<group>"; };
 		23553FF31967453E00CE49CD /* RCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLoginViewController.m; sourceTree = "<group>"; };
+		23553FF5196746A900CE49CD /* RCRootNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRootNavigationViewController.h; sourceTree = "<group>"; };
+		23553FF6196746A900CE49CD /* RCRootNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRootNavigationViewController.m; sourceTree = "<group>"; };
+		23553FF81967522100CE49CD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RollCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RollCall.xcconfig"; path = "Pods/Pods-RollCall.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +76,7 @@
 				23553FBC1967405B00CE49CD /* UIKit.framework in Frameworks */,
 				23553FB81967405B00CE49CD /* Foundation.framework in Frameworks */,
 				1C7262B157AB4BA89E263785 /* libPods-RollCall.a in Frameworks */,
+				23553FF91967522100CE49CD /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +186,8 @@
 			children = (
 				23553FF21967453E00CE49CD /* RCLoginViewController.h */,
 				23553FF31967453E00CE49CD /* RCLoginViewController.m */,
+				23553FF5196746A900CE49CD /* RCRootNavigationViewController.h */,
+				23553FF6196746A900CE49CD /* RCRootNavigationViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -208,6 +216,7 @@
 		23553FF11967426100CE49CD /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				23553FF81967522100CE49CD /* FacebookSDK.framework */,
 			);
 			name = "3rd Party";
 			sourceTree = "<group>";
@@ -342,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23553FF7196746A900CE49CD /* RCRootNavigationViewController.m in Sources */,
 				23553FCA1967405B00CE49CD /* AppDelegate.m in Sources */,
 				23553FCD1967405B00CE49CD /* RollCall.xcdatamodeld in Sources */,
 				23553FC61967405B00CE49CD /* main.m in Sources */,
@@ -463,6 +473,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RollCall",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RollCall/RollCall-Prefix.pch";
 				INFOPLIST_FILE = "RollCall/RollCall-Info.plist";
@@ -477,6 +491,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RollCall",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RollCall/RollCall-Prefix.pch";
 				INFOPLIST_FILE = "RollCall/RollCall-Info.plist";

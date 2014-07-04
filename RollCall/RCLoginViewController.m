@@ -7,8 +7,12 @@
 //
 
 #import "RCLoginViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface RCLoginViewController ()
+
+@property (nonatomic) UIImageView*	backgroundView;
+@property (nonatomic) FBLoginView*	loginView;
 
 @end
 
@@ -26,7 +30,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.view.backgroundColor = [UIColor redColor];
+	
+	self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
+	[self.view addSubview:self.backgroundView];
+	
+	self.loginView = [[FBLoginView alloc] init];
+	self.loginView.frame = CGRectOffset(self.loginView.frame, (self.view.center.x - (self.loginView.frame.size.width / 2)), 400);
+	[self.view addSubview:self.loginView];
+	
     // Do any additional setup after loading the view.
 }
 
