@@ -1,0 +1,1 @@
+PODS_ROLLCALL_MMRECORD_OTHER_LDFLAGS = -framework CoreData

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C7262B157AB4BA89E263785 /* libPods-RollCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */; };
 		23553FB81967405B00CE49CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FB71967405B00CE49CD /* Foundation.framework */; };
 		23553FBA1967405B00CE49CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FB91967405B00CE49CD /* CoreGraphics.framework */; };
 		23553FBC1967405B00CE49CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FBB1967405B00CE49CD /* UIKit.framework */; };
@@ -22,6 +23,7 @@
 		23553FD91967405B00CE49CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FBD1967405B00CE49CD /* CoreData.framework */; };
 		23553FE11967405B00CE49CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23553FDF1967405B00CE49CD /* InfoPlist.strings */; };
 		23553FE31967405B00CE49CD /* RollCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FE21967405B00CE49CD /* RollCallTests.m */; };
+		23553FF41967453E00CE49CD /* RCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FF31967453E00CE49CD /* RCLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		23553FDE1967405B00CE49CD /* RollCallTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RollCallTests-Info.plist"; sourceTree = "<group>"; };
 		23553FE01967405B00CE49CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23553FE21967405B00CE49CD /* RollCallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollCallTests.m; sourceTree = "<group>"; };
+		23553FF21967453E00CE49CD /* RCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLoginViewController.h; sourceTree = "<group>"; };
+		23553FF31967453E00CE49CD /* RCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLoginViewController.m; sourceTree = "<group>"; };
+		4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RollCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RollCall.xcconfig"; path = "Pods/Pods-RollCall.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 				23553FBE1967405B00CE49CD /* CoreData.framework in Frameworks */,
 				23553FBC1967405B00CE49CD /* UIKit.framework in Frameworks */,
 				23553FB81967405B00CE49CD /* Foundation.framework in Frameworks */,
+				1C7262B157AB4BA89E263785 /* libPods-RollCall.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +95,7 @@
 				23553FDC1967405B00CE49CD /* RollCallTests */,
 				23553FB61967405B00CE49CD /* Frameworks */,
 				23553FB51967405B00CE49CD /* Products */,
+				AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +116,7 @@
 				23553FBB1967405B00CE49CD /* UIKit.framework */,
 				23553FBD1967405B00CE49CD /* CoreData.framework */,
 				23553FD51967405B00CE49CD /* XCTest.framework */,
+				4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,6 +178,8 @@
 		23553FED196740A600CE49CD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				23553FF21967453E00CE49CD /* RCLoginViewController.h */,
+				23553FF31967453E00CE49CD /* RCLoginViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -208,9 +219,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23553FE61967405B00CE49CD /* Build configuration list for PBXNativeTarget "RollCall" */;
 			buildPhases = (
+				0F222C08201C402B832ABFF1 /* Check Pods Manifest.lock */,
 				23553FB01967405B00CE49CD /* Sources */,
 				23553FB11967405B00CE49CD /* Frameworks */,
 				23553FB21967405B00CE49CD /* Resources */,
+				5401514391DC445EA7852FEF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,6 +304,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F222C08201C402B832ABFF1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5401514391DC445EA7852FEF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-RollCall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		23553FB01967405B00CE49CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -299,6 +345,7 @@
 				23553FCA1967405B00CE49CD /* AppDelegate.m in Sources */,
 				23553FCD1967405B00CE49CD /* RollCall.xcdatamodeld in Sources */,
 				23553FC61967405B00CE49CD /* main.m in Sources */,
+				23553FF41967453E00CE49CD /* RCLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +459,7 @@
 		};
 		23553FE71967405B00CE49CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -425,6 +473,7 @@
 		};
 		23553FE81967405B00CE49CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -495,6 +544,7 @@
 				23553FE81967405B00CE49CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		23553FE91967405B00CE49CD /* Build configuration list for PBXNativeTarget "RollCallTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +553,7 @@
 				23553FEB1967405B00CE49CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

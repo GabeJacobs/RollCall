@@ -1,0 +1,12 @@
+PODS:
+  - MMRecord (1.4.1):
+    - MMRecord/Core
+  - MMRecord/Core (1.4.1)
+
+DEPENDENCIES:
+  - MMRecord (~> 1.4.1)
+
+SPEC CHECKSUMS:
+  MMRecord: d97ae01093878067aff85dcbd90fb700605cc634
+
+COCOAPODS: 0.33.1

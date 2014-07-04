@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCLoginViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
