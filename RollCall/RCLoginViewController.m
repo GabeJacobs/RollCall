@@ -8,6 +8,7 @@
 
 #import "RCLoginViewController.h"
 #import "RCSession.h"
+#import "RCMainTabViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface RCLoginViewController ()
@@ -55,7 +56,10 @@
                             user:(id<FBGraphUser>)user {
 	
 	self.loggedInUser = user;
-	[RCSession startSessionWithUserID:[user id]];
+	//[RCSession startSessionWithUserID:[user id]];
+	
+	RCMainTabViewController *mainTabView = [[RCMainTabViewController alloc] init];
+	[self.navigationController pushViewController:mainTabView animated:YES];
 
 
 }
