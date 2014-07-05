@@ -10,6 +10,9 @@
 #import "RCSession.h"
 #import "RCMainTabViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "RCGroupsViewController.h"
+#import "RCNotificationsViewController.h"
+#import "RCSettingsViewController.h"
 
 @interface RCLoginViewController ()
 
@@ -33,7 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	[self.navigationController setNavigationBarHidden:YES];
+
 	self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
 	[self.view addSubview:self.backgroundView];
 	
@@ -59,8 +63,23 @@
 	//[RCSession startSessionWithUserID:[user id]];
 	
 	RCMainTabViewController *mainTabView = [[RCMainTabViewController alloc] init];
-	[self.navigationController pushViewController:mainTabView animated:YES];
+	
+	RCGroupsViewController *groupsViewController = [[RCGroupsViewController alloc] init];
+	groupsViewController.title = @"Groups";
+	
+	RCNotificationsViewController *notificationViewController = [[RCNotificationsViewController alloc] init];
+	notificationViewController.title = @"Notifications";
+	
+	RCSettingsViewController *setttingsViewController= [[RCSettingsViewController alloc] init];
+	setttingsViewController.title = @"Settings";
+	
+	//adding view controllers to your tabBarController bundling them in an array
+	[mainTabView setViewControllers: [NSArray arrayWithObjects:notificationViewController, groupsViewController, setttingsViewController, nil]];
+	mainTabView.selectedIndex = 1;
+	
+	[self.navigationController setNavigationBarHidden:NO];
 
+	[self.navigationController pushViewController:mainTabView animated:NO];
 
 }
 

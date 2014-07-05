@@ -1,18 +1,18 @@
 //
-//  RCMainTabViewController.m
+//  RCNotificationsViewController.m
 //  RollCall
 //
-//  Created by Gabe Jacobs on 7/4/14.
+//  Created by Gabe Jacobs on 7/5/14.
 //  Copyright (c) 2014 Gabe Jacobs. All rights reserved.
 //
 
-#import "RCMainTabViewController.h"
+#import "RCNotificationsViewController.h"
 
-@interface RCMainTabViewController ()
+@interface RCNotificationsViewController ()
 
 @end
 
-@implementation RCMainTabViewController
+@implementation RCNotificationsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,9 +25,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];	
-	self.tabBar.barTintColor = [UIColor whiteColor];
-	
+    [super viewDidLoad];
+	self.view.backgroundColor = [UIColor redColor];
     // Do any additional setup after loading the view.
 }
 

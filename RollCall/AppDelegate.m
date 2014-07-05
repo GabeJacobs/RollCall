@@ -26,7 +26,6 @@
 	self.rootNavigationController = [[RCRootNavigationViewController alloc] initWithRootViewController:self.loginViewController];
 
 	self.window.rootViewController = self.rootNavigationController;
-
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
 	[FBLoginView class];

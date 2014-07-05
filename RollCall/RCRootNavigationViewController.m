@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self setNavigationBarHidden:YES];
+	self.navigationBar.barTintColor = RC_BLUE;
     // Do any additional setup after loading the view.
 }
 

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RCConstants : NSObject
+#ifndef RollCall_Constants_h
+#define RollCall_Constants_h
 
-@end
+#define RC_BLUE [UIColor colorWithRed:14.0/255.0 green:16.0/255.0 blue:143.0/255.0 alpha:1.0];
+
+#endif
