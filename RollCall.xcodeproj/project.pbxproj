@@ -28,6 +28,8 @@
 		23553FF91967522100CE49CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FF81967522100CE49CD /* FacebookSDK.framework */; };
 		23553FFC1967587500CE49CD /* RCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FFB1967587500CE49CD /* RCConstants.m */; };
 		23553FFF19675A4F00CE49CD /* RCMainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FFE19675A4F00CE49CD /* RCMainTabViewController.m */; };
+		235540021968426200CE49CD /* RCSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 235540011968426200CE49CD /* RCSession.m */; };
+		235540051968431200CE49CD /* RCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 235540041968431200CE49CD /* RCUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,10 @@
 		23553FFB1967587500CE49CD /* RCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConstants.m; sourceTree = "<group>"; };
 		23553FFD19675A4F00CE49CD /* RCMainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMainTabViewController.h; sourceTree = "<group>"; };
 		23553FFE19675A4F00CE49CD /* RCMainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMainTabViewController.m; sourceTree = "<group>"; };
+		235540001968426200CE49CD /* RCSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSession.h; sourceTree = "<group>"; };
+		235540011968426200CE49CD /* RCSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSession.m; sourceTree = "<group>"; };
+		235540031968431200CE49CD /* RCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUser.h; sourceTree = "<group>"; };
+		235540041968431200CE49CD /* RCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUser.m; sourceTree = "<group>"; };
 		4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RollCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RollCall.xcconfig"; path = "Pods/Pods-RollCall.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,7 +145,6 @@
 				23553FC81967405B00CE49CD /* AppDelegate.h */,
 				23553FC91967405B00CE49CD /* AppDelegate.m */,
 				23553FCE1967405B00CE49CD /* Images.xcassets */,
-				23553FCB1967405B00CE49CD /* RollCall.xcdatamodeld */,
 				23553FED196740A600CE49CD /* View Controllers */,
 				23553FEC196740A000CE49CD /* Views */,
 				23553FF11967426100CE49CD /* 3rd Party */,
@@ -210,6 +215,9 @@
 		23553FEF1967423D00CE49CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				235540031968431200CE49CD /* RCUser.h */,
+				235540041968431200CE49CD /* RCUser.m */,
+				23553FCB1967405B00CE49CD /* RollCall.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -219,6 +227,8 @@
 			children = (
 				23553FFA1967587500CE49CD /* RCConstants.h */,
 				23553FFB1967587500CE49CD /* RCConstants.m */,
+				235540001968426200CE49CD /* RCSession.h */,
+				235540011968426200CE49CD /* RCSession.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -368,6 +378,8 @@
 				23553FC61967405B00CE49CD /* main.m in Sources */,
 				23553FFC1967587500CE49CD /* RCConstants.m in Sources */,
 				23553FF41967453E00CE49CD /* RCLoginViewController.m in Sources */,
+				235540051968431200CE49CD /* RCUser.m in Sources */,
+				235540021968426200CE49CD /* RCSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
