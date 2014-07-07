@@ -18,7 +18,16 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+		self.navigationBar.barTintColor = RC_BLUE;
+		self.navigationBar.translucent = NO;
+		[self setTitle:@"Home"];
+		[self.navigationBar setTitleTextAttributes:
+		 [NSDictionary dictionaryWithObjectsAndKeys:
+		  [UIColor whiteColor],
+		  NSForegroundColorAttributeName,
+		  [UIFont fontWithName:@"Avenir" size:18.0],
+		  NSFontAttributeName,
+		  nil]];
     }
     return self;
 }

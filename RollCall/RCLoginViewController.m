@@ -77,8 +77,6 @@
 	[mainTabView setViewControllers: [NSArray arrayWithObjects:notificationViewController, groupsViewController, setttingsViewController, nil]];
 	mainTabView.selectedIndex = 1;
 	
-	[self.navigationController setNavigationBarHidden:NO];
-
 	[self.navigationController pushViewController:mainTabView animated:NO];
 
 }

@@ -18,23 +18,25 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-    }
+		self.navigationBar.barTintColor = RC_BLUE;
+		self.navigationBar.translucent = NO;
+		
+		self.navigationBar.topItem.title = @"sdf";
+		self.navigationItem.title = @"sdfs";
+		// not working?
+	
+	}
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.view.backgroundColor = [UIColor purpleColor];
+	self.view.backgroundColor = [UIColor yellowColor];
+
 	// Do any additional setup after loading the view.
 }
 
--(void)viewDidAppear:(BOOL)animated{
-	
-
-	
-}
 
 - (void)didReceiveMemoryWarning
 {

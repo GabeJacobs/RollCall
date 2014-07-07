@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCSettingsViewController : UIViewController
+@interface RCSettingsViewController : UINavigationController
 
 @end

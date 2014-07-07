@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCNotificationsViewController : UIViewController
+@interface RCNotificationsViewController : UINavigationController
 
 @end
