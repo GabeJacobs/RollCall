@@ -204,14 +204,14 @@
 			children = (
 				23553FF21967453E00CE49CD /* RCLoginViewController.h */,
 				23553FF31967453E00CE49CD /* RCLoginViewController.m */,
-				23553FFD19675A4F00CE49CD /* RCMainTabViewController.h */,
-				23553FFE19675A4F00CE49CD /* RCMainTabViewController.m */,
 				238CBF3A1968617E0039F8BB /* RCSettingsViewController.h */,
 				238CBF3B1968617E0039F8BB /* RCSettingsViewController.m */,
 				238CBF37196861590039F8BB /* RCNotificationsViewController.h */,
 				238CBF38196861590039F8BB /* RCNotificationsViewController.m */,
 				238CBF34196860910039F8BB /* RCGroupsViewController.h */,
 				238CBF35196860910039F8BB /* RCGroupsViewController.m */,
+				23553FFD19675A4F00CE49CD /* RCMainTabViewController.h */,
+				23553FFE19675A4F00CE49CD /* RCMainTabViewController.m */,
 				23553FF5196746A900CE49CD /* RCRootNavigationViewController.h */,
 				23553FF6196746A900CE49CD /* RCRootNavigationViewController.m */,
 			);

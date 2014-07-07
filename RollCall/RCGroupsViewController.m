@@ -41,8 +41,6 @@
 	self.tabBarController.tabBar.translucent = NO;
 	self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
 
-
-
 }
 
 - (void)didReceiveMemoryWarning
