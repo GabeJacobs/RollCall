@@ -26,8 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];	
-	self.tabBar.barTintColor = [UIColor whiteColor];
-	
     // Do any additional setup after loading the view.
 }
 

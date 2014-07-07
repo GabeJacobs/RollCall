@@ -18,13 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		self.navigationBar.barTintColor = RC_BLUE;
-		self.navigationBar.translucent = NO;
 		
-		self.navigationBar.topItem.title = @"sdf";
-		self.navigationItem.title = @"sdfs";
-		// not working?
-	
 	}
     return self;
 }
@@ -32,11 +26,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.view.backgroundColor = [UIColor yellowColor];
+	self.view.backgroundColor = [UIColor orangeColor];
+	self.navigationController.navigationBar.barTintColor = RC_BLUE;
+	self.navigationController.navigationBar.translucent = NO;
+	
+	[self.navigationController.navigationBar setTitleTextAttributes:
+	 [NSDictionary dictionaryWithObjectsAndKeys:
+	  [UIColor whiteColor],
+	  NSForegroundColorAttributeName,
+	  [UIFont fontWithName:@"Avenir" size:18.0],
+	  NSFontAttributeName,
+	  nil]];
+	
+	self.tabBarController.tabBar.translucent = NO;
+	self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
 
-	// Do any additional setup after loading the view.
+
+
 }
-
 
 - (void)didReceiveMemoryWarning
 {

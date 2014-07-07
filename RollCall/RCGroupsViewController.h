@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCGroupsViewController : UINavigationController
+@interface RCGroupsViewController : UIViewController
 
 @end

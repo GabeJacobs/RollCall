@@ -18,17 +18,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.navigationBar.barTintColor = RC_BLUE;
-		self.navigationBar.translucent = NO;
-		self.navigationBar.topItem.title = @"Settings";
-		[self.navigationBar setTitleTextAttributes:
-		 [NSDictionary dictionaryWithObjectsAndKeys:
-		  [UIColor whiteColor],
-		  NSForegroundColorAttributeName,
-		  [UIFont fontWithName:@"Avenir" size:18.0],
-		  NSFontAttributeName,
-		  nil]];
-    }
+		
+	}
     return self;
 }
 
@@ -36,7 +27,21 @@
 {
     [super viewDidLoad];
 	self.view.backgroundColor = [UIColor orangeColor];
-    // Do any additional setup after loading the view.
+	self.navigationController.navigationBar.barTintColor = RC_BLUE;
+	self.navigationController.navigationBar.translucent = NO;
+
+	[self.navigationController.navigationBar setTitleTextAttributes:
+	 [NSDictionary dictionaryWithObjectsAndKeys:
+	  [UIColor whiteColor],
+	  NSForegroundColorAttributeName,
+	  [UIFont fontWithName:@"Avenir" size:18.0],
+	  NSFontAttributeName,
+	  nil]];
+	
+	self.tabBarController.tabBar.translucent = NO;
+	self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
+
+	
 }
 
 - (void)didReceiveMemoryWarning

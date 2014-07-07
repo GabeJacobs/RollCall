@@ -73,8 +73,18 @@
 	RCSettingsViewController *setttingsViewController= [[RCSettingsViewController alloc] init];
 	setttingsViewController.title = @"Settings";
 	
+	UINavigationController *groupsNavigationController = [[UINavigationController alloc] init];
+	[groupsNavigationController pushViewController:groupsViewController animated:YES];
+	
+	UINavigationController *settingsNavigationController = [[UINavigationController alloc] init];
+	[settingsNavigationController pushViewController:setttingsViewController animated:YES];
+	
+	UINavigationController *notifciationsNavigationController = [[UINavigationController alloc] init];
+	[notifciationsNavigationController pushViewController:notificationViewController animated:YES];
+	
+	
 	//adding view controllers to your tabBarController bundling them in an array
-	[mainTabView setViewControllers: [NSArray arrayWithObjects:notificationViewController, groupsViewController, setttingsViewController, nil]];
+	[mainTabView setViewControllers: [NSArray arrayWithObjects:notifciationsNavigationController, groupsNavigationController, settingsNavigationController, nil]];
 	mainTabView.selectedIndex = 1;
 	
 	[self.navigationController pushViewController:mainTabView animated:NO];
