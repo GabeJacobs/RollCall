@@ -94,32 +94,35 @@
 
 -(void)loginPressed{
 	
-	[UIView beginAnimations:nil context:nil];
-	[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-	[UIView setAnimationDuration:0.25];
-	self.logoView.alpha = 0.0;
-	self.signupButton.alpha = 0.0;
-	self.loginButton.frame =  CGRectMake(self.loginButton.frame.origin.x, self.loginButton.frame.origin.y - 75, self.loginButton.frame.size.width, self.loginButton.frame.size.height);
-	self.backButton.alpha = 1.0;
-	[UIView commitAnimations];
-	
-	self.loggingIn = YES;
+	if(!self.loggingIn){
+		[UIView beginAnimations:nil context:nil];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+		[UIView setAnimationDuration:0.25];
+		self.logoView.alpha = 0.0;
+		self.signupButton.alpha = 0.0;
+		self.loginButton.frame =  CGRectMake(self.loginButton.frame.origin.x, self.loginButton.frame.origin.y - 100, self.loginButton.frame.size.width, self.loginButton.frame.size.height);
+		self.backButton.alpha = 1.0;
+		[UIView commitAnimations];
+		
+		self.loggingIn = YES;
+	}
 				
 }
 
 -(void)signupPressed{
 	
-	[UIView beginAnimations:nil context:nil];
-	[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-	[UIView setAnimationDuration:0.25];
-	self.logoView.alpha = 0.0;
-	self.loginButton.alpha = 0.0;
-	self.signupButton.frame =  CGRectMake(self.signupButton.frame.origin.x, self.signupButton.frame.origin.y - 130, self.signupButton.frame.size.width, self.signupButton.frame.size.height);
-	self.backButton.alpha = 1.0;
-	[UIView commitAnimations];
-	
-	self.signingUp = YES;
-
+	if(!self.signingUp){
+		[UIView beginAnimations:nil context:nil];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+		[UIView setAnimationDuration:0.25];
+		self.logoView.alpha = 0.0;
+		self.loginButton.alpha = 0.0;
+		self.signupButton.frame =  CGRectMake(self.signupButton.frame.origin.x, self.signupButton.frame.origin.y - 100, self.signupButton.frame.size.width, self.signupButton.frame.size.height);
+		self.backButton.alpha = 1.0;
+		[UIView commitAnimations];
+		
+		self.signingUp = YES;
+	}
 }
 
 -(void)goBack{
@@ -130,7 +133,7 @@
 		[UIView setAnimationDuration:0.25];
 		self.logoView.alpha = 1.0;
 		self.signupButton.alpha = 1.0;
-		self.loginButton.frame =  CGRectMake(self.loginButton.frame.origin.x, self.loginButton.frame.origin.y + 75, self.loginButton.frame.size.width, self.loginButton.frame.size.height);
+		self.loginButton.frame =  CGRectMake(self.loginButton.frame.origin.x, self.loginButton.frame.origin.y + 100, self.loginButton.frame.size.width, self.loginButton.frame.size.height);
 		self.backButton.alpha = 0.0;
 		[UIView commitAnimations];
 	}
@@ -140,7 +143,7 @@
 		[UIView setAnimationDuration:0.25];
 		self.logoView.alpha = 1.0;
 		self.loginButton.alpha = 1.0;
-		self.signupButton.frame =  CGRectMake(self.signupButton.frame.origin.x, self.signupButton.frame.origin.y + 130, self.signupButton.frame.size.width, self.signupButton.frame.size.height);
+		self.signupButton.frame =  CGRectMake(self.signupButton.frame.origin.x, self.signupButton.frame.origin.y + 100, self.signupButton.frame.size.width, self.signupButton.frame.size.height);
 		self.backButton.alpha = 0.0;
 		[UIView commitAnimations];
 	}
