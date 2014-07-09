@@ -26,7 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.view.backgroundColor = [UIColor orangeColor];
+
+	[self.navigationController setNavigationBarHidden:NO animated:YES];
+	//self.title = @"Groups";
 	self.navigationController.navigationBar.barTintColor = RC_BLUE;
 	self.navigationController.navigationBar.translucent = NO;
 	
@@ -37,9 +39,6 @@
 	  [UIFont fontWithName:@"Avenir" size:18.0],
 	  NSFontAttributeName,
 	  nil]];
-	
-	self.tabBarController.tabBar.translucent = NO;
-	self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
 
 }
 

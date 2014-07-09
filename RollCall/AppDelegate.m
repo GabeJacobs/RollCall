@@ -23,12 +23,11 @@
     [self.window makeKeyAndVisible];
 	
 	self.loginViewController = [[RCLoginViewController alloc] init];
-	self.rootNavigationController = [[RCRootNavigationViewController alloc] initWithRootViewController:self.loginViewController];
+	UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:self.loginViewController];
 
-	self.window.rootViewController = self.rootNavigationController;
+	self.window.rootViewController = rootNavigationController;
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
-	[FBLoginView class];
 
     return YES;
 }

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "RCLoginViewController.h"
-#import "RCRootNavigationViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -18,7 +17,6 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic) RCLoginViewController *loginViewController;
-@property (nonatomic) RCRootNavigationViewController *rootNavigationController;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

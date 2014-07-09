@@ -24,13 +24,10 @@
 		23553FE11967405B00CE49CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23553FDF1967405B00CE49CD /* InfoPlist.strings */; };
 		23553FE31967405B00CE49CD /* RollCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FE21967405B00CE49CD /* RollCallTests.m */; };
 		23553FF41967453E00CE49CD /* RCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FF31967453E00CE49CD /* RCLoginViewController.m */; };
-		23553FF7196746A900CE49CD /* RCRootNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FF6196746A900CE49CD /* RCRootNavigationViewController.m */; };
 		23553FF91967522100CE49CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FF81967522100CE49CD /* FacebookSDK.framework */; };
-		23553FFF19675A4F00CE49CD /* RCMainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FFE19675A4F00CE49CD /* RCMainTabViewController.m */; };
 		235540021968426200CE49CD /* RCSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 235540011968426200CE49CD /* RCSession.m */; };
 		235540051968431200CE49CD /* RCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 235540041968431200CE49CD /* RCUser.m */; };
 		238CBF36196860910039F8BB /* RCGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238CBF35196860910039F8BB /* RCGroupsViewController.m */; };
-		238CBF39196861590039F8BB /* RCNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238CBF38196861590039F8BB /* RCNotificationsViewController.m */; };
 		238CBF3C1968617E0039F8BB /* RCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238CBF3B1968617E0039F8BB /* RCSettingsViewController.m */; };
 		C8E6EC82196BAB4F00DAEE73 /* RCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC81196BAB4F00DAEE73 /* RCNetworkManager.m */; };
 		C8E6EC85196BAB6A00DAEE73 /* RCLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC84196BAB6A00DAEE73 /* RCLocationManager.m */; };
@@ -67,20 +64,14 @@
 		23553FE21967405B00CE49CD /* RollCallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollCallTests.m; sourceTree = "<group>"; };
 		23553FF21967453E00CE49CD /* RCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLoginViewController.h; sourceTree = "<group>"; };
 		23553FF31967453E00CE49CD /* RCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLoginViewController.m; sourceTree = "<group>"; };
-		23553FF5196746A900CE49CD /* RCRootNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRootNavigationViewController.h; sourceTree = "<group>"; };
-		23553FF6196746A900CE49CD /* RCRootNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRootNavigationViewController.m; sourceTree = "<group>"; };
 		23553FF81967522100CE49CD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		23553FFA1967587500CE49CD /* RCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConstants.h; sourceTree = "<group>"; };
-		23553FFD19675A4F00CE49CD /* RCMainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMainTabViewController.h; sourceTree = "<group>"; };
-		23553FFE19675A4F00CE49CD /* RCMainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMainTabViewController.m; sourceTree = "<group>"; };
 		235540001968426200CE49CD /* RCSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSession.h; sourceTree = "<group>"; };
 		235540011968426200CE49CD /* RCSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSession.m; sourceTree = "<group>"; };
 		235540031968431200CE49CD /* RCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUser.h; sourceTree = "<group>"; };
 		235540041968431200CE49CD /* RCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUser.m; sourceTree = "<group>"; };
 		238CBF34196860910039F8BB /* RCGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCGroupsViewController.h; sourceTree = "<group>"; };
 		238CBF35196860910039F8BB /* RCGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGroupsViewController.m; sourceTree = "<group>"; };
-		238CBF37196861590039F8BB /* RCNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNotificationsViewController.h; sourceTree = "<group>"; };
-		238CBF38196861590039F8BB /* RCNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNotificationsViewController.m; sourceTree = "<group>"; };
 		238CBF3A1968617E0039F8BB /* RCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSettingsViewController.h; sourceTree = "<group>"; };
 		238CBF3B1968617E0039F8BB /* RCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSettingsViewController.m; sourceTree = "<group>"; };
 		4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RollCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,14 +204,8 @@
 				23553FF31967453E00CE49CD /* RCLoginViewController.m */,
 				238CBF3A1968617E0039F8BB /* RCSettingsViewController.h */,
 				238CBF3B1968617E0039F8BB /* RCSettingsViewController.m */,
-				238CBF37196861590039F8BB /* RCNotificationsViewController.h */,
-				238CBF38196861590039F8BB /* RCNotificationsViewController.m */,
 				238CBF34196860910039F8BB /* RCGroupsViewController.h */,
 				238CBF35196860910039F8BB /* RCGroupsViewController.m */,
-				23553FFD19675A4F00CE49CD /* RCMainTabViewController.h */,
-				23553FFE19675A4F00CE49CD /* RCMainTabViewController.m */,
-				23553FF5196746A900CE49CD /* RCRootNavigationViewController.h */,
-				23553FF6196746A900CE49CD /* RCRootNavigationViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -402,14 +387,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23553FFF19675A4F00CE49CD /* RCMainTabViewController.m in Sources */,
-				23553FF7196746A900CE49CD /* RCRootNavigationViewController.m in Sources */,
 				23553FCA1967405B00CE49CD /* AppDelegate.m in Sources */,
 				C8E6EC85196BAB6A00DAEE73 /* RCLocationManager.m in Sources */,
 				23553FCD1967405B00CE49CD /* RollCall.xcdatamodeld in Sources */,
 				23553FC61967405B00CE49CD /* main.m in Sources */,
 				238CBF36196860910039F8BB /* RCGroupsViewController.m in Sources */,
-				238CBF39196861590039F8BB /* RCNotificationsViewController.m in Sources */,
 				23553FF41967453E00CE49CD /* RCLoginViewController.m in Sources */,
 				235540051968431200CE49CD /* RCUser.m in Sources */,
 				238CBF3C1968617E0039F8BB /* RCSettingsViewController.m in Sources */,
