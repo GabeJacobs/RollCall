@@ -28,17 +28,7 @@
     [super viewDidLoad];
 
 	[self.navigationController setNavigationBarHidden:NO animated:YES];
-	//self.title = @"Groups";
-	self.navigationController.navigationBar.barTintColor = RC_BLUE;
-	self.navigationController.navigationBar.translucent = NO;
-	
-	[self.navigationController.navigationBar setTitleTextAttributes:
-	 [NSDictionary dictionaryWithObjectsAndKeys:
-	  [UIColor whiteColor],
-	  NSForegroundColorAttributeName,
-	  [UIFont fontWithName:@"Avenir" size:18.0],
-	  NSFontAttributeName,
-	  nil]];
+	self.title = @"Groups";
 
 }
 

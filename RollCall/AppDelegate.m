@@ -22,8 +22,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	
-	self.loginViewController = [[RCLoginViewController alloc] init];
-	UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:self.loginViewController];
+	self.splashViewController = [[RCSplashViewController alloc] init];
+	UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:self.splashViewController];
 
 	self.window.rootViewController = rootNavigationController;
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

@@ -11,6 +11,6 @@
 #ifndef RollCall_Constants_h
 #define RollCall_Constants_h
 
-#define RC_BLUE [UIColor colorWithRed:14.0/255.0 green:16.0/255.0 blue:143.0/255.0 alpha:1.0];
+#define RC_BLUE [UIColor colorWithRed:0.000 green:0.000 blue:0.886 alpha:1.000];
 
 #endif

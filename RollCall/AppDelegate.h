@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RCLoginViewController.h"
+#import "RCSplashViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,7 +16,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (nonatomic) RCLoginViewController *loginViewController;
+@property (nonatomic) RCSplashViewController *splashViewController;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

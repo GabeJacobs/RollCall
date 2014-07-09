@@ -6,19 +6,20 @@
 //  Copyright (c) 2014 Gabe Jacobs. All rights reserved.
 //
 
-#import "RCLoginViewController.h"
+#import "RCSplashViewController.h"
 #import "RCSession.h"
 #import "RCGroupsViewController.h"
 
-@interface RCLoginViewController ()
+@interface RCSplashViewController ()
 
 @property (nonatomic) UIImageView*	backgroundView;
+@property (nonatomic) UIImageView*	logoView;
 @property (nonatomic) UIButton*		loginButton;
 @property (nonatomic) UIButton*		signupButton;
 
 @end
 
-@implementation RCLoginViewController
+@implementation RCSplashViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,9 +34,24 @@
 {
     [super viewDidLoad];
 	[self.navigationController setNavigationBarHidden:YES];
+	
+	self.navigationController.navigationBar.barTintColor = RC_BLUE;
+	self.navigationController.navigationBar.translucent = NO;
+	
+	[self.navigationController.navigationBar setTitleTextAttributes:
+	 [NSDictionary dictionaryWithObjectsAndKeys:
+	  [UIColor whiteColor],
+	  NSForegroundColorAttributeName,
+	  [UIFont fontWithName:@"Avenir" size:18.0],
+	  NSFontAttributeName,
+	  nil]];
 
 	self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
 	[self.view addSubview:self.backgroundView];
+	
+	self.logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
+	self.logoView.center = CGPointMake(self.view.center.x, 110);
+	[self.view addSubview:self.logoView];
 	
 	self.loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	[self.loginButton addTarget:self action:@selector(loginPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -53,6 +69,8 @@
 
 	[self.view addSubview:self.signupButton];
 	
+	
+	
 	// Do any additional setup after loading the view.
 }
 
@@ -62,8 +80,10 @@
 
 }
 -(void)loginPressed{
-	RCGroupsViewController *groupsViewController = [[RCGroupsViewController alloc] init];
-	[self.navigationController pushViewController:groupsViewController animated:YES];
+	
+	//self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>
+	///RCLoginViewController *loginViewController = [[RCLoginViewController alloc] init];
+	//[self.navigationController pushViewController:loginViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCLoginViewController : UIViewController
+@interface RCSplashViewController : UIViewController
 
 @end
