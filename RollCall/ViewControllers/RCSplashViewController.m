@@ -105,7 +105,30 @@
 	}
 	else if(self.loggingIn) {
 		RCGroupsViewController *groupsViewController = [[RCGroupsViewController alloc] init];
-		[self.navigationController pushViewController:groupsViewController animated:YES];
+		
+		//Standard pushViewController is acting really werid. Tried on both phone and simualtor. Super choppy. This work
+		
+		CATransition *transition = [CATransition animation];
+		transition.duration = 0.25;
+		transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+		transition.type = kCATransitionPush;
+		transition.subtype = kCATransitionFromRight;
+		[self.navigationController.view.layer addAnimation:transition forKey:nil];
+		[self.navigationController pushViewController:groupsViewController animated:NO];
+		
+		//This is for popping
+		
+		/*
+		 
+		 transition.duration = 0.25;
+		 transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+		 transition.type = kCATransitionPush;
+		 transition.subtype = kCATransitionFromLeft;
+		 [self.view.layer addAnimation:transition forKey:nil];
+		 
+		 [self popViewControllerAnimated:NO];
+		 */
+		
 		[self reset];
 	}
 				
