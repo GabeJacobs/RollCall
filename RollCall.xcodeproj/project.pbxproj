@@ -25,7 +25,6 @@
 		C8E6EC8F196CFAD900DAEE73 /* RCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC89196CFAD900DAEE73 /* RCLoginViewController.m */; };
 		C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8B196CFAD900DAEE73 /* RCSettingsViewController.m */; };
 		C8E6EC91196CFAD900DAEE73 /* RCSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8D196CFAD900DAEE73 /* RCSplashViewController.m */; };
-		C8E6EC93196CFB0300DAEE73 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E6EC92196CFB0300DAEE73 /* FacebookSDK.framework */; };
 		C8E6EC98196CFB2200DAEE73 /* RCLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC95196CFB2200DAEE73 /* RCLocationManager.m */; };
 		C8E6EC99196CFB2200DAEE73 /* RCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC97196CFB2200DAEE73 /* RCNetworkManager.m */; };
 		C8E6EC9D196CFB3600DAEE73 /* RCSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC9C196CFB3600DAEE73 /* RCSession.m */; };
@@ -96,7 +95,6 @@
 				23553FBC1967405B00CE49CD /* UIKit.framework in Frameworks */,
 				23553FB81967405B00CE49CD /* Foundation.framework in Frameworks */,
 				1C7262B157AB4BA89E263785 /* libPods-RollCall.a in Frameworks */,
-				C8E6EC93196CFB0300DAEE73 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,8 +527,8 @@
 					Party,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RollCall/RollCall-Prefix.pch";
-				INFOPLIST_FILE = "RollCall/RollCall-Info.plist";
+				GCC_PREFIX_HEADER = "RollCall/Supporting Files/RollCall-Prefix.pch";
+				INFOPLIST_FILE = "RollCall/Supporting Files/RollCall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -549,8 +547,8 @@
 					Party,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RollCall/RollCall-Prefix.pch";
-				INFOPLIST_FILE = "RollCall/RollCall-Info.plist";
+				GCC_PREFIX_HEADER = "RollCall/Supporting Files/RollCall-Prefix.pch";
+				INFOPLIST_FILE = "RollCall/Supporting Files/RollCall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
