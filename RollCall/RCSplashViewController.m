@@ -106,6 +106,11 @@
 		
 		self.loggingIn = YES;
 	}
+	else if(self.loggingIn) {
+		RCGroupsViewController *groupsViewController = [[RCGroupsViewController alloc] init];
+		[self.navigationController pushViewController:groupsViewController animated:YES];
+		[self reset];
+	}
 				
 }
 
@@ -152,6 +157,23 @@
 	self.loggingIn = NO;
 	self.signingUp = NO;
 	
+}
+
+- (void)reset {
+	
+	self.loginButton.alpha = 1.0;
+	self.signupButton.alpha = 1.0;
+	
+	self.loginButton.frame = CGRectMake(0, 454, self.loginButton.frame.size.width, self.loginButton.frame.size.height);
+	self.signupButton.frame = CGRectMake(0, self.loginButton.frame.origin.y + self.loginButton.frame.size.height, self.signupButton.frame.size.width, self.signupButton.frame.size.height);
+	
+	self.backButton.alpha = 0.0;
+	
+	self.logoView.alpha = 1.0;
+	
+	self.signingUp = NO;
+	self.loggingIn = NO;
+
 }
 
 - (void)didReceiveMemoryWarning {
