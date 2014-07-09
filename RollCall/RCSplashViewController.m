@@ -81,9 +81,6 @@
 	self.backButton.alpha = 0.0;
 	[self.view addSubview:self.backButton];
 	
-
-	
-	// Do any additional setup after loading the view.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
