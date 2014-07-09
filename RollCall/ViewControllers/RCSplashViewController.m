@@ -115,20 +115,7 @@
 		transition.subtype = kCATransitionFromRight;
 		[self.navigationController.view.layer addAnimation:transition forKey:nil];
 		[self.navigationController pushViewController:groupsViewController animated:NO];
-		
-		//This is for popping
-		
-		/*
-		 
-		 transition.duration = 0.25;
-		 transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-		 transition.type = kCATransitionPush;
-		 transition.subtype = kCATransitionFromLeft;
-		 [self.view.layer addAnimation:transition forKey:nil];
-		 
-		 [self popViewControllerAnimated:NO];
-		 */
-		
+			
 		[self reset];
 	}
 				
