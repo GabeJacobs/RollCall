@@ -29,6 +29,7 @@
 		235540051968431200CE49CD /* RCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 235540041968431200CE49CD /* RCUser.m */; };
 		238CBF36196860910039F8BB /* RCGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238CBF35196860910039F8BB /* RCGroupsViewController.m */; };
 		238CBF3C1968617E0039F8BB /* RCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238CBF3B1968617E0039F8BB /* RCSettingsViewController.m */; };
+		23D60DE0196CE99E00AAA991 /* RCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D60DDF196CE99E00AAA991 /* RCLoginViewController.m */; };
 		C8E6EC82196BAB4F00DAEE73 /* RCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC81196BAB4F00DAEE73 /* RCNetworkManager.m */; };
 		C8E6EC85196BAB6A00DAEE73 /* RCLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC84196BAB6A00DAEE73 /* RCLocationManager.m */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,8 @@
 		238CBF35196860910039F8BB /* RCGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGroupsViewController.m; sourceTree = "<group>"; };
 		238CBF3A1968617E0039F8BB /* RCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSettingsViewController.h; sourceTree = "<group>"; };
 		238CBF3B1968617E0039F8BB /* RCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSettingsViewController.m; sourceTree = "<group>"; };
+		23D60DDE196CE99E00AAA991 /* RCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLoginViewController.h; sourceTree = "<group>"; };
+		23D60DDF196CE99E00AAA991 /* RCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLoginViewController.m; sourceTree = "<group>"; };
 		4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RollCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RollCall.xcconfig"; path = "Pods/Pods-RollCall.xcconfig"; sourceTree = "<group>"; };
 		C8E6EC80196BAB4F00DAEE73 /* RCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNetworkManager.h; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 			children = (
 				23553FF21967453E00CE49CD /* RCSplashViewController.h */,
 				23553FF31967453E00CE49CD /* RCSplashViewController.m */,
+				23D60DDE196CE99E00AAA991 /* RCLoginViewController.h */,
+				23D60DDF196CE99E00AAA991 /* RCLoginViewController.m */,
 				238CBF3A1968617E0039F8BB /* RCSettingsViewController.h */,
 				238CBF3B1968617E0039F8BB /* RCSettingsViewController.m */,
 				238CBF34196860910039F8BB /* RCGroupsViewController.h */,
@@ -397,6 +402,7 @@
 				238CBF3C1968617E0039F8BB /* RCSettingsViewController.m in Sources */,
 				235540021968426200CE49CD /* RCSession.m in Sources */,
 				C8E6EC82196BAB4F00DAEE73 /* RCNetworkManager.m in Sources */,
+				23D60DE0196CE99E00AAA991 /* RCLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

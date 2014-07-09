@@ -9,6 +9,7 @@
 #import "RCSplashViewController.h"
 #import "RCSession.h"
 #import "RCGroupsViewController.h"
+#import "RCLoginViewController.h"
 
 @interface RCSplashViewController ()
 
@@ -16,6 +17,9 @@
 @property (nonatomic) UIImageView*	logoView;
 @property (nonatomic) UIButton*		loginButton;
 @property (nonatomic) UIButton*		signupButton;
+@property (nonatomic) UIButton*		backButton;
+@property (nonatomic) BOOL			signingUp;
+@property (nonatomic) BOOL			loggingIn;
 
 @end
 
@@ -62,14 +66,22 @@
 	[self.view addSubview:self.loginButton];
 
 	self.signupButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[self.signupButton addTarget:self action:@selector(loginPressed) forControlEvents:UIControlEventTouchUpInside];
+	[self.signupButton addTarget:self action:@selector(signupPressed) forControlEvents:UIControlEventTouchUpInside];
 	UIImage *signupImage = [UIImage imageNamed:@"Signup"];
 	[self.signupButton setImage:signupImage forState:UIControlStateNormal];
 	self.signupButton.frame = CGRectMake(0, self.loginButton.frame.origin.y + self.loginButton.frame.size.height, signupImage.size.width, signupImage.size.height);
-
 	[self.view addSubview:self.signupButton];
+
 	
+	self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[self.backButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+	UIImage *backImage = [UIImage imageNamed:@"Back"];
+	[self.backButton setImage:backImage forState:UIControlStateNormal];
+	self.backButton.frame = CGRectMake(25, 100, backImage.size.width+20, backImage.size.height+20);
+	self.backButton.alpha = 0.0;
+	[self.view addSubview:self.backButton];
 	
+
 	
 	// Do any additional setup after loading the view.
 }
@@ -79,11 +91,64 @@
 	[self.navigationController setNavigationBarHidden:YES animated:YES];
 
 }
+
 -(void)loginPressed{
 	
-	//self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>
-	///RCLoginViewController *loginViewController = [[RCLoginViewController alloc] init];
-	//[self.navigationController pushViewController:loginViewController animated:YES];
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+	[UIView setAnimationDuration:0.25];
+	self.logoView.alpha = 0.0;
+	self.signupButton.alpha = 0.0;
+	self.loginButton.frame =  CGRectMake(self.loginButton.frame.origin.x, self.loginButton.frame.origin.y - 75, self.loginButton.frame.size.width, self.loginButton.frame.size.height);
+	self.backButton.alpha = 1.0;
+	[UIView commitAnimations];
+	
+	self.loggingIn = YES;
+				
+}
+
+-(void)signupPressed{
+	
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+	[UIView setAnimationDuration:0.25];
+	self.logoView.alpha = 0.0;
+	self.loginButton.alpha = 0.0;
+	self.signupButton.frame =  CGRectMake(self.signupButton.frame.origin.x, self.signupButton.frame.origin.y - 130, self.signupButton.frame.size.width, self.signupButton.frame.size.height);
+	self.backButton.alpha = 1.0;
+	[UIView commitAnimations];
+	
+	self.signingUp = YES;
+
+}
+
+-(void)goBack{
+	
+	if(self.loggingIn) {
+		[UIView beginAnimations:nil context:nil];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+		[UIView setAnimationDuration:0.25];
+		self.logoView.alpha = 1.0;
+		self.signupButton.alpha = 1.0;
+		self.loginButton.frame =  CGRectMake(self.loginButton.frame.origin.x, self.loginButton.frame.origin.y + 75, self.loginButton.frame.size.width, self.loginButton.frame.size.height);
+		self.backButton.alpha = 0.0;
+		[UIView commitAnimations];
+	}
+	else if(self.signingUp){
+		[UIView beginAnimations:nil context:nil];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+		[UIView setAnimationDuration:0.25];
+		self.logoView.alpha = 1.0;
+		self.loginButton.alpha = 1.0;
+		self.signupButton.frame =  CGRectMake(self.signupButton.frame.origin.x, self.signupButton.frame.origin.y + 130, self.signupButton.frame.size.width, self.signupButton.frame.size.height);
+		self.backButton.alpha = 0.0;
+		[UIView commitAnimations];
+	}
+	
+	
+	self.loggingIn = NO;
+	self.signingUp = NO;
+	
 }
 
 - (void)didReceiveMemoryWarning {
