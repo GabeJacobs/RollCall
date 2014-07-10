@@ -87,7 +87,6 @@
 	[self.signupButton setImage:signupImage forState:UIControlStateNormal];
 	self.signupButton.frame = CGRectMake(0, self.loginButton.frame.origin.y + self.loginButton.frame.size.height, signupImage.size.width, signupImage.size.height);
 	[self.view addSubview:self.signupButton];
-
 	
 	self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	[self.backButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
@@ -97,13 +96,18 @@
 	self.backButton.alpha = 0.0;
 	[self.view addSubview:self.backButton];
 	
-	/////// LOGIN VIEW SETUP ///////
+	[self setupLoginFields];
+	[self setupSignupFields];
+}
+
+-(void)setupLoginFields{
+	
 	
 	self.loginWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 195, self.view.bounds.size.width, 100)];
 	self.loginWrapper.backgroundColor = [UIColor whiteColor];
 	[self.view addSubview:self.loginWrapper];
 	self.loginWrapper.alpha = 0.0;
-		
+	
 	UIImageView* numberIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Phone"]];
 	numberIcon.frame = CGRectMake(15, 15, numberIcon.frame.size.width, numberIcon.frame.size.height);
 	[self.loginWrapper addSubview:numberIcon];
@@ -139,20 +143,23 @@
 	self.passwordFieldLogin.tag = 2;
 	[self.loginWrapper addSubview:self.passwordFieldLogin];
 	
-	/////// SIGNUP VIEW SETUP ///////
+}
+
+-(void)setupSignupFields{
 	
 	self.signupWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, 150)];
 	self.signupWrapper.backgroundColor = [UIColor whiteColor];
 	[self.view addSubview:self.signupWrapper];
 	self.signupWrapper.alpha = 0.0;
-	
-	UIView *verticalSeperatorSignup = [[UIView alloc] initWithFrame:CGRectMake(passwordIcon.frame.origin.x + passwordIcon.frame.size.width + 15, 0, 1, self.signupWrapper.frame.size.height)];
-	verticalSeperatorSignup.backgroundColor = [UIColor colorWithWhite:.85 alpha:1.0];
-	[self.signupWrapper addSubview:verticalSeperatorSignup];
-	
+		
 	UIImageView* numberIconSignup = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Phone"]];
 	numberIconSignup.frame = CGRectMake(15, 15, numberIconSignup.frame.size.width, numberIconSignup.frame.size.height);
 	[self.signupWrapper addSubview:numberIconSignup];
+	
+	UIView *verticalSeperatorSignup = [[UIView alloc] initWithFrame:CGRectMake(numberIconSignup.frame.origin.x + numberIconSignup.frame.size.width + 15, 0, 1, self.signupWrapper.frame.size.height)];
+	verticalSeperatorSignup.backgroundColor = [UIColor colorWithWhite:.85 alpha:1.0];
+	[self.signupWrapper addSubview:verticalSeperatorSignup];
+
 	
 	UIView *horizontalSeperatorSignup = [[UIView alloc] initWithFrame:CGRectMake(0, self.signupWrapper.frame.size.height/3 - .5, self.view.bounds.size.width, 1)];
 	horizontalSeperatorSignup.backgroundColor = [UIColor colorWithWhite:.85 alpha:1.0];
@@ -190,7 +197,7 @@
 	self.lastNameFieldSignup.delegate = self;
 	self.lastNameFieldSignup.tag = 4;
 	[self.signupWrapper addSubview:self.lastNameFieldSignup];
-
+	
 	
 	UIView *horizontalSeperatorSignup2 = [[UIView alloc] initWithFrame:CGRectMake(0, ((self.signupWrapper.frame.size.height/3)*2) - 1, self.view.bounds.size.width, 1)];
 	horizontalSeperatorSignup2.backgroundColor = [UIColor colorWithWhite:.85 alpha:1.0];
@@ -208,8 +215,6 @@
 	self.passwordFieldSignup.secureTextEntry = YES;
 	self.passwordFieldSignup.tag = 5;
 	[self.signupWrapper addSubview:self.passwordFieldSignup];
-
-	
 	
 }
 
