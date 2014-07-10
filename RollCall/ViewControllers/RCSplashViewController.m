@@ -183,6 +183,7 @@
 	self.firstNameFieldSignup.placeholder = @"First Name";
 	self.firstNameFieldSignup.font = [UIFont fontWithName:@"Avenir" size:18.0];
 	self.firstNameFieldSignup.delegate = self;
+	self.firstNameFieldSignup.returnKeyType = UIReturnKeyNext;
 	self.firstNameFieldSignup.tag = 3;
 	[self.signupWrapper addSubview:self.firstNameFieldSignup];
 	
@@ -193,6 +194,7 @@
 	self.lastNameFieldSignup = [[UITextField alloc] initWithFrame:CGRectMake(verticalSeperatorSignup2.frame.origin.x + 10, horizontalSeperatorSignup.frame.origin.y + .5, self.firstNameFieldSignup.frame.size.width, horizontalSeperatorSignup.frame.origin.y)];
 	self.lastNameFieldSignup.backgroundColor = [UIColor clearColor];
 	self.lastNameFieldSignup.placeholder = @"Last Name";
+	self.lastNameFieldSignup.returnKeyType = UIReturnKeyNext;
 	self.lastNameFieldSignup.font = [UIFont fontWithName:@"Avenir" size:18.0];
 	self.lastNameFieldSignup.delegate = self;
 	self.lastNameFieldSignup.tag = 4;
@@ -210,6 +212,7 @@
 	self.passwordFieldSignup = [[UITextField alloc] initWithFrame:CGRectMake(verticalSeperatorSignup.frame.origin.x + 10, horizontalSeperatorSignup2.frame.origin.y + .5, self.firstNameFieldSignup.frame.size.width, horizontalSeperatorSignup.frame.origin.y)];
 	self.passwordFieldSignup.backgroundColor = [UIColor clearColor];
 	self.passwordFieldSignup.placeholder = @"Password";
+	self.passwordFieldSignup.returnKeyType = UIReturnKeyDone;
 	self.passwordFieldSignup.font = [UIFont fontWithName:@"Avenir" size:18.0];
 	self.passwordFieldSignup.delegate = self;
 	self.passwordFieldSignup.secureTextEntry = YES;
@@ -416,6 +419,20 @@
 																  options:NSRegularExpressionSearch
 																	range:NSMakeRange(0, [simpleNumber length])];
 	return simpleNumber;
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+
+	if(textField.tag == 3){
+		[self.lastNameFieldSignup becomeFirstResponder];
+	}
+	if(textField.tag == 4){
+		[self.passwordFieldSignup becomeFirstResponder];
+	}
+	if(textField.tag == 2 || textField.tag == 5){
+		[textField resignFirstResponder];
+	}
+	return YES;
 }
 
 #pragma mark Keyboard notification
