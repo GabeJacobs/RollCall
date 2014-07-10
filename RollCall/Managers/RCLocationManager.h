@@ -6,8 +6,14 @@
 //
 //
 
+@class CLLocation;
+
 #import <Foundation/Foundation.h>
 
 @interface RCLocationManager : NSObject
+
++ (void)startUpdatingLocation;
++ (void)stopUpdatingLocation;
++ (CLLocation *)currentLocation;
 
 @end

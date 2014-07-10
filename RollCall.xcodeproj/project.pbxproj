@@ -32,6 +32,7 @@
 		C8E6ECA3196CFB5600DAEE73 /* RollCall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECA0196CFB5600DAEE73 /* RollCall.xcdatamodeld */; };
 		C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECA4196CFB6D00DAEE73 /* main.m */; };
 		C8E6ECA8196CFB6D00DAEE73 /* RollCall-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8E6ECA5196CFB6D00DAEE73 /* RollCall-Info.plist */; };
+		C8E6ECAA196E3CE600DAEE73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E6ECA9196E3CE600DAEE73 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		C8E6ECA4196CFB6D00DAEE73 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		C8E6ECA5196CFB6D00DAEE73 /* RollCall-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RollCall-Info.plist"; path = "Supporting Files/RollCall-Info.plist"; sourceTree = "<group>"; };
 		C8E6ECA6196CFB6D00DAEE73 /* RollCall-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RollCall-Prefix.pch"; path = "Supporting Files/RollCall-Prefix.pch"; sourceTree = "<group>"; };
+		C8E6ECA9196E3CE600DAEE73 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E6ECAA196E3CE600DAEE73 /* CoreLocation.framework in Frameworks */,
 				23553FBA1967405B00CE49CD /* CoreGraphics.framework in Frameworks */,
 				23553FBE1967405B00CE49CD /* CoreData.framework in Frameworks */,
 				23553FBC1967405B00CE49CD /* UIKit.framework in Frameworks */,
@@ -135,6 +138,7 @@
 		23553FB61967405B00CE49CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C8E6ECA9196E3CE600DAEE73 /* CoreLocation.framework */,
 				23553FB71967405B00CE49CD /* Foundation.framework */,
 				23553FB91967405B00CE49CD /* CoreGraphics.framework */,
 				23553FBB1967405B00CE49CD /* UIKit.framework */,

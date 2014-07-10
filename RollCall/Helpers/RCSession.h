@@ -11,7 +11,10 @@
 
 @interface RCSession : NSObject
 
-+ (void)startSessionWithUserID:(NSString*)userID;
++ (void)startSessionWithAccessToken:(NSString*)accessToken user:(RCUser*)user;
 + (RCUser*)currentUser;
++ (void)storeSession;
++ (void)endSession;
++ (NSString*)accessToken;
 
 @end

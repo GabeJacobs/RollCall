@@ -12,12 +12,12 @@
 
 @property (nonatomic, strong) NSString* firstName;
 @property (nonatomic, strong) NSString* lastName;
-@property (nonatomic, strong) NSString* fbUserId;
+@property (nonatomic, strong) NSString* userID;
 
 + (RCUser*)loggedInUser;
-+ (NSString*)fbUserId;
++ (NSString*)userID;
 + (NSString*)firstName;
-+ (NSString*)LastName;
++ (NSString*)lastName;
 
 
 

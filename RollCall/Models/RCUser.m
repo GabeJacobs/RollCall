@@ -10,13 +10,17 @@
 
 @implementation RCUser
 
-@dynamic fbUserId;
+@dynamic userID;
 @dynamic lastName;
 @dynamic firstName;
 
+// TODO(amadou): Actually implement this and move it to RCSession.
++ (RCUser *)loggedInUser {
+    return nil;
+}
 
-+ (NSString*)fbUserId {
-    return [[RCUser loggedInUser] fbUserId];
++ (NSString*)userID {
+    return [[RCUser loggedInUser] userID];
 }
 
 + (NSString*)firstName {
