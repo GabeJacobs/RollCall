@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCSplashViewController : UIViewController
+@interface RCSplashViewController : UIViewController <UITextFieldDelegate>
 
 @end
