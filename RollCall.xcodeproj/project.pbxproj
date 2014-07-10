@@ -31,7 +31,6 @@
 		C8E6ECA2196CFB5600DAEE73 /* RCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC9F196CFB5600DAEE73 /* RCUser.m */; };
 		C8E6ECA3196CFB5600DAEE73 /* RollCall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECA0196CFB5600DAEE73 /* RollCall.xcdatamodeld */; };
 		C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECA4196CFB6D00DAEE73 /* main.m */; };
-		C8E6ECA8196CFB6D00DAEE73 /* RollCall-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8E6ECA5196CFB6D00DAEE73 /* RollCall-Info.plist */; };
 		C8E6ECAA196E3CE600DAEE73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E6ECA9196E3CE600DAEE73 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -342,7 +341,6 @@
 			files = (
 				23553FC41967405B00CE49CD /* InfoPlist.strings in Resources */,
 				23553FCF1967405B00CE49CD /* Images.xcassets in Resources */,
-				C8E6ECA8196CFB6D00DAEE73 /* RollCall-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
