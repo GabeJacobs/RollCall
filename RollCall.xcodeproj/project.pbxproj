@@ -70,7 +70,6 @@
 		C8E6EC8B196CFAD900DAEE73 /* RCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSettingsViewController.m; path = ViewControllers/RCSettingsViewController.m; sourceTree = "<group>"; };
 		C8E6EC8C196CFAD900DAEE73 /* RCSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSplashViewController.h; path = ViewControllers/RCSplashViewController.h; sourceTree = "<group>"; };
 		C8E6EC8D196CFAD900DAEE73 /* RCSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSplashViewController.m; path = ViewControllers/RCSplashViewController.m; sourceTree = "<group>"; };
-		C8E6EC92196CFB0300DAEE73 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "3rd Party/FacebookSDK.framework"; sourceTree = "<group>"; };
 		C8E6EC94196CFB2200DAEE73 /* RCLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCLocationManager.h; path = Managers/RCLocationManager.h; sourceTree = "<group>"; };
 		C8E6EC95196CFB2200DAEE73 /* RCLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCLocationManager.m; path = Managers/RCLocationManager.m; sourceTree = "<group>"; };
 		C8E6EC96196CFB2200DAEE73 /* RCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCNetworkManager.h; path = Managers/RCNetworkManager.h; sourceTree = "<group>"; };
@@ -248,7 +247,6 @@
 		23553FF11967426100CE49CD /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
-				C8E6EC92196CFB0300DAEE73 /* FacebookSDK.framework */,
 			);
 			name = "3rd Party";
 			sourceTree = "<group>";
