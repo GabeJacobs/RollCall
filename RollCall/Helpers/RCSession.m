@@ -7,6 +7,7 @@
 //
 
 #import "RCSession.h"
+#import "NSUserDefaults+MPSecureUserDefaults.h"
 
 static NSString * const kUserDefaultsUserIDKey = @"UserDefaultsUserIDKey";
 static NSString * const kUserDefaultsAccessTokenKey = @"UserDefaultsAccessTokenKey";
@@ -43,12 +44,24 @@ static NSString * const kUserDefaultsLoggedInKey = @"UserDefaultsLoggedInKey";
 // Gets the relevant data from the disk.
 - (void)readDataFromDisk {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *userID = [userDefaults objectForKey:kUserDefaultsUserIDKey];
-    self.accessToken = [userDefaults stringForKey:kUserDefaultsAccessTokenKey];
-    self.loggedIn = [userDefaults boolForKey:kUserDefaultsLoggedInKey];
+    BOOL accessTokenValid; BOOL loggedInValid; BOOL userIDValid;
+    NSNumber *userID = [userDefaults secureObjectForKey:kUserDefaultsUserIDKey
+                                                  valid:&userIDValid];
+    self.accessToken = [userDefaults secureStringForKey:kUserDefaultsAccessTokenKey
+                                                  valid:&accessTokenValid];
+    self.loggedIn = [userDefaults secureBoolForKey:kUserDefaultsLoggedInKey
+                                             valid:&loggedInValid];
     self.sessionUser = [RCSession fetchSessionUserWithID:userID];
+    // If any of these are false we should unauthenticate and get a new access token.
+    // Will not happen unless someone tries to hack into the keychain - probably
+    // will not happen but just in case.
+    if (!accessTokenValid || ! loggedInValid || ! userIDValid) {
+        NSLog(@"Keychain was tampered with");
+        [self endSession];
+    }
     // If one of these things is not present clear everything.
     if (!self.sessionUser || !self.accessToken || !self.loggedIn) {
+        NSLog(@"Not all the user information was stored correctly");
         [self endSession];
     }
 }
@@ -56,11 +69,11 @@ static NSString * const kUserDefaultsLoggedInKey = @"UserDefaultsLoggedInKey";
 // TODO(amadou): This should be encrypted - there is a github project for that.
 - (void)writeDataToDisk {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:self.sessionUser.userID
+    [userDefaults setSecureObject:self.sessionUser.userID
                      forKey:kUserDefaultsUserIDKey];
-    [userDefaults setObject:self.accessToken
+    [userDefaults setSecureObject:self.accessToken
                      forKey:kUserDefaultsAccessTokenKey];
-    [userDefaults setBool:self.loggedIn forKey:kUserDefaultsLoggedInKey];
+    [userDefaults setSecureBool:self.loggedIn forKey:kUserDefaultsLoggedInKey];
     [userDefaults synchronize];
 }
 

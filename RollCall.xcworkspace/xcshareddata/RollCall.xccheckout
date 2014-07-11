@@ -10,6 +10,8 @@
 	<string>RollCall</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>3A1EBB8E-E23C-4977-B0BE-32DAE8317B6A</key>
+		<string>https://github.com/matthiasplappert/Secure-NSUserDefaults.git</string>
 		<key>7BE997DA-5479-4A2C-83E9-A97308348603</key>
 		<string>https://github.com/GabeJacobs/RollCall</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>RollCall.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>3A1EBB8E-E23C-4977-B0BE-32DAE8317B6A</key>
+		<string>../RollCall/3rdParty/Secure-NSUserDefaults</string>
 		<key>7BE997DA-5479-4A2C-83E9-A97308348603</key>
 		<string>..</string>
 	</dict>
@@ -43,6 +47,14 @@
 			<string>7BE997DA-5479-4A2C-83E9-A97308348603</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RollCall</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3A1EBB8E-E23C-4977-B0BE-32DAE8317B6A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Secure-NSUserDefaults</string>
 		</dict>
 	</array>
 </dict>

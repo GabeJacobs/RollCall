@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import <MMRecord/MMRecord.h>
 #import "RCServer.h"
+#import "NSUserDefaults+MPSecureUserDefaults.h"
+
+static NSString * const kSecureNSUserDefaultsSecret = @"Clyd3@bow3rY3L3ctrIC";
 
 @implementation AppDelegate
 
@@ -27,7 +30,9 @@
 
 	self.window.rootViewController = rootNavigationController;
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+    
+    [NSUserDefaults setSecret:kSecureNSUserDefaultsSecret];
+    
     [self setupMMRecord];
     
     return YES;

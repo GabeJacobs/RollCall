@@ -34,6 +34,7 @@
 		C8E6ECAA196E3CE600DAEE73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E6ECA9196E3CE600DAEE73 /* CoreLocation.framework */; };
 		C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECAC196F595400DAEE73 /* RCRecord.m */; };
 		C8E6ECB0196F5B5800DAEE73 /* RCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECAF196F5B5800DAEE73 /* RCServer.m */; };
+		C8E6ECB7196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECB5196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		C8E6ECAC196F595400DAEE73 /* RCRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRecord.m; path = Models/RCRecord.m; sourceTree = "<group>"; };
 		C8E6ECAE196F5B5800DAEE73 /* RCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCServer.h; path = Communication/RCServer.h; sourceTree = "<group>"; };
 		C8E6ECAF196F5B5800DAEE73 /* RCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCServer.m; path = Communication/RCServer.m; sourceTree = "<group>"; };
+		C8E6ECB4196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+MPSecureUserDefaults.h"; sourceTree = "<group>"; };
+		C8E6ECB5196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+MPSecureUserDefaults.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +258,7 @@
 		23553FF11967426100CE49CD /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				C8E6ECB2196FA6CF00DAEE73 /* Secure-NSUserDefaults */,
 			);
 			name = "3rd Party";
 			sourceTree = "<group>";
@@ -277,6 +281,16 @@
 				C8E6ECAF196F5B5800DAEE73 /* RCServer.m */,
 			);
 			name = Communication;
+			sourceTree = "<group>";
+		};
+		C8E6ECB2196FA6CF00DAEE73 /* Secure-NSUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				C8E6ECB4196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.h */,
+				C8E6ECB5196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m */,
+			);
+			name = "Secure-NSUserDefaults";
+			path = "3rdParty/Secure-NSUserDefaults";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +430,7 @@
 				C8E6ECA3196CFB5600DAEE73 /* RollCall.xcdatamodeld in Sources */,
 				C8E6EC98196CFB2200DAEE73 /* RCLocationManager.m in Sources */,
 				C8E6ECB0196F5B5800DAEE73 /* RCServer.m in Sources */,
+				C8E6ECB7196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m in Sources */,
 				C8E6EC8F196CFAD900DAEE73 /* RCLoginViewController.m in Sources */,
 				C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */,
 				C8E6EC99196CFB2200DAEE73 /* RCNetworkManager.m in Sources */,
