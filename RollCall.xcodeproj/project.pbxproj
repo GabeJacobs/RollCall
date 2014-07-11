@@ -580,8 +580,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RollCall",
-					"$(PROJECT_DIR)/RollCall/3rd",
-					Party,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RollCall/Supporting Files/RollCall-Prefix.pch";
@@ -600,8 +598,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RollCall",
-					"$(PROJECT_DIR)/RollCall/3rd",
-					Party,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RollCall/Supporting Files/RollCall-Prefix.pch";

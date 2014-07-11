@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCGroupTableViewCell : UITableViewCell
+@interface RCGroupTableViewCell : UITableViewCell <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic) UILabel*			groupName;
 @property (nonatomic) UICollectionView*	previewCollectionView;
