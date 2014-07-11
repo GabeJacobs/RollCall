@@ -7,6 +7,7 @@
 //
 
 #import "RCGroupTableViewCell.h"
+#import "RCGroupPreviewCollectionViewCell.h"
 
 #define X_PADDIING 10.0f
 #define Y_PADDIING 10.0f
@@ -30,10 +31,15 @@
 		[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
 		
 		self.previewCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+		[self.previewCollectionView registerClass:[RCGroupPreviewCollectionViewCell class] forCellWithReuseIdentifier:@"previewCell"];
+
+		self.previewCollectionView.delegate = self;
+		self.previewCollectionView.dataSource = self;
 		[self addSubview:self.previewCollectionView];
+		self.previewCollectionView.backgroundColor = RC_BACKGROUND_GRAY;
 		
 		self.seperator = [[UIView alloc] init];
-		self.seperator.backgroundColor = RC_BACKGROUND_GRAY;
+		self.seperator.backgroundColor = RC_DARKER_GRAY;
 		[self addSubview:self.seperator];
     }
     return self;
@@ -55,6 +61,40 @@
 
 - (void)addDataToCell:(NSDictionary *)data {
 	// REPLACE PLACEHOLDERS
+}
+
+//****************************************
+//****************************************
+#pragma mark - UICollectionView Datasource/Delegate
+//****************************************
+//****************************************
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+	return 5;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+	
+    static NSString *cellIdentifier = @"previewCell";
+	
+    RCGroupPreviewCollectionViewCell *cell = (RCGroupPreviewCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+	
+	[cell addDataToCell];
+    return cell;
+	
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(70, 100);
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+	
+	return 1;
 }
 
 @end

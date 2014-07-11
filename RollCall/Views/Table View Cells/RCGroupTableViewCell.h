@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCGroupTableViewCell : UITableViewCell <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface RCGroupTableViewCell : UITableViewCell <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic) UILabel*			groupName;
 @property (nonatomic) UICollectionView*	previewCollectionView;
 @property (nonatomic) UIView*			seperator;
+@property (nonatomic) UIButton*			startCallButton;
 
 @end
