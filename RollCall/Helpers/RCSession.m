@@ -70,7 +70,6 @@ static NSString * const kUserDefaultsLoggedInKey = @"UserDefaultsLoggedInKey";
     }
 }
 
-// TODO(amadou): This should be encrypted - there is a github project for that.
 - (void)writeDataToDisk {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setSecureObject:self.sessionUser.userID

@@ -92,6 +92,8 @@
 	[self setupSignupFields];
 }
 
+#pragma mark - UI
+
 -(void)setupLoginFields{
 	
 	self.loginWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 195, self.view.bounds.size.width, 100)];
@@ -319,13 +321,7 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-	
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark verify Info
+#pragma mark - verify Info
 
 - (void)verifyLoginInfo{
 	

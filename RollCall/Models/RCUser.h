@@ -14,11 +14,4 @@
 @property (nonatomic, strong) NSString* lastName;
 @property (nonatomic, strong) NSString* userID;
 
-+ (RCUser*)loggedInUser;
-+ (NSString*)userID;
-+ (NSString*)firstName;
-+ (NSString*)lastName;
-
-
-
 @end
