@@ -46,8 +46,9 @@
 		[self addSubview:self.seperator];
 		
 		self.startCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		[self.startCallButton setImage:[UIImage imageNamed:@"StartCall"] forState:UIControlStateNormal];
-		self.startCallButton.frame = CGRectMake(0, 0, [UIImage imageNamed:@"StartCall"].size.width, [UIImage imageNamed:@"StartCall"].size.height);
+		UIImage *startCallImage = [UIImage imageNamed:@"StartCall"];
+		[self.startCallButton setImage:startCallImage forState:UIControlStateNormal];
+		self.startCallButton.frame = CGRectMake(0, 0, startCallImage.size.width, startCallImage.size.height);
 		[self addSubview:self.startCallButton];
     }
     return self;

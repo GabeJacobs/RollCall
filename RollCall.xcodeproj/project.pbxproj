@@ -25,6 +25,8 @@
 		23553FE31967405B00CE49CD /* RollCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FE21967405B00CE49CD /* RollCallTests.m */; };
 		23F6850F19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F6850E19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m */; };
 		23F6851219709E0B009C2F56 /* RCRollCallsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F6851119709E0B009C2F56 /* RCRollCallsViewController.m */; };
+		23F685151970A633009C2F56 /* RCRollCallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F685141970A633009C2F56 /* RCRollCallTableViewCell.m */; };
+		23F685181970A67E009C2F56 /* RCPreviewCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */; };
 		C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC87196CFAD900DAEE73 /* RCGroupsViewController.m */; };
 		C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8B196CFAD900DAEE73 /* RCSettingsViewController.m */; };
 		C8E6EC91196CFAD900DAEE73 /* RCSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8D196CFAD900DAEE73 /* RCSplashViewController.m */; };
@@ -72,6 +74,10 @@
 		23F6850E19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGroupAvatarCollectionViewCell.m; path = "Views/Collection View Cells/RCGroupAvatarCollectionViewCell.m"; sourceTree = "<group>"; };
 		23F6851019709E0B009C2F56 /* RCRollCallsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRollCallsViewController.h; path = ViewControllers/RCRollCallsViewController.h; sourceTree = "<group>"; };
 		23F6851119709E0B009C2F56 /* RCRollCallsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRollCallsViewController.m; path = ViewControllers/RCRollCallsViewController.m; sourceTree = "<group>"; };
+		23F685131970A633009C2F56 /* RCRollCallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRollCallTableViewCell.h; path = "Views/Table View Cells/RCRollCallTableViewCell.h"; sourceTree = "<group>"; };
+		23F685141970A633009C2F56 /* RCRollCallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRollCallTableViewCell.m; path = "Views/Table View Cells/RCRollCallTableViewCell.m"; sourceTree = "<group>"; };
+		23F685161970A67E009C2F56 /* RCPreviewCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCPreviewCollectionCell.h; path = "Views/Collection View Cells/RCPreviewCollectionCell.h"; sourceTree = "<group>"; };
+		23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPreviewCollectionCell.m; path = "Views/Collection View Cells/RCPreviewCollectionCell.m"; sourceTree = "<group>"; };
 		4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RollCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RollCall.xcconfig"; path = "Pods/Pods-RollCall.xcconfig"; sourceTree = "<group>"; };
 		C8E6EC86196CFAD900DAEE73 /* RCGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCGroupsViewController.h; path = ViewControllers/RCGroupsViewController.h; sourceTree = "<group>"; };
@@ -133,6 +139,8 @@
 			children = (
 				2315C0A719703E1600ABA433 /* RCGroupTableViewCell.h */,
 				2315C0A819703E1600ABA433 /* RCGroupTableViewCell.m */,
+				23F685131970A633009C2F56 /* RCRollCallTableViewCell.h */,
+				23F685141970A633009C2F56 /* RCRollCallTableViewCell.m */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -142,6 +150,8 @@
 			children = (
 				23F6850D19709274009C2F56 /* RCGroupAvatarCollectionViewCell.h */,
 				23F6850E19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m */,
+				23F685161970A67E009C2F56 /* RCPreviewCollectionCell.h */,
+				23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */,
 			);
 			name = "Collection View Cells";
 			sourceTree = "<group>";
@@ -465,7 +475,9 @@
 				2315C0B51970763A00ABA433 /* RCServer.m in Sources */,
 				C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */,
 				C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */,
+				23F685151970A633009C2F56 /* RCRollCallTableViewCell.m in Sources */,
 				C8E6ECA2196CFB5600DAEE73 /* RCUser.m in Sources */,
+				23F685181970A67E009C2F56 /* RCPreviewCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -98,19 +98,15 @@
 
 	//	[cell addDataToCell:data];
 
-    //Region *region = [regions objectAtIndex:indexPath.section];
-    //TimeZoneWrapper *timeZoneWrapper = [region.timeZoneWrappers objectAtIndex:indexPath.row];
-    //cell.textLabel.text = timeZoneWrapper.localeName;
     return cell;
 }
 
-// Every cell has a section header so this should be equal to the number of speks returned from the server
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
