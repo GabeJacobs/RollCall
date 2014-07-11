@@ -4,20 +4,44 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-RollCall-AFNetworking.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Pods-RollCall-MMRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-RollCall.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>2528F3A9F9AC499B914BFB8C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57E00C3240414BC0AE3C8414</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6FEAE8136C524D468AF8E061</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AAF7B7E9403E42AB8C787464</key>
 		<dict>
 			<key>primary</key>
 			<true/>
