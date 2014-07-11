@@ -28,9 +28,16 @@
 + (void)getImageAtURL:(NSString*)url
               success:(rcImageSuccessBlock)success
               failure:(rcFailureBlock)failure {
-    AFHTTPRequestOperationManager* manager = [[AFHTTPRequestOperationManager alloc] init];
-    manager.responseSerializer = [AFImageResponseSerializer serializer];
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, UIImage* image) {
+    RCNetworkManager* manager = [RCNetworkManager sharedManager];
+    UIImage* cachedImage = [manager.imageCache objectForKey:url];
+    if (cachedImage) {
+        success(cachedImage);
+        return;
+    }
+    AFHTTPRequestOperationManager* httpManager = [[AFHTTPRequestOperationManager alloc] init];
+    httpManager.responseSerializer = [AFImageResponseSerializer serializer];
+    [httpManager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, UIImage* image) {
+        [manager.imageCache setObject:image forKey:url];
         success(image);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -43,6 +50,8 @@
                 password:(NSString*)password
                  success:(rcAuthSuccessBlock)success
                  failure:(rcFailureBlock)failure {
+    NSAssert(phoneNumber && firstName && lastName && password,
+             @"Must pass valid phone number, first/last name, and password to this function");
     NSDictionary* params =
         @{
           @"phone":phoneNumber,
@@ -61,14 +70,16 @@
         // Save to core data.
         // Start session with user and access token.
         // [RCSession startSessionWithAccessToken:@"access_token" user:[RCUser alloc]];
-        success(responseObject /* should be RCUser */);
+        if (success)
+            success(responseObject /* should be RCUser */);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO(amadou): Turn the error into an error that is RC specific.
         // -phone number taken
         // -internet not available
         // -phone number already signed up
         // -etc...
-        failure(error);
+        if (failure)
+            failure(error);
     }];
 }
 
