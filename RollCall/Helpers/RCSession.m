@@ -61,6 +61,7 @@ static NSString * const kUserDefaultsLoggedInKey = @"UserDefaultsLoggedInKey";
     [userDefaults setObject:self.accessToken
                      forKey:kUserDefaultsAccessTokenKey];
     [userDefaults setBool:self.loggedIn forKey:kUserDefaultsLoggedInKey];
+    [userDefaults synchronize];
 }
 
 + (void)storeSession {
@@ -75,7 +76,15 @@ static NSString * const kUserDefaultsLoggedInKey = @"UserDefaultsLoggedInKey";
     self.sessionUser = nil;
     self.accessToken = nil;
     self.loggedIn = NO;
-    [self writeDataToDisk];
+    [self clearSessionStore];
+}
+
+- (void)clearSessionStore {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:kUserDefaultsUserIDKey];
+    [userDefaults removeObjectForKey:kUserDefaultsAccessTokenKey];
+    [userDefaults removeObjectForKey:kUserDefaultsLoggedInKey];
+    [userDefaults synchronize];
 }
 
 + (RCUser*)currentUser{

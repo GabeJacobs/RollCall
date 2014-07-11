@@ -5,34 +5,42 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>33865F2C-07CA-499D-919A-B3F24CA062B9</string>
+	<string>69506CA1-3968-45F2-B420-796CA8384B01</string>
 	<key>IDESourceControlProjectName</key>
 	<string>RollCall</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>350200AB-8E42-44C5-A58F-2B7F1C682D20</key>
-		<string>https://github.com/GabeJacobs/RollCall.git</string>
+		<key>7BE997DA-5479-4A2C-83E9-A97308348603</key>
+		<string>https://github.com/GabeJacobs/RollCall</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RollCall.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>350200AB-8E42-44C5-A58F-2B7F1C682D20</key>
+		<key>7BE997DA-5479-4A2C-83E9-A97308348603</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/GabeJacobs/RollCall.git</string>
+	<string>https://github.com/GabeJacobs/RollCall</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>350200AB-8E42-44C5-A58F-2B7F1C682D20</string>
+	<string>7BE997DA-5479-4A2C-83E9-A97308348603</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>350200AB-8E42-44C5-A58F-2B7F1C682D20</string>
+			<string>7BE997DA-5479-4A2C-83E9-A97308348603</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RollCall</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7BE997DA-5479-4A2C-83E9-A97308348603</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RollCall</string>
 		</dict>

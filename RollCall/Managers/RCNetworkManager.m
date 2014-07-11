@@ -25,20 +25,16 @@
     return manager;
 }
 
-// TODO(amadou): Implement this.
 + (void)getImageAtURL:(NSString*)url
               success:(rcImageSuccessBlock)success
               failure:(rcFailureBlock)failure {
-    success([UIImage imageNamed:@"Phone.png"]);
-}
-
-#pragma mark - Setters and Getters
-
-- (NSCache*)imageCache {
-    if (_imageCache) {
-        _imageCache = [[NSCache alloc] init];
-    }
-    return _imageCache;
+    AFHTTPRequestOperationManager* manager = [[AFHTTPRequestOperationManager alloc] init];
+    manager.responseSerializer = [AFImageResponseSerializer serializer];
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, UIImage* image) {
+        success(image);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
 }
 
 + (void)signUpWithNumber:(NSString*)phoneNumber
@@ -57,6 +53,9 @@
     AFHTTPRequestOperationManager* manager =
         [[AFHTTPRequestOperationManager alloc] init];
     NSString* url = [kRCBaseUrl stringByAppendingPathComponent:@"/authentication"];
+    // TODO(amadou): Remove this.
+    success(nil);
+    return;
     [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // TODO(amadou): Turn the response object into an RCUser.
         // Save to core data.
@@ -71,6 +70,32 @@
         // -etc...
         failure(error);
     }];
+}
+
++ (void)loginWithNumber:(NSString*)phoneNumber
+               password:(NSString*)password
+                success:(rcAuthSuccessBlock)success
+                failure:(rcFailureBlock)failure {
+    NSDictionary* params = @{@"phone":phoneNumber, @"password":password};
+    AFHTTPRequestOperationManager* manager =
+        [[AFHTTPRequestOperationManager alloc] init];
+    NSString* url = [kRCBaseUrl stringByAppendingPathComponent:@"/login"];
+    // TODO(amadou): same as stuff for pre signup callback calls.
+    // Make functions to handle the work for this part.
+    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
+#pragma mark - Setters and Getters
+
+- (NSCache*)imageCache {
+    if (_imageCache) {
+        _imageCache = [[NSCache alloc] init];
+    }
+    return _imageCache;
 }
 
 @end

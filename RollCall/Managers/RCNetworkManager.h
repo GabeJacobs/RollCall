@@ -26,4 +26,9 @@ typedef void (^rcAuthSuccessBlock) (RCUser* user);
                  success:(rcAuthSuccessBlock)success
                  failure:(rcFailureBlock)failure;
 
++ (void)loginWithNumber:(NSString*)phoneNumber
+               password:(NSString*)password
+                success:(rcAuthSuccessBlock)success
+                failure:(rcFailureBlock)failure;
+
 @end

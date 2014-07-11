@@ -6,10 +6,12 @@
 //  Copyright (c) 2014 Gabe Jacobs. All rights reserved.
 //
 
-#import "RCSplashViewController.h"
-#import "RCSession.h"
 #import "RCGroupsViewController.h"
 #import "RCLoginViewController.h"
+#import "RCNetworkManager.h"
+#import "RCSession.h"
+#import "RCSplashViewController.h"
+
 
 @interface RCSplashViewController ()
 
@@ -327,21 +329,36 @@
 
 #pragma mark verify Info
 
--(void)verifyLoginInfo{
+- (void)verifyLoginInfo{
 	
 	[self pushGroupController];
 }
 
--(void)verifySignupInfo{
-	
-	[self pushGroupController];
-
+- (void)verifySignupInfo {
+    // TODO: validate all the fields.
+    NSString* phone = self.phoneFieldSignup.text;
+    NSString* firstName = self.firstNameFieldSignup.text;
+    NSString* lastName = self.lastNameFieldSignup.text;
+    NSString* password = self.passwordFieldSignup.text;
+	[RCNetworkManager signUpWithNumber:phone
+                             firstName:firstName
+                              lastName:lastName
+                              password:password
+                               success:^(RCUser *user) {
+        [self pushGroupController];
+    } failure:^(NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Sign Up Error"
+                                    message:[error localizedDescription]
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }];
 }
 
 #pragma mark UINavigationView methods
 
 
--(void)pushGroupController{
+- (void)pushGroupController{
 	
 	RCGroupsViewController *groupsViewController = [[RCGroupsViewController alloc] init];
 	
