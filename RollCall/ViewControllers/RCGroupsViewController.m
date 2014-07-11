@@ -7,8 +7,11 @@
 //
 
 #import "RCGroupsViewController.h"
+#import "RCGroupTableViewCell.h"
 
 @interface RCGroupsViewController ()
+
+@property (nonatomic) UITableView* groupsTableView;
 
 @end
 
@@ -26,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	self.view.backgroundColor = RC_BACKGROUND_GRAY;
 
 	[self.navigationController setNavigationBarHidden:NO animated:YES];
 	self.navigationItem.hidesBackButton = YES;
@@ -43,11 +48,17 @@
 	// TAKE THIS AWAY ONCE WE HAVE A LOGOUT METHOD
 	
 	self.navigationItem.leftBarButtonItem = backButton;
+	
+	self.groupsTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width - 20, self.view.bounds.size.height - 10)];
+	self.groupsTableView.separatorColor = [UIColor clearColor];
+    self.groupsTableView.backgroundColor = RC_BACKGROUND_GRAY;
+    self.groupsTableView.delegate = self;
+    self.groupsTableView.dataSource = self;
+	[self.view addSubview:self.groupsTableView];
+
 }
 
 -(void)logout{
-	
-
 	
 	CATransition *transition = [CATransition animation];
 	transition.duration = 0.25;
@@ -65,15 +76,40 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+//****************************************
+//****************************************
+#pragma mark - UITableViewDelegate/DataSource
+//****************************************
+//****************************************
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *MyIdentifier = @"MyReuseIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    if (cell == nil) {
+        cell = [[RCGroupTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+    }
+	//	[cell addDataToCell:data];
+
+    //Region *region = [regions objectAtIndex:indexPath.section];
+    //TimeZoneWrapper *timeZoneWrapper = [region.timeZoneWrappers objectAtIndex:indexPath.row];
+    //cell.textLabel.text = timeZoneWrapper.localeName;
+    return cell;
 }
-*/
+
+// Every cell has a section header so this should be equal to the number of speks returned from the server
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 200;
+}
+
+
+
 
 @end

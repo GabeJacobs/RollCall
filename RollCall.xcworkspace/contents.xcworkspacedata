@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:RollCall/Communication/RCServer.h">
-   </FileRef>
-   <FileRef
-      location = "group:RollCall/Communication/RCServer.m">
-   </FileRef>
-   <FileRef
       location = "group:RollCall.xcodeproj">
    </FileRef>
    <FileRef

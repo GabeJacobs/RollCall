@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C7262B157AB4BA89E263785 /* libPods-RollCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */; };
-		2315C0A11970265200ABA433 /* RCGroupsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2315C0A01970265200ABA433 /* RCGroupsTableView.m */; };
+		2315C0A919703E1600ABA433 /* RCGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2315C0A819703E1600ABA433 /* RCGroupTableViewCell.m */; };
+		2315C0B51970763A00ABA433 /* RCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2315C0B41970763A00ABA433 /* RCServer.m */; };
 		23553FB81967405B00CE49CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FB71967405B00CE49CD /* Foundation.framework */; };
 		23553FBA1967405B00CE49CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FB91967405B00CE49CD /* CoreGraphics.framework */; };
 		23553FBC1967405B00CE49CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FBB1967405B00CE49CD /* UIKit.framework */; };
@@ -34,7 +35,6 @@
 		C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECA4196CFB6D00DAEE73 /* main.m */; };
 		C8E6ECAA196E3CE600DAEE73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E6ECA9196E3CE600DAEE73 /* CoreLocation.framework */; };
 		C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECAC196F595400DAEE73 /* RCRecord.m */; };
-		C8E6ECB0196F5B5800DAEE73 /* RCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECAF196F5B5800DAEE73 /* RCServer.m */; };
 		C8E6ECB7196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECB5196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2315C09F1970265200ABA433 /* RCGroupsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCGroupsTableView.h; sourceTree = "<group>"; };
-		2315C0A01970265200ABA433 /* RCGroupsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGroupsTableView.m; sourceTree = "<group>"; };
+		2315C0A719703E1600ABA433 /* RCGroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCGroupTableViewCell.h; path = "Views/Table View Cells/RCGroupTableViewCell.h"; sourceTree = "<group>"; };
+		2315C0A819703E1600ABA433 /* RCGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGroupTableViewCell.m; path = "Views/Table View Cells/RCGroupTableViewCell.m"; sourceTree = "<group>"; };
+		2315C0B31970763A00ABA433 /* RCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCServer.h; path = Communication/RCServer.h; sourceTree = "<group>"; };
+		2315C0B41970763A00ABA433 /* RCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCServer.m; path = Communication/RCServer.m; sourceTree = "<group>"; };
 		23553FB41967405B00CE49CD /* RollCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RollCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23553FB71967405B00CE49CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		23553FB91967405B00CE49CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,8 +93,6 @@
 		C8E6ECA9196E3CE600DAEE73 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C8E6ECAB196F595400DAEE73 /* RCRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRecord.h; path = Models/RCRecord.h; sourceTree = "<group>"; };
 		C8E6ECAC196F595400DAEE73 /* RCRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRecord.m; path = Models/RCRecord.m; sourceTree = "<group>"; };
-		C8E6ECAE196F5B5800DAEE73 /* RCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCServer.h; path = Communication/RCServer.h; sourceTree = "<group>"; };
-		C8E6ECAF196F5B5800DAEE73 /* RCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCServer.m; path = Communication/RCServer.m; sourceTree = "<group>"; };
 		C8E6ECB4196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+MPSecureUserDefaults.h"; sourceTree = "<group>"; };
 		C8E6ECB5196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+MPSecureUserDefaults.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +125,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2315C0A219703D0000ABA433 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2315C0A719703E1600ABA433 /* RCGroupTableViewCell.h */,
+				2315C0A819703E1600ABA433 /* RCGroupTableViewCell.m */,
+			);
+			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		2315C0A319703D0A00ABA433 /* Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Collection View Cells";
+			sourceTree = "<group>";
+		};
 		23553FAB1967405B00CE49CD = {
 			isa = PBXGroup;
 			children = (
@@ -210,8 +226,8 @@
 		23553FEC196740A000CE49CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2315C09F1970265200ABA433 /* RCGroupsTableView.h */,
-				2315C0A01970265200ABA433 /* RCGroupsTableView.m */,
+				2315C0A319703D0A00ABA433 /* Collection View Cells */,
+				2315C0A219703D0000ABA433 /* Table View Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -282,8 +298,8 @@
 		C8E6ECB1196F5B5E00DAEE73 /* Communication */ = {
 			isa = PBXGroup;
 			children = (
-				C8E6ECAE196F5B5800DAEE73 /* RCServer.h */,
-				C8E6ECAF196F5B5800DAEE73 /* RCServer.m */,
+				2315C0B31970763A00ABA433 /* RCServer.h */,
+				2315C0B41970763A00ABA433 /* RCServer.m */,
 			);
 			name = Communication;
 			sourceTree = "<group>";
@@ -434,14 +450,14 @@
 				C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */,
 				C8E6ECA3196CFB5600DAEE73 /* RollCall.xcdatamodeld in Sources */,
 				C8E6EC98196CFB2200DAEE73 /* RCLocationManager.m in Sources */,
-				C8E6ECB0196F5B5800DAEE73 /* RCServer.m in Sources */,
+				2315C0A919703E1600ABA433 /* RCGroupTableViewCell.m in Sources */,
 				C8E6ECB7196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m in Sources */,
 				C8E6EC8F196CFAD900DAEE73 /* RCLoginViewController.m in Sources */,
 				C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */,
 				C8E6EC99196CFB2200DAEE73 /* RCNetworkManager.m in Sources */,
 				C8E6EC9D196CFB3600DAEE73 /* RCSession.m in Sources */,
+				2315C0B51970763A00ABA433 /* RCServer.m in Sources */,
 				C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */,
-				2315C0A11970265200ABA433 /* RCGroupsTableView.m in Sources */,
 				C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */,
 				C8E6ECA2196CFB5600DAEE73 /* RCUser.m in Sources */,
 			);
