@@ -95,7 +95,6 @@
 
 -(void)setupLoginFields{
 	
-	
 	self.loginWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 195, self.view.bounds.size.width, 100)];
 	self.loginWrapper.backgroundColor = [UIColor whiteColor];
 	[self.view addSubview:self.loginWrapper];

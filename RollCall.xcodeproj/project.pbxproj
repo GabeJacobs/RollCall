@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C7262B157AB4BA89E263785 /* libPods-RollCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */; };
+		2315C0A11970265200ABA433 /* RCGroupsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2315C0A01970265200ABA433 /* RCGroupsTableView.m */; };
 		23553FB81967405B00CE49CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FB71967405B00CE49CD /* Foundation.framework */; };
 		23553FBA1967405B00CE49CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FB91967405B00CE49CD /* CoreGraphics.framework */; };
 		23553FBC1967405B00CE49CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23553FBB1967405B00CE49CD /* UIKit.framework */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2315C09F1970265200ABA433 /* RCGroupsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCGroupsTableView.h; sourceTree = "<group>"; };
+		2315C0A01970265200ABA433 /* RCGroupsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGroupsTableView.m; sourceTree = "<group>"; };
 		23553FB41967405B00CE49CD /* RollCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RollCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23553FB71967405B00CE49CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		23553FB91967405B00CE49CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -207,6 +210,8 @@
 		23553FEC196740A000CE49CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2315C09F1970265200ABA433 /* RCGroupsTableView.h */,
+				2315C0A01970265200ABA433 /* RCGroupsTableView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				C8E6EC99196CFB2200DAEE73 /* RCNetworkManager.m in Sources */,
 				C8E6EC9D196CFB3600DAEE73 /* RCSession.m in Sources */,
 				C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */,
+				2315C0A11970265200ABA433 /* RCGroupsTableView.m in Sources */,
 				C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */,
 				C8E6ECA2196CFB5600DAEE73 /* RCUser.m in Sources */,
 			);

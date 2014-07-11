@@ -44,7 +44,11 @@ static NSString * const kUserDefaultsLoggedInKey = @"UserDefaultsLoggedInKey";
 // Gets the relevant data from the disk.
 - (void)readDataFromDisk {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL accessTokenValid; BOOL loggedInValid; BOOL userIDValid;
+	
+    BOOL accessTokenValid;
+	BOOL loggedInValid;
+	BOOL userIDValid;
+	
     NSNumber *userID = [userDefaults secureObjectForKey:kUserDefaultsUserIDKey
                                                   valid:&userIDValid];
     self.accessToken = [userDefaults secureStringForKey:kUserDefaultsAccessTokenKey
