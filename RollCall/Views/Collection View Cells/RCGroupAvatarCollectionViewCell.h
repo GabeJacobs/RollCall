@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCGroupPreviewCollectionViewCell : UICollectionViewCell
+@interface RCGroupAvatarCollectionViewCell : UICollectionViewCell
 
 @property UIImageView *previewImageView;
 

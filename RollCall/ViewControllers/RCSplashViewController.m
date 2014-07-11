@@ -7,7 +7,6 @@
 //
 
 #import "RCGroupsViewController.h"
-#import "RCLoginViewController.h"
 #import "RCNetworkManager.h"
 #import "RCSession.h"
 #import "RCSplashViewController.h"

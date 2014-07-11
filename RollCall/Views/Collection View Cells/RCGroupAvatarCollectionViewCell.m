@@ -6,9 +6,9 @@
 //
 //
 
-#import "RCGroupPreviewCollectionViewCell.h"
+#import "RCGroupAvatarCollectionViewCell.h"
 
-@implementation RCGroupPreviewCollectionViewCell
+@implementation RCGroupAvatarCollectionViewCell
 
 - (id)initWithFrame:(CGRect)frame
 {

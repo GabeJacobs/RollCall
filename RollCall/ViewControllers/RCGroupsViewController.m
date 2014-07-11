@@ -8,6 +8,7 @@
 
 #import "RCGroupsViewController.h"
 #import "RCGroupTableViewCell.h"
+#import "RCRollCallsViewController.h"
 
 @interface RCGroupsViewController ()
 
@@ -21,6 +22,11 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self
+												 selector:@selector(receiveAvatarTapNotification:)
+													 name:@"TappedAvatar"
+												   object:nil];
 		
 	}
     return self;
@@ -88,6 +94,8 @@
     if (cell == nil) {
         cell = [[RCGroupTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
     }
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
 	//	[cell addDataToCell:data];
 
     //Region *region = [regions objectAtIndex:indexPath.section];
@@ -106,9 +114,32 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 200;
+	return 210;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	
+	[self pushGroupView];
+	
+}
+
+-(void)pushGroupView{
+	
+	RCRollCallsViewController *rollCallsViewController = [[RCRollCallsViewController alloc] init];
+	[self.navigationController pushViewController:rollCallsViewController animated:YES];
+	
+}
+
+-(void) receiveAvatarTapNotification:(NSNotification *) notification
+{
+	RCGroupTableViewCell *cell = (RCGroupTableViewCell *)[notification object];
+	NSIndexPath *indexPath = [self.groupsTableView indexPathForCell:cell];
+	// This is will be used to push the right group
+	
+	[self pushGroupView];
+
+
+}
 
 
 

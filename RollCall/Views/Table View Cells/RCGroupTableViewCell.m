@@ -7,7 +7,7 @@
 //
 
 #import "RCGroupTableViewCell.h"
-#import "RCGroupPreviewCollectionViewCell.h"
+#import "RCGroupAvatarCollectionViewCell.h"
 
 #define X_PADDIING 10.0f
 #define Y_PADDIING 10.0f
@@ -30,17 +30,25 @@
 		[flowLayout setItemSize:CGSizeMake(200, 200)];
 		[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
 		
-		self.previewCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-		[self.previewCollectionView registerClass:[RCGroupPreviewCollectionViewCell class] forCellWithReuseIdentifier:@"previewCell"];
+		self.avatarsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+		[self.avatarsCollectionView registerClass:[RCGroupAvatarCollectionViewCell class] forCellWithReuseIdentifier:@"avatarCell"];
 
-		self.previewCollectionView.delegate = self;
-		self.previewCollectionView.dataSource = self;
-		[self addSubview:self.previewCollectionView];
-		self.previewCollectionView.backgroundColor = RC_BACKGROUND_GRAY;
+		self.avatarsCollectionView.delegate = self;
+		self.avatarsCollectionView.dataSource = self;
+		[self addSubview:self.avatarsCollectionView];
+		self.avatarsCollectionView.backgroundColor = RC_BACKGROUND_GRAY;
+		
+		UITapGestureRecognizer *tappedAvatarGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedAvatars)];
+		[self.avatarsCollectionView addGestureRecognizer:tappedAvatarGesture];
 		
 		self.seperator = [[UIView alloc] init];
 		self.seperator.backgroundColor = RC_DARKER_GRAY;
 		[self addSubview:self.seperator];
+		
+		self.startCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[self.startCallButton setImage:[UIImage imageNamed:@"StartCall"] forState:UIControlStateNormal];
+		self.startCallButton.frame = CGRectMake(0, 0, [UIImage imageNamed:@"StartCall"].size.width, [UIImage imageNamed:@"StartCall"].size.height);
+		[self addSubview:self.startCallButton];
     }
     return self;
 }
@@ -48,8 +56,9 @@
 -(void)layoutSubviews
 {
 	self.groupName.frame = CGRectMake(X_PADDIING, Y_PADDIING, self.contentView.frame.size.width - (X_PADDIING * 2), 30);
-	self.previewCollectionView.frame = CGRectMake(X_PADDIING, Y_PADDIING + CGRectGetMaxY(self.groupName.frame), self.frame.size.width - (X_PADDIING * 2), 100);
+	self.avatarsCollectionView.frame = CGRectMake(X_PADDIING, Y_PADDIING + CGRectGetMaxY(self.groupName.frame), self.frame.size.width - (X_PADDIING * 2), 100);
 	self.seperator.frame = CGRectMake(X_PADDIING*2 , self.frame.size.height - 1 , self.frame.size.width - (X_PADDIING * 4), 1);
+	self.startCallButton.frame = CGRectMake(self.bounds.size.width/2 - self.startCallButton.frame.size.width/2, CGRectGetMaxY(self.avatarsCollectionView.frame) + Y_PADDIING, self.startCallButton.frame.size.width, self.startCallButton.frame.size.height);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -79,9 +88,9 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	
-    static NSString *cellIdentifier = @"previewCell";
+    static NSString *cellIdentifier = @"avatarCell";
 	
-    RCGroupPreviewCollectionViewCell *cell = (RCGroupPreviewCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    RCGroupAvatarCollectionViewCell *cell = (RCGroupAvatarCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 	
 	[cell addDataToCell];
     return cell;
@@ -95,6 +104,20 @@
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
 	
 	return 1;
+}
+
+//****************************************
+//****************************************
+#pragma mark - Gestures
+//****************************************
+//****************************************
+
+-(void)tappedAvatars{
+	
+	[[NSNotificationCenter defaultCenter]
+	 postNotificationName:@"TappedAvatar"
+	 object:self];
+	
 }
 
 @end
