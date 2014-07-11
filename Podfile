@@ -4,7 +4,7 @@
 target "RollCall" do
 
 pod 'MMRecord', '~> 1.4.1'
-
+pod 'AFNetworking', '~> 2.2'
 end
 
 target "RollCallTests" do

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <MMRecord/MMRecord.h>
+#import "RCServer.h"
 
 @implementation AppDelegate
 
@@ -14,8 +16,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -27,8 +28,13 @@
 	self.window.rootViewController = rootNavigationController;
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
-
+    [self setupMMRecord];
+    
     return YES;
+}
+
+- (void)setupMMRecord {
+    [MMRecord registerServerClass:[RCServer class]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

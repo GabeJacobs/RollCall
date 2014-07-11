@@ -13,4 +13,6 @@
 
 #define RC_BLUE [UIColor colorWithRed:0.000 green:0.000 blue:0.886 alpha:1.000];
 
+static NSString * const kRCBaseUrl = @"http://rollcallbe.herokuapp.com";
+
 #endif

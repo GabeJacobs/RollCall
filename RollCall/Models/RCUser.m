@@ -31,5 +31,4 @@
     return [[RCUser loggedInUser] lastName];
 }
 
-
 @end

@@ -7,14 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RCUser.h"
 
 typedef void (^rcImageSuccessBlock) (UIImage* image);
-typedef void (^rcImageFailureBlock) (NSError* error);
+typedef void (^rcFailureBlock) (NSError* error);
+typedef void (^rcAuthSuccessBlock) (RCUser* user);
 
 @interface RCNetworkManager : NSObject
 
 + (void)getImageAtURL:(NSString*)url
               success:(rcImageSuccessBlock)completion
-              failure:(rcImageFailureBlock)failure;
+              failure:(rcFailureBlock)failure;
+
++ (void)signUpWithNumber:(NSString*)phoneNumber
+               firstName:(NSString*)firstName
+                lastName:(NSString*)lastName
+                password:(NSString*)password
+                 success:(rcAuthSuccessBlock)success
+                 failure:(rcFailureBlock)failure;
 
 @end

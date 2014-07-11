@@ -32,6 +32,8 @@
 		C8E6ECA3196CFB5600DAEE73 /* RollCall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECA0196CFB5600DAEE73 /* RollCall.xcdatamodeld */; };
 		C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECA4196CFB6D00DAEE73 /* main.m */; };
 		C8E6ECAA196E3CE600DAEE73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E6ECA9196E3CE600DAEE73 /* CoreLocation.framework */; };
+		C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECAC196F595400DAEE73 /* RCRecord.m */; };
+		C8E6ECB0196F5B5800DAEE73 /* RCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6ECAF196F5B5800DAEE73 /* RCServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,10 @@
 		C8E6ECA5196CFB6D00DAEE73 /* RollCall-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RollCall-Info.plist"; path = "Supporting Files/RollCall-Info.plist"; sourceTree = "<group>"; };
 		C8E6ECA6196CFB6D00DAEE73 /* RollCall-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RollCall-Prefix.pch"; path = "Supporting Files/RollCall-Prefix.pch"; sourceTree = "<group>"; };
 		C8E6ECA9196E3CE600DAEE73 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C8E6ECAB196F595400DAEE73 /* RCRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRecord.h; path = Models/RCRecord.h; sourceTree = "<group>"; };
+		C8E6ECAC196F595400DAEE73 /* RCRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRecord.m; path = Models/RCRecord.m; sourceTree = "<group>"; };
+		C8E6ECAE196F5B5800DAEE73 /* RCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCServer.h; path = Communication/RCServer.h; sourceTree = "<group>"; };
+		C8E6ECAF196F5B5800DAEE73 /* RCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCServer.m; path = Communication/RCServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,7 @@
 				23553FC81967405B00CE49CD /* AppDelegate.h */,
 				23553FC91967405B00CE49CD /* AppDelegate.m */,
 				23553FCE1967405B00CE49CD /* Images.xcassets */,
+				C8E6ECB1196F5B5E00DAEE73 /* Communication */,
 				23553FED196740A600CE49CD /* View Controllers */,
 				23553FEC196740A000CE49CD /* Views */,
 				23553FF11967426100CE49CD /* 3rd Party */,
@@ -226,9 +233,11 @@
 		23553FEF1967423D00CE49CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C8E6ECA0196CFB5600DAEE73 /* RollCall.xcdatamodeld */,
 				C8E6EC9E196CFB5600DAEE73 /* RCUser.h */,
 				C8E6EC9F196CFB5600DAEE73 /* RCUser.m */,
-				C8E6ECA0196CFB5600DAEE73 /* RollCall.xcdatamodeld */,
+				C8E6ECAB196F595400DAEE73 /* RCRecord.h */,
+				C8E6ECAC196F595400DAEE73 /* RCRecord.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -259,6 +268,15 @@
 				C8E6EC97196CFB2200DAEE73 /* RCNetworkManager.m */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		C8E6ECB1196F5B5E00DAEE73 /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				C8E6ECAE196F5B5800DAEE73 /* RCServer.h */,
+				C8E6ECAF196F5B5800DAEE73 /* RCServer.m */,
+			);
+			name = Communication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,10 +415,12 @@
 				C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */,
 				C8E6ECA3196CFB5600DAEE73 /* RollCall.xcdatamodeld in Sources */,
 				C8E6EC98196CFB2200DAEE73 /* RCLocationManager.m in Sources */,
+				C8E6ECB0196F5B5800DAEE73 /* RCServer.m in Sources */,
 				C8E6EC8F196CFAD900DAEE73 /* RCLoginViewController.m in Sources */,
 				C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */,
 				C8E6EC99196CFB2200DAEE73 /* RCNetworkManager.m in Sources */,
 				C8E6EC9D196CFB3600DAEE73 /* RCSession.m in Sources */,
+				C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */,
 				C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */,
 				C8E6ECA2196CFB5600DAEE73 /* RCUser.m in Sources */,
 			);

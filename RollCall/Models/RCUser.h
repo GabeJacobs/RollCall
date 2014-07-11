@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Gabe Jacobs. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+#import "RCRecord.h"
 
-@interface RCUser : NSManagedObject
+@interface RCUser : RCRecord
 
 @property (nonatomic, strong) NSString* firstName;
 @property (nonatomic, strong) NSString* lastName;

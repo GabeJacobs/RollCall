@@ -7,6 +7,8 @@
 //
 
 #import "RCNetworkManager.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "RCSession.h"
 
 @interface RCNetworkManager ()
 @property (nonatomic) NSCache *imageCache;
@@ -26,7 +28,7 @@
 // TODO(amadou): Implement this.
 + (void)getImageAtURL:(NSString*)url
               success:(rcImageSuccessBlock)success
-              failure:(rcImageFailureBlock)failure {
+              failure:(rcFailureBlock)failure {
     success([UIImage imageNamed:@"Phone.png"]);
 }
 
@@ -39,4 +41,37 @@
     return _imageCache;
 }
 
++ (void)signUpWithNumber:(NSString*)phoneNumber
+               firstName:(NSString*)firstName
+                lastName:(NSString*)lastName
+                password:(NSString*)password
+                 success:(rcAuthSuccessBlock)success
+                 failure:(rcFailureBlock)failure {
+    NSDictionary* params =
+        @{
+          @"phone":phoneNumber,
+          @"first_name":firstName,
+          @"last_name":lastName,
+          @"password":password
+        };
+    AFHTTPRequestOperationManager* manager =
+        [[AFHTTPRequestOperationManager alloc] init];
+    NSString* url = [kRCBaseUrl stringByAppendingPathComponent:@"/authentication"];
+    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // TODO(amadou): Turn the response object into an RCUser.
+        // Save to core data.
+        // Start session with user and access token.
+        // [RCSession startSessionWithAccessToken:@"access_token" user:[RCUser alloc]];
+        success(responseObject /* should be RCUser */);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // TODO(amadou): Turn the error into an error that is RC specific.
+        // -phone number taken
+        // -internet not available
+        // -phone number already signed up
+        // -etc...
+        failure(error);
+    }];
+}
+
 @end
+
