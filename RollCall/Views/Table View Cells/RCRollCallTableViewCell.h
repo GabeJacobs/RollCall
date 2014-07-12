@@ -14,6 +14,7 @@
 @property (nonatomic) UILabel			*timeLeftLabel;
 @property (nonatomic) UICollectionView	*responsesCollectionView;
 @property (nonatomic) UIView			*seperator;
+@property (nonatomic) UIView			*blackBar;
 @property (nonatomic) UILabel			*rollCallNameLabel;
 @property (nonatomic) UIButton			*collageButton;
 @property (nonatomic) UIButton			*mapButton;

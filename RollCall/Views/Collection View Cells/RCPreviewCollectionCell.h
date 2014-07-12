@@ -10,4 +10,9 @@
 
 @interface RCPreviewCollectionCell : UICollectionViewCell
 
+@property UIImageView *previewImageView;
+
+-(void)addDataToCell;
+
+
 @end
