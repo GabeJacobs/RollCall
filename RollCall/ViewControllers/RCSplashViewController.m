@@ -94,8 +94,7 @@
 
 #pragma mark - UI
 
--(void)setupLoginFields{
-	
+- (void)setupLoginFields {
 	self.loginWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 195, self.view.bounds.size.width, 100)];
 	self.loginWrapper.backgroundColor = [UIColor whiteColor];
 	[self.view addSubview:self.loginWrapper];
@@ -225,7 +224,7 @@
 	if(!self.loggingIn){
 		[UIView beginAnimations:nil context:nil];
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-		[UIView setAnimationDuration:0.25];
+		[UIView setAnimationDuration:0.35];
 		self.logoView.alpha = 0.0;
 		self.signupButton.alpha = 0.0;
 		self.loginButton.frame =  CGRectMake(self.loginButton.frame.origin.x, self.loginWrapper.frame.origin.y + self.loginWrapper.frame.size.height, self.loginButton.frame.size.width, self.loginButton.frame.size.height);
@@ -246,7 +245,7 @@
 	if(!self.signingUp){
 		[UIView beginAnimations:nil context:nil];
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-		[UIView setAnimationDuration:0.25];
+		[UIView setAnimationDuration:0.35];
 		self.logoView.alpha = 0.0;
 		self.loginButton.alpha = 0.0;
 		self.signupButton.frame =  CGRectMake(self.signupButton.frame.origin.x, self.signupWrapper.frame.origin.y + self.signupWrapper.frame.size.height, self.signupButton.frame.size.width, self.signupButton.frame.size.height);
