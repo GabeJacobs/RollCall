@@ -58,6 +58,29 @@
 		self.rollCallNameLabel.text = @"Work Sucks";
 		self.rollCallNameLabel.textAlignment = NSTextAlignmentCenter;
 		[self addSubview:self.rollCallNameLabel];
+		
+		self.buttonsBar = [[UIImageView alloc] init];
+		UIImage *buttonsBarImage = [UIImage imageNamed:@"ButtonsBar"];
+		[self.buttonsBar setImage:buttonsBarImage];
+		self.buttonsBar.frame = CGRectMake(0, 0, buttonsBarImage.size.width, buttonsBarImage.size.height);
+		[self addSubview:self.buttonsBar];
+		
+		self.collageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[self.collageButton addTarget:self action:@selector(showCollage) forControlEvents:UIControlEventTouchUpInside];
+		[self addSubview:self.collageButton];
+		
+		self.mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[self.mapButton addTarget:self action:@selector(showCollage) forControlEvents:UIControlEventTouchUpInside];
+		[self addSubview:self.mapButton];
+		
+		self.shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[self.shareButton addTarget:self action:@selector(showCollage) forControlEvents:UIControlEventTouchUpInside];
+		[self addSubview:self.shareButton];
+		
+		self.seperator = [[UIView alloc] init];
+		self.seperator.backgroundColor = RC_DARKER_GRAY;
+		[self addSubview:self.seperator];
+		
     }
     return self;
 }
@@ -84,6 +107,12 @@
 	self.responsesCollectionView.frame = CGRectMake(X_PADDIING, Y_PADDIING + CGRectGetMaxY(self.dateOfCreationLabel.frame), self.frame.size.width - (X_PADDIING * 2), 150);
 	self.blackBar.frame = CGRectMake(self.responsesCollectionView.frame.origin.x, CGRectGetMaxY(self.responsesCollectionView.frame) - 30, self.responsesCollectionView.frame.size.width, 30);
 	self.rollCallNameLabel.frame = self.blackBar.frame;
+	self.buttonsBar.frame = CGRectMake(X_PADDIING, CGRectGetMaxY(self.responsesCollectionView.frame) + Y_PADDIING, self.responsesCollectionView.frame.size.width, self.buttonsBar.frame.size.height);
+	self.collageButton.frame = CGRectMake(X_PADDIING+3, self.buttonsBar.frame.origin.y, self.buttonsBar.frame.size.width/3, self.buttonsBar.frame.size.height);
+	self.mapButton.frame = CGRectMake(CGRectGetMaxX(self.collageButton.frame) + 5, self.buttonsBar.frame.origin.y, self.buttonsBar.frame.size.width/3 - 15, self.buttonsBar.frame.size.height);
+	self.shareButton.frame = CGRectMake(CGRectGetMaxX(self.mapButton.frame) + 5, self.buttonsBar.frame.origin.y, self.buttonsBar.frame.size.width/3, self.buttonsBar.frame.size.height);
+	self.seperator.frame = CGRectMake(X_PADDIING*2 , self.frame.size.height - 1 , self.frame.size.width - (X_PADDIING * 4), 1);
+
 
 }
 
@@ -122,5 +151,22 @@
 	return 2;
 }
 
+//****************************************
+//****************************************
+#pragma mark - Actions
+//****************************************
+//****************************************
+
+-(void)showCollage{
+	
+}
+
+-(void)showMap{
+	
+}
+
+-(void)shareRollCall{
+	
+}
 
 @end

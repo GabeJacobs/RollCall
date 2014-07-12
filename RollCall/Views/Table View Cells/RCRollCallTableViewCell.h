@@ -13,12 +13,13 @@
 @property (nonatomic) UILabel			*dateOfCreationLabel;
 @property (nonatomic) UILabel			*timeLeftLabel;
 @property (nonatomic) UICollectionView	*responsesCollectionView;
-@property (nonatomic) UIView			*seperator;
 @property (nonatomic) UIView			*blackBar;
 @property (nonatomic) UILabel			*rollCallNameLabel;
+@property (nonatomic) UIImageView		*clockIcon;
+@property (nonatomic) UIImageView		*buttonsBar;
 @property (nonatomic) UIButton			*collageButton;
 @property (nonatomic) UIButton			*mapButton;
 @property (nonatomic) UIButton			*shareButton;
-@property (nonatomic) UIImageView		*clockIcon;
+@property (nonatomic) UIView			*seperator;
 
 @end
