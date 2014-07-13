@@ -11,7 +11,6 @@
 #import "RCSession.h"
 #import "RCSplashViewController.h"
 
-
 @interface RCSplashViewController ()
 
 @property (nonatomic) UIImageView*	backgroundView;
@@ -323,7 +322,6 @@
 #pragma mark - verify Info
 
 - (void)verifyLoginInfo{
-	
 	[self pushGroupController];
 }
 
@@ -338,7 +336,8 @@
                               lastName:lastName
                               password:password
                                success:^(RCUser *user) {
-        [self pushGroupController];
+	[self openCameraWithForceQuad];
+
     } failure:^(NSError *error) {
         [[[UIAlertView alloc] initWithTitle:@"Sign Up Error"
                                     message:[error localizedDescription]
@@ -472,6 +471,50 @@
 		[UIView commitAnimations];
 	}
 	
+}
+
+//****************************************
+//****************************************
+#pragma mark - Camera
+//****************************************
+//****************************************
+
+- (void) openCameraWithForceQuad
+{
+    DBCameraViewController *cameraController = [DBCameraViewController initWithDelegate:self];
+    [cameraController setForceQuadCrop:YES];
+	
+    DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
+    [container setCameraViewController:cameraController];
+    [container setFullScreenMode];
+	
+    [self.navigationController pushViewController:container animated:YES];
+	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+
+}
+
+
+- (void) camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata
+{
+	
+	[self pushGroupController];
+	NSMutableArray *vcs = [self.navigationController.viewControllers mutableCopy];
+	[vcs removeObjectAtIndex:[vcs count] - 2];
+	[vcs removeObjectAtIndex:[vcs count] - 2];
+	self.navigationController.viewControllers = vcs;
+	[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+	/*
+    DetailViewController *detail = [[DetailViewController alloc] init];
+    [detail setDetailImage:image];
+    [self.navigationController pushViewController:detail animated:NO];
+    [cameraViewController restoreFullScreenMode];
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+	 */
+}
+
+- (void) dismissCamera:(id)cameraViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [cameraViewController restoreFullScreenMode];
 }
 
 @end

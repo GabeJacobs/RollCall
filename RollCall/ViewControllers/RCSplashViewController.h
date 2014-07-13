@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBCameraViewController.h"
+#import "DBCameraContainerViewController.h"
 
-@interface RCSplashViewController : UIViewController <UITextFieldDelegate>
+@interface RCSplashViewController : UIViewController <UITextFieldDelegate, DBCameraViewControllerDelegate>
 
 @end
