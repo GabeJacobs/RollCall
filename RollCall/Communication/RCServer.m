@@ -21,8 +21,10 @@
               responseBlock:(void (^)(id))responseBlock
                failureBlock:(void (^)(NSError *))failureBlock {
     NSString* url = [kRCBaseUrl stringByAppendingPathExtension:URN];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
+    AFHTTPRequestOperationManager *manager =
+        [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestSerializer *requestSerializer =
+        [AFHTTPRequestSerializer serializer];
     [requestSerializer setValue:[RCSession accessToken] forHTTPHeaderField:@"auth_token"];
     manager.requestSerializer = requestSerializer;
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

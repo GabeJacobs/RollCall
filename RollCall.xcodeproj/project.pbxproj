@@ -27,6 +27,11 @@
 		23F6851219709E0B009C2F56 /* RCRollCallsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F6851119709E0B009C2F56 /* RCRollCallsViewController.m */; };
 		23F685151970A633009C2F56 /* RCRollCallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F685141970A633009C2F56 /* RCRollCallTableViewCell.m */; };
 		23F685181970A67E009C2F56 /* RCPreviewCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */; };
+		C892E7F91972DAC50078762F /* RCGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E7F81972DAC50078762F /* RCGroup.m */; };
+		C892E7FC1972DAE20078762F /* RCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E7FB1972DAE20078762F /* RCImage.m */; };
+		C892E7FF1972DB090078762F /* RCLike.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E7FE1972DB090078762F /* RCLike.m */; };
+		C892E8021972DB300078762F /* RCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E8011972DB300078762F /* RCLocation.m */; };
+		C892E8051972DB850078762F /* RCRollCall.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E8041972DB850078762F /* RCRollCall.m */; };
 		C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC87196CFAD900DAEE73 /* RCGroupsViewController.m */; };
 		C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8B196CFAD900DAEE73 /* RCSettingsViewController.m */; };
 		C8E6EC91196CFAD900DAEE73 /* RCSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8D196CFAD900DAEE73 /* RCSplashViewController.m */; };
@@ -80,6 +85,16 @@
 		23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPreviewCollectionCell.m; path = "Views/Collection View Cells/RCPreviewCollectionCell.m"; sourceTree = "<group>"; };
 		4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RollCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RollCall.xcconfig"; path = "Pods/Pods-RollCall.xcconfig"; sourceTree = "<group>"; };
+		C892E7F71972DAC50078762F /* RCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCGroup.h; path = Models/RCGroup.h; sourceTree = "<group>"; };
+		C892E7F81972DAC50078762F /* RCGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGroup.m; path = Models/RCGroup.m; sourceTree = "<group>"; };
+		C892E7FA1972DAE20078762F /* RCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCImage.h; sourceTree = "<group>"; };
+		C892E7FB1972DAE20078762F /* RCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCImage.m; sourceTree = "<group>"; };
+		C892E7FD1972DB090078762F /* RCLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCLike.h; path = Models/RCLike.h; sourceTree = "<group>"; };
+		C892E7FE1972DB090078762F /* RCLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCLike.m; path = Models/RCLike.m; sourceTree = "<group>"; };
+		C892E8001972DB300078762F /* RCLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLocation.h; sourceTree = "<group>"; };
+		C892E8011972DB300078762F /* RCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLocation.m; sourceTree = "<group>"; };
+		C892E8031972DB850078762F /* RCRollCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRollCall.h; sourceTree = "<group>"; };
+		C892E8041972DB850078762F /* RCRollCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRollCall.m; sourceTree = "<group>"; };
 		C8E6EC86196CFAD900DAEE73 /* RCGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCGroupsViewController.h; path = ViewControllers/RCGroupsViewController.h; sourceTree = "<group>"; };
 		C8E6EC87196CFAD900DAEE73 /* RCGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGroupsViewController.m; path = ViewControllers/RCGroupsViewController.m; sourceTree = "<group>"; };
 		C8E6EC8A196CFAD900DAEE73 /* RCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSettingsViewController.h; path = ViewControllers/RCSettingsViewController.h; sourceTree = "<group>"; };
@@ -273,10 +288,20 @@
 			isa = PBXGroup;
 			children = (
 				C8E6ECA0196CFB5600DAEE73 /* RollCall.xcdatamodeld */,
+				C892E8031972DB850078762F /* RCRollCall.h */,
+				C892E8041972DB850078762F /* RCRollCall.m */,
+				C892E8001972DB300078762F /* RCLocation.h */,
+				C892E8011972DB300078762F /* RCLocation.m */,
+				C892E7FA1972DAE20078762F /* RCImage.h */,
+				C892E7FB1972DAE20078762F /* RCImage.m */,
+				C892E7FD1972DB090078762F /* RCLike.h */,
+				C892E7FE1972DB090078762F /* RCLike.m */,
 				C8E6EC9E196CFB5600DAEE73 /* RCUser.h */,
 				C8E6EC9F196CFB5600DAEE73 /* RCUser.m */,
 				C8E6ECAB196F595400DAEE73 /* RCRecord.h */,
 				C8E6ECAC196F595400DAEE73 /* RCRecord.m */,
+				C892E7F71972DAC50078762F /* RCGroup.h */,
+				C892E7F81972DAC50078762F /* RCGroup.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -462,6 +487,7 @@
 			files = (
 				23F6851219709E0B009C2F56 /* RCRollCallsViewController.m in Sources */,
 				23553FCA1967405B00CE49CD /* AppDelegate.m in Sources */,
+				C892E7FF1972DB090078762F /* RCLike.m in Sources */,
 				C8E6EC91196CFAD900DAEE73 /* RCSplashViewController.m in Sources */,
 				C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */,
 				C8E6ECA3196CFB5600DAEE73 /* RollCall.xcdatamodeld in Sources */,
@@ -472,7 +498,11 @@
 				C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */,
 				C8E6EC99196CFB2200DAEE73 /* RCNetworkManager.m in Sources */,
 				C8E6EC9D196CFB3600DAEE73 /* RCSession.m in Sources */,
+				C892E8021972DB300078762F /* RCLocation.m in Sources */,
+				C892E8051972DB850078762F /* RCRollCall.m in Sources */,
+				C892E7FC1972DAE20078762F /* RCImage.m in Sources */,
 				2315C0B51970763A00ABA433 /* RCServer.m in Sources */,
+				C892E7F91972DAC50078762F /* RCGroup.m in Sources */,
 				C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */,
 				C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */,
 				23F685151970A633009C2F56 /* RCRollCallTableViewCell.m in Sources */,
