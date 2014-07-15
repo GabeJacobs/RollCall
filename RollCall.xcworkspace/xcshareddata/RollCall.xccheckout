@@ -5,48 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A7FF0089-743D-4AAA-B4D2-1E0FD3A9B5C0</string>
+	<string>6403B428-AF1C-4D68-8D77-C7EF01E5EBB5</string>
 	<key>IDESourceControlProjectName</key>
 	<string>RollCall</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>43B953B4-C8B6-41A1-BFC1-58AC2CD15528</key>
-		<string>https://github.com/GabeJacobs/RollCall</string>
-		<key>85E415D1-AFCC-4933-8BC5-CD7EF9EF2EF5</key>
-		<string>https://github.com/matthiasplappert/Secure-NSUserDefaults.git</string>
+		<key>BFBB5B81-0348-41C7-A40D-BFFDC8F6C0EE</key>
+		<string>https://github.com/GabeJacobs/RollCall.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RollCall.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>43B953B4-C8B6-41A1-BFC1-58AC2CD15528</key>
+		<key>BFBB5B81-0348-41C7-A40D-BFFDC8F6C0EE</key>
 		<string>..</string>
-		<key>85E415D1-AFCC-4933-8BC5-CD7EF9EF2EF5</key>
-		<string>../RollCall/3rdParty/Secure-NSUserDefaults</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/GabeJacobs/RollCall</string>
+	<string>https://github.com/GabeJacobs/RollCall.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>43B953B4-C8B6-41A1-BFC1-58AC2CD15528</string>
+	<string>BFBB5B81-0348-41C7-A40D-BFFDC8F6C0EE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>43B953B4-C8B6-41A1-BFC1-58AC2CD15528</string>
+			<string>BFBB5B81-0348-41C7-A40D-BFFDC8F6C0EE</string>
 			<key>IDESourceControlWCCName</key>
-			<string>rollcall</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>85E415D1-AFCC-4933-8BC5-CD7EF9EF2EF5</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Secure-NSUserDefaults</string>
+			<string>RollCall</string>
 		</dict>
 	</array>
 </dict>

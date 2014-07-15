@@ -25,7 +25,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+		[self getContactsWithRollCall];
+
     }
     return self;
 }
@@ -63,12 +64,11 @@
 	self.groupNameField.delegate = self;
 	[self.nameWrapper addSubview:self.groupNameField];
 	
-	self.contactsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, self.view.bounds.size.width, self.view.bounds.size.height)];
+	self.contactsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 50, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.contactsTableView.delegate = self;
     self.contactsTableView.dataSource = self;
 	[self.view addSubview:self.contactsTableView];
 	
-	[self getContactsWithRollCall];
 	
 
     // Do any additional setup after loading the view.
@@ -76,39 +76,31 @@
 
 -(void)getContactsWithRollCall{
 	
-	ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {
-		if (!granted){
-			//4
-			NSLog(@"Just denied");
-			return;
-		}
-		
-		__block BOOL userDidGrantAddressBookAccess;
-		CFErrorRef addressBookError = NULL;
-		
-		if ( ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined ||
-			ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized )
-		{
-			CFArrayRef addressBook = ABAddressBookCreateWithOptions(NULL, &addressBookError);
-			self.allPeople = addressBook;
-			self.contactsCount = ABAddressBookGetGroupCount(addressBook);
-			dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-			ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error){
-				userDidGrantAddressBookAccess = granted;
-				dispatch_semaphore_signal(sema);
-			});
-			dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
-		}
-		else
-		{
-			if ( ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied ||
-				ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted )
-			{
-				// Display an error.
-			}
-		}
-	});
 	
+	// Request authorization to Address Book
+	ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
+	
+	if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
+		ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
+			if (granted) {
+				self.allPeople = ABAddressBookCopyArrayOfAllPeople(addressBookRef);
+				
+			} else {
+				// User denied access
+				// Display an alert telling user the contact could not be added
+			}
+		});
+	}
+	else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
+		self.allPeople = ABAddressBookCopyArrayOfAllPeople(addressBookRef);
+		
+	}
+	else {
+		// The user has previously denied access
+		// Send an alert telling user to change privacy setting in settings app
+	}
+	
+	self.contactsCount = CFArrayGetCount(self.allPeople);
 }
 - (void)didReceiveMemoryWarning
 {
@@ -144,15 +136,27 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 
     }
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	cell.selectionStyle = UITableViewCellSelectionStyleDefault;
 	ABRecordRef person = CFArrayGetValueAtIndex(self.allPeople, indexPath.row );
 	NSString *firstName = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonFirstNameProperty));
 
 	cell.textLabel.text = firstName;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
+	{
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
+	else
+	{
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	}
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -164,7 +168,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 260;
+	return 50;
 }
 
 @end
