@@ -9,6 +9,7 @@
 #import "RCGroupsViewController.h"
 #import "RCGroupTableViewCell.h"
 #import "RCRollCallsViewController.h"
+#import "RCNewGroupViewController.h"
 
 @interface RCGroupsViewController ()
 
@@ -49,12 +50,19 @@
 								  style: UIBarButtonItemStyleBordered
 								  target: self action: @selector(logout)];
 	
-	backButton.image = [UIImage imageNamed:@"Back"];
+	UIBarButtonItem *newGroupButton = [[UIBarButtonItem alloc]
+								   initWithTitle: @""
+								   style: UIBarButtonItemStyleBordered
+								   target: self action: @selector(newGroup)];
 	
+	backButton.image = [UIImage imageNamed:@"Back"];
+	newGroupButton.image = [UIImage imageNamed:@"Plus"];
+
 	// TAKE THIS AWAY ONCE WE HAVE A LOGOUT METHOD
 	
 	self.navigationItem.leftBarButtonItem = backButton;
-	
+	self.navigationItem.rightBarButtonItem = newGroupButton;
+
 	self.groupsTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width - 20, self.view.bounds.size.height - 10)];
 	self.groupsTableView.separatorColor = [UIColor clearColor];
     self.groupsTableView.backgroundColor = RC_BACKGROUND_GRAY;
@@ -73,6 +81,14 @@
 	transition.subtype = kCATransitionFromLeft;
 	[self.navigationController.view.layer addAnimation:transition forKey:nil];
 	[self.navigationController popViewControllerAnimated:NO];
+	
+}
+
+-(void)newGroup{
+	
+	RCNewGroupViewController *newGroupController = [[RCNewGroupViewController alloc] init];
+	[self.navigationController pushViewController:newGroupController animated:YES];
+
 	
 }
 
