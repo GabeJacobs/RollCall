@@ -68,11 +68,48 @@
     self.contactsTableView.dataSource = self;
 	[self.view addSubview:self.contactsTableView];
 	
+	[self getContactsWithRollCall];
 	
 
     // Do any additional setup after loading the view.
 }
 
+-(void)getContactsWithRollCall{
+	
+	ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {
+		if (!granted){
+			//4
+			NSLog(@"Just denied");
+			return;
+		}
+		
+		__block BOOL userDidGrantAddressBookAccess;
+		CFErrorRef addressBookError = NULL;
+		
+		if ( ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined ||
+			ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized )
+		{
+			CFArrayRef addressBook = ABAddressBookCreateWithOptions(NULL, &addressBookError);
+			self.allPeople = addressBook;
+			self.contactsCount = ABAddressBookGetGroupCount(addressBook);
+			dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+			ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error){
+				userDidGrantAddressBookAccess = granted;
+				dispatch_semaphore_signal(sema);
+			});
+			dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+		}
+		else
+		{
+			if ( ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied ||
+				ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted )
+			{
+				// Display an error.
+			}
+		}
+	});
+	
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -111,8 +148,10 @@
 
     }
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	
-	//cell.textLabel.text = firstName;
+	ABRecordRef person = CFArrayGetValueAtIndex(self.allPeople, indexPath.row );
+	NSString *firstName = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonFirstNameProperty));
+
+	cell.textLabel.text = firstName;
     return cell;
 }
 
