@@ -13,5 +13,9 @@
 @property (nonatomic, strong) NSString* firstName;
 @property (nonatomic, strong) NSString* lastName;
 @property (nonatomic, strong) NSString* userID;
+@property (nonatomic) NSDate* joined;
+@property (nonatomic) NSDate* lastActive;
+@property (nonatomic) NSString* avatar;
+@property (nonatomic) NSString* phoneNumber;
 
 @end

@@ -5,36 +5,48 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>76306DDC-B35B-4917-953A-0FF57CBD2DD2</string>
+	<string>A7FF0089-743D-4AAA-B4D2-1E0FD3A9B5C0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>RollCall</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9CE17F89-6D08-4FFB-89C9-BFA1377B645A</key>
-		<string>https://github.com/GabeJacobs/RollCall.git</string>
+		<key>43B953B4-C8B6-41A1-BFC1-58AC2CD15528</key>
+		<string>https://github.com/GabeJacobs/RollCall</string>
+		<key>85E415D1-AFCC-4933-8BC5-CD7EF9EF2EF5</key>
+		<string>https://github.com/matthiasplappert/Secure-NSUserDefaults.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RollCall.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9CE17F89-6D08-4FFB-89C9-BFA1377B645A</key>
+		<key>43B953B4-C8B6-41A1-BFC1-58AC2CD15528</key>
 		<string>..</string>
+		<key>85E415D1-AFCC-4933-8BC5-CD7EF9EF2EF5</key>
+		<string>../RollCall/3rdParty/Secure-NSUserDefaults</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/GabeJacobs/RollCall.git</string>
+	<string>https://github.com/GabeJacobs/RollCall</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9CE17F89-6D08-4FFB-89C9-BFA1377B645A</string>
+	<string>43B953B4-C8B6-41A1-BFC1-58AC2CD15528</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9CE17F89-6D08-4FFB-89C9-BFA1377B645A</string>
+			<string>43B953B4-C8B6-41A1-BFC1-58AC2CD15528</string>
 			<key>IDESourceControlWCCName</key>
-			<string>RollCall</string>
+			<string>rollcall</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>85E415D1-AFCC-4933-8BC5-CD7EF9EF2EF5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Secure-NSUserDefaults</string>
 		</dict>
 	</array>
 </dict>

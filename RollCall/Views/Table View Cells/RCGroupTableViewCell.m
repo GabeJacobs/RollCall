@@ -18,7 +18,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-		
         self.groupName = [[UILabel alloc] init];
 		self.groupName.font = [UIFont fontWithName:@"Avenir-Book" size:16.0];
 		self.groupName.textAlignment = NSTextAlignmentCenter;
@@ -54,16 +53,14 @@
     return self;
 }
 
--(void)layoutSubviews
-{
+- (void)layoutSubviews {
 	self.groupName.frame = CGRectMake(X_PADDIING, Y_PADDIING, self.contentView.frame.size.width - (X_PADDIING * 2), 30);
 	self.avatarsCollectionView.frame = CGRectMake(X_PADDIING, Y_PADDIING + CGRectGetMaxY(self.groupName.frame), self.frame.size.width - (X_PADDIING * 2), 100);
 	self.seperator.frame = CGRectMake(X_PADDIING*2 , self.frame.size.height - 1 , self.frame.size.width - (X_PADDIING * 4), 1);
 	self.startCallButton.frame = CGRectMake(self.bounds.size.width/2 - self.startCallButton.frame.size.width/2, CGRectGetMaxY(self.avatarsCollectionView.frame) + Y_PADDIING, self.startCallButton.frame.size.width, self.startCallButton.frame.size.height);
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
@@ -102,8 +99,7 @@
     return CGSizeMake(70, 100);
 }
 
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-	
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
 	return 1;
 }
 

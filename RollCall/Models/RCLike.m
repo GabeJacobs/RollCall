@@ -10,4 +10,9 @@
 
 @implementation RCLike
 
+@dynamic likeID;
+@dynamic created;
+@dynamic selfie;
+@dynamic user;
+
 @end

@@ -15,5 +15,8 @@
 @dynamic text;
 @dynamic duration;
 @dynamic rollCallID;
+@dynamic creator;
+@dynamic selfies;
+@dynamic group;
 
 @end

@@ -10,4 +10,9 @@
 
 @implementation RCGroup
 
+@dynamic created;
+@dynamic name;
+@dynamic lastActive;
+@dynamic groupID;
+
 @end

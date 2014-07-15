@@ -10,4 +10,12 @@
 
 @implementation RCImage
 
+@dynamic url;
+@dynamic location;
+@dynamic user;
+@dynamic rollCall;
+@dynamic created;
+@dynamic likes;
+@dynamic imageID;
+
 @end

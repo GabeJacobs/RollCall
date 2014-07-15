@@ -33,8 +33,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	
 	self.view.backgroundColor = RC_BACKGROUND_GRAY;
@@ -72,7 +71,7 @@
 
 }
 
--(void)logout{
+-(void)logout {
 	
 	CATransition *transition = [CATransition animation];
 	transition.duration = 0.25;
@@ -135,15 +134,14 @@
 	
 }
 
--(void)pushGroupView{
+- (void)pushGroupView{
 	
 	RCRollCallsViewController *rollCallsViewController = [[RCRollCallsViewController alloc] init];
 	[self.navigationController pushViewController:rollCallsViewController animated:YES];
 	
 }
 
--(void) receiveAvatarTapNotification:(NSNotification *) notification
-{
+- (void)receiveAvatarTapNotification:(NSNotification *) notification {
 	RCGroupTableViewCell *cell = (RCGroupTableViewCell *)[notification object];
 	NSIndexPath *indexPath = [self.groupsTableView indexPathForCell:cell];
 	// This is will be used to push the right group

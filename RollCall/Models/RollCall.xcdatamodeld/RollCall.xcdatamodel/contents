@@ -6,22 +6,22 @@
         <attribute name="lastActive" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="rollCalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGroup" syncable="YES"/>
-        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCUser" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCUser" inverseName="groups" inverseEntity="RCUser" syncable="YES"/>
     </entity>
     <entity name="RCImage" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCLike" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCLike" inverseName="selfie" inverseEntity="RCLike" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCLocation" syncable="YES"/>
-        <relationship name="rollCall" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCRollCall" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" syncable="YES"/>
+        <relationship name="rollCall" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCRollCall" inverseName="selfies" inverseEntity="RCRollCall" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="selfies" inverseEntity="RCUser" syncable="YES"/>
     </entity>
     <entity name="RCLike" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="likeID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="selfie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCImage" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" syncable="YES"/>
+        <relationship name="selfie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCImage" inverseName="likes" inverseEntity="RCImage" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="likes" inverseEntity="RCUser" syncable="YES"/>
     </entity>
     <entity name="RCLocation" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -33,9 +33,9 @@
         <attribute name="rollCallID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="started" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" syncable="YES"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="rollCalls" inverseEntity="RCUser" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGroup" syncable="YES"/>
-        <relationship name="selfies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCImage" syncable="YES"/>
+        <relationship name="selfies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCImage" inverseName="rollCall" inverseEntity="RCImage" syncable="YES"/>
     </entity>
     <entity name="RCUser" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,10 +46,10 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGroup" syncable="YES"/>
-        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCLike" syncable="YES"/>
-        <relationship name="rollCalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCRollCall" syncable="YES"/>
-        <relationship name="selfies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCImage" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGroup" inverseName="users" inverseEntity="RCGroup" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCLike" inverseName="user" inverseEntity="RCLike" syncable="YES"/>
+        <relationship name="rollCalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCRollCall" inverseName="creator" inverseEntity="RCRollCall" syncable="YES"/>
+        <relationship name="selfies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCImage" inverseName="user" inverseEntity="RCImage" syncable="YES"/>
     </entity>
     <elements>
         <element name="RCGroup" positionX="34" positionY="-3" width="128" height="133"/>

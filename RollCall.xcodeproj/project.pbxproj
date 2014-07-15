@@ -33,6 +33,13 @@
 		C892E7FF1972DB090078762F /* RCLike.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E7FE1972DB090078762F /* RCLike.m */; };
 		C892E8021972DB300078762F /* RCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E8011972DB300078762F /* RCLocation.m */; };
 		C892E8051972DB850078762F /* RCRollCall.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E8041972DB850078762F /* RCRollCall.m */; };
+		C892E80819736AFE0078762F /* RCUserRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E80719736AFE0078762F /* RCUserRepresentation.m */; };
+		C892E80C1974E19D0078762F /* RCRollCallRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E80B1974E19D0078762F /* RCRollCallRepresentation.m */; };
+		C892E80F1974E1B70078762F /* RCLocationRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E80E1974E1B70078762F /* RCLocationRepresentation.m */; };
+		C892E8121974E1CE0078762F /* RCImageRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E8111974E1CE0078762F /* RCImageRepresentation.m */; };
+		C892E8151974E1F40078762F /* RCLikeRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E8141974E1F40078762F /* RCLikeRepresentation.m */; };
+		C892E8181974E20B0078762F /* RCRecordRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E8171974E20B0078762F /* RCRecordRepresentation.m */; };
+		C892E81B1974E21F0078762F /* RCGroupRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E81A1974E21F0078762F /* RCGroupRepresentation.m */; };
 		C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC87196CFAD900DAEE73 /* RCGroupsViewController.m */; };
 		C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8B196CFAD900DAEE73 /* RCSettingsViewController.m */; };
 		C8E6EC91196CFAD900DAEE73 /* RCSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8D196CFAD900DAEE73 /* RCSplashViewController.m */; };
@@ -98,6 +105,20 @@
 		C892E8011972DB300078762F /* RCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLocation.m; sourceTree = "<group>"; };
 		C892E8031972DB850078762F /* RCRollCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRollCall.h; sourceTree = "<group>"; };
 		C892E8041972DB850078762F /* RCRollCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRollCall.m; sourceTree = "<group>"; };
+		C892E80619736AFE0078762F /* RCUserRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCUserRepresentation.h; path = Representations/RCUserRepresentation.h; sourceTree = "<group>"; };
+		C892E80719736AFE0078762F /* RCUserRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCUserRepresentation.m; path = Representations/RCUserRepresentation.m; sourceTree = "<group>"; };
+		C892E80A1974E19D0078762F /* RCRollCallRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRollCallRepresentation.h; path = Representations/RCRollCallRepresentation.h; sourceTree = "<group>"; };
+		C892E80B1974E19D0078762F /* RCRollCallRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRollCallRepresentation.m; path = Representations/RCRollCallRepresentation.m; sourceTree = "<group>"; };
+		C892E80D1974E1B70078762F /* RCLocationRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCLocationRepresentation.h; path = Representations/RCLocationRepresentation.h; sourceTree = "<group>"; };
+		C892E80E1974E1B70078762F /* RCLocationRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCLocationRepresentation.m; path = Representations/RCLocationRepresentation.m; sourceTree = "<group>"; };
+		C892E8101974E1CE0078762F /* RCImageRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCImageRepresentation.h; path = Representations/RCImageRepresentation.h; sourceTree = "<group>"; };
+		C892E8111974E1CE0078762F /* RCImageRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCImageRepresentation.m; path = Representations/RCImageRepresentation.m; sourceTree = "<group>"; };
+		C892E8131974E1F40078762F /* RCLikeRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCLikeRepresentation.h; path = Representations/RCLikeRepresentation.h; sourceTree = "<group>"; };
+		C892E8141974E1F40078762F /* RCLikeRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCLikeRepresentation.m; path = Representations/RCLikeRepresentation.m; sourceTree = "<group>"; };
+		C892E8161974E20B0078762F /* RCRecordRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRecordRepresentation.h; path = Representations/RCRecordRepresentation.h; sourceTree = "<group>"; };
+		C892E8171974E20B0078762F /* RCRecordRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRecordRepresentation.m; path = Representations/RCRecordRepresentation.m; sourceTree = "<group>"; };
+		C892E8191974E21F0078762F /* RCGroupRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCGroupRepresentation.h; path = Representations/RCGroupRepresentation.h; sourceTree = "<group>"; };
+		C892E81A1974E21F0078762F /* RCGroupRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGroupRepresentation.m; path = Representations/RCGroupRepresentation.m; sourceTree = "<group>"; };
 		C8E6EC86196CFAD900DAEE73 /* RCGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCGroupsViewController.h; path = ViewControllers/RCGroupsViewController.h; sourceTree = "<group>"; };
 		C8E6EC87196CFAD900DAEE73 /* RCGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGroupsViewController.m; path = ViewControllers/RCGroupsViewController.m; sourceTree = "<group>"; };
 		C8E6EC8A196CFAD900DAEE73 /* RCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSettingsViewController.h; path = ViewControllers/RCSettingsViewController.h; sourceTree = "<group>"; };
@@ -292,6 +313,7 @@
 		23553FEF1967423D00CE49CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C892E80919736B030078762F /* Representations */,
 				C8E6ECA0196CFB5600DAEE73 /* RollCall.xcdatamodeld */,
 				C892E8031972DB850078762F /* RCRollCall.h */,
 				C892E8041972DB850078762F /* RCRollCall.m */,
@@ -327,6 +349,27 @@
 				C8E6ECB2196FA6CF00DAEE73 /* Secure-NSUserDefaults */,
 			);
 			name = "3rd Party";
+			sourceTree = "<group>";
+		};
+		C892E80919736B030078762F /* Representations */ = {
+			isa = PBXGroup;
+			children = (
+				C892E80619736AFE0078762F /* RCUserRepresentation.h */,
+				C892E80719736AFE0078762F /* RCUserRepresentation.m */,
+				C892E80A1974E19D0078762F /* RCRollCallRepresentation.h */,
+				C892E80B1974E19D0078762F /* RCRollCallRepresentation.m */,
+				C892E80D1974E1B70078762F /* RCLocationRepresentation.h */,
+				C892E80E1974E1B70078762F /* RCLocationRepresentation.m */,
+				C892E8101974E1CE0078762F /* RCImageRepresentation.h */,
+				C892E8111974E1CE0078762F /* RCImageRepresentation.m */,
+				C892E8131974E1F40078762F /* RCLikeRepresentation.h */,
+				C892E8141974E1F40078762F /* RCLikeRepresentation.m */,
+				C892E8161974E20B0078762F /* RCRecordRepresentation.h */,
+				C892E8171974E20B0078762F /* RCRecordRepresentation.m */,
+				C892E8191974E21F0078762F /* RCGroupRepresentation.h */,
+				C892E81A1974E21F0078762F /* RCGroupRepresentation.m */,
+			);
+			name = Representations;
 			sourceTree = "<group>";
 		};
 		C8E6EC7F196BAAB100DAEE73 /* Managers */ = {
@@ -495,9 +538,14 @@
 				C892E7FF1972DB090078762F /* RCLike.m in Sources */,
 				C8E6EC91196CFAD900DAEE73 /* RCSplashViewController.m in Sources */,
 				C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */,
+				C892E8121974E1CE0078762F /* RCImageRepresentation.m in Sources */,
 				C8E6ECA3196CFB5600DAEE73 /* RollCall.xcdatamodeld in Sources */,
 				C8E6EC98196CFB2200DAEE73 /* RCLocationManager.m in Sources */,
+				C892E80C1974E19D0078762F /* RCRollCallRepresentation.m in Sources */,
+				C892E80F1974E1B70078762F /* RCLocationRepresentation.m in Sources */,
 				2315C0A919703E1600ABA433 /* RCGroupTableViewCell.m in Sources */,
+				C892E81B1974E21F0078762F /* RCGroupRepresentation.m in Sources */,
+				C892E80819736AFE0078762F /* RCUserRepresentation.m in Sources */,
 				C8E6ECB7196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m in Sources */,
 				23F6850F19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m in Sources */,
 				C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */,
@@ -509,7 +557,9 @@
 				235FE60C1974A32C005CDF1C /* RCNewGroupViewController.m in Sources */,
 				2315C0B51970763A00ABA433 /* RCServer.m in Sources */,
 				C892E7F91972DAC50078762F /* RCGroup.m in Sources */,
+				C892E8151974E1F40078762F /* RCLikeRepresentation.m in Sources */,
 				C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */,
+				C892E8181974E20B0078762F /* RCRecordRepresentation.m in Sources */,
 				C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */,
 				23F685151970A633009C2F56 /* RCRollCallTableViewCell.m in Sources */,
 				C8E6ECA2196CFB5600DAEE73 /* RCUser.m in Sources */,
