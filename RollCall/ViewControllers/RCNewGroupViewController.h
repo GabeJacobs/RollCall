@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCNewGroupViewController : UIViewController <UITextFieldDelegate>
+@interface RCNewGroupViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end

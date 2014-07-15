@@ -7,11 +7,15 @@
 //
 
 #import "RCNewGroupViewController.h"
+#import <AddressBook/AddressBook.h>
 
 @interface RCNewGroupViewController ()
 
 @property (nonatomic) UIView*		nameWrapper;
 @property (nonatomic) UITextField*	groupNameField;
+@property (nonatomic) UITableView*	contactsTableView;
+@property (nonatomic) NSInteger		contactsCount;
+@property (nonatomic) CFArrayRef	allPeople;
 
 @end
 
@@ -58,7 +62,12 @@
 	self.groupNameField.font = [UIFont fontWithName:@"Avenir" size:16.0];
 	self.groupNameField.delegate = self;
 	[self.nameWrapper addSubview:self.groupNameField];
-
+	
+	self.contactsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, self.view.bounds.size.width, self.view.bounds.size.height)];
+    self.contactsTableView.delegate = self;
+    self.contactsTableView.dataSource = self;
+	[self.view addSubview:self.contactsTableView];
+	
 	
 
     // Do any additional setup after loading the view.
@@ -87,15 +96,36 @@
 	return YES;
 }
 
-/*
-#pragma mark - Navigation
+//****************************************
+//****************************************
+#pragma mark - UITableViewDelegate/DataSource
+//****************************************
+//****************************************
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *MyIdentifier = @"MyReuseIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+
+    }
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	
+	//cell.textLabel.text = firstName;
+    return cell;
 }
-*/
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.contactsCount;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 260;
+}
 
 @end
