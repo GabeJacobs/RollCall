@@ -7,7 +7,6 @@
 //
 
 #import "RCUser.h"
-#import "RCUserRepresentation.h"
 
 @implementation RCUser
 
@@ -18,9 +17,5 @@
 @dynamic lastActive;
 @dynamic phoneNumber;
 @dynamic joined;
-
-+ (Class)representationClass {
-    return [RCUserRepresentation class];
-}
 
 @end

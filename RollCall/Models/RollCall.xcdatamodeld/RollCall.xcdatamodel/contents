@@ -1,51 +1,131 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="RCGroup" syncable="YES">
-        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="groupID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="lastActive" optional="YES" attributeType="Date" syncable="YES"/>
+    <entity name="RCGroup" representedClassName="RCGroup" syncable="YES">
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="datetime_created"/>
+            </userInfo>
+        </attribute>
+        <attribute name="groupID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="lastActive" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="datetime_last_activity"/>
+            </userInfo>
+        </attribute>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="rollCalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGroup" syncable="YES"/>
+        <relationship name="rollCalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGroup" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="roll_calls"/>
+            </userInfo>
+        </relationship>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCUser" inverseName="groups" inverseEntity="RCUser" syncable="YES"/>
     </entity>
-    <entity name="RCImage" syncable="YES">
-        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="imageID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="RCImage" representedClassName="RCImage" syncable="YES">
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="datetime"/>
+            </userInfo>
+        </attribute>
+        <attribute name="imageID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="photo_data"/>
+            </userInfo>
+        </attribute>
         <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCLike" inverseName="selfie" inverseEntity="RCLike" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCLocation" syncable="YES"/>
-        <relationship name="rollCall" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCRollCall" inverseName="selfies" inverseEntity="RCRollCall" syncable="YES"/>
+        <relationship name="rollCall" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCRollCall" inverseName="selfies" inverseEntity="RCRollCall" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="roll_call"/>
+            </userInfo>
+        </relationship>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="selfies" inverseEntity="RCUser" syncable="YES"/>
     </entity>
-    <entity name="RCLike" syncable="YES">
-        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="likeID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    <entity name="RCLike" representedClassName="RCLike" syncable="YES">
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="datetime"/>
+            </userInfo>
+        </attribute>
+        <attribute name="likeID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="id"/>
+            </userInfo>
+        </attribute>
         <relationship name="selfie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCImage" inverseName="likes" inverseEntity="RCImage" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="likes" inverseEntity="RCUser" syncable="YES"/>
     </entity>
-    <entity name="RCLocation" syncable="YES">
+    <entity name="RCLocation" representedClassName="RCLocation" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="RCRollCall" syncable="YES">
+    <entity name="RCRollCall" representedClassName="RCRollCall" syncable="YES">
         <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="ended" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="rollCallID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="started" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ended" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="time_ended"/>
+            </userInfo>
+        </attribute>
+        <attribute name="rollCallID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="started" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="time_started"/>
+            </userInfo>
+        </attribute>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="description"/>
+            </userInfo>
+        </attribute>
         <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="rollCalls" inverseEntity="RCUser" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGroup" syncable="YES"/>
         <relationship name="selfies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCImage" inverseName="rollCall" inverseEntity="RCImage" syncable="YES"/>
     </entity>
-    <entity name="RCUser" syncable="YES">
+    <entity name="RCUser" representedClassName="RCUser" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="joined" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="lastActive" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="first_name"/>
+            </userInfo>
+        </attribute>
+        <attribute name="joined" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="datetime_joined"/>
+            </userInfo>
+        </attribute>
+        <attribute name="lastActive" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="datetime_last_activity"/>
+            </userInfo>
+        </attribute>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="last_name"/>
+            </userInfo>
+        </attribute>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="phone_number"/>
+            </userInfo>
+        </attribute>
+        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="MMRecordAttributeAlternateNameKey" value="id"/>
+            </userInfo>
+        </attribute>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGroup" inverseName="users" inverseEntity="RCGroup" syncable="YES"/>
         <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCLike" inverseName="user" inverseEntity="RCLike" syncable="YES"/>
         <relationship name="rollCalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCRollCall" inverseName="creator" inverseEntity="RCRollCall" syncable="YES"/>
@@ -53,9 +133,9 @@
     </entity>
     <elements>
         <element name="RCGroup" positionX="34" positionY="-3" width="128" height="133"/>
-        <element name="RCImage" positionX="-261" positionY="18" width="128" height="150"/>
+        <element name="RCImage" positionX="-261" positionY="18" width="128" height="148"/>
         <element name="RCLike" positionX="-270" positionY="-378" width="128" height="103"/>
-        <element name="RCLocation" positionX="-279" positionY="162" width="128" height="75"/>
+        <element name="RCLocation" positionX="-279" positionY="162" width="128" height="73"/>
         <element name="RCRollCall" positionX="-2" positionY="-297" width="128" height="163"/>
         <element name="RCUser" positionX="-162" positionY="-243" width="128" height="223"/>
     </elements>

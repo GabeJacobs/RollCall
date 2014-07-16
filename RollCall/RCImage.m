@@ -8,8 +8,6 @@
 
 #import "RCImage.h"
 
-#import "RCImageRepresentation.h"
-
 @implementation RCImage
 
 @dynamic url;
@@ -19,9 +17,5 @@
 @dynamic created;
 @dynamic likes;
 @dynamic imageID;
-
-+ (Class)representationClass {
-    return [RCImageRepresentation class];
-}
 
 @end
