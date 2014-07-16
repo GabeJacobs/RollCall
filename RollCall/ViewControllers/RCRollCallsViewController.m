@@ -8,6 +8,7 @@
 
 #import "RCRollCallsViewController.h"
 #import "RCRollCallTableViewCell.h"
+#import "RCResponsesViewController.h"
 
 @interface RCRollCallsViewController ()
 
@@ -23,7 +24,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [[NSNotificationCenter defaultCenter] addObserver:self
+												 selector:@selector(receivePreviewTapNotification:)
+													 name:@"TappedPreviews"
+												   object:nil];
     }
     return self;
 }
@@ -31,15 +35,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	
+
 	self.view.backgroundColor = RC_BACKGROUND_GRAY;
 	
 	[self.navigationController setNavigationBarHidden:NO animated:YES];
 	self.navigationItem.hidesBackButton = YES;
 	self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 	
-	self.title = @"Roll Calls";
+	self.title = @"Roll Call iOS Dev Team";
 	
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
 								   initWithTitle: @""
@@ -108,6 +111,30 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return 260;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	
+	[self pushResponsesView];
+	
+}
+
+- (void)pushResponsesView{
+	
+	RCResponsesViewController *responsesViewController = [[RCResponsesViewController alloc] init];
+	[self.navigationController pushViewController:responsesViewController animated:YES];
+	
+}
+
+
+- (void)receivePreviewTapNotification:(NSNotification *) notification {
+	RCRollCallsViewController *cell = (RCRollCallsViewController *)[notification object];
+	NSIndexPath *indexPath = [self.rollCallsTableView indexPathForCell:cell];
+	// This is will be used to push the right group
+	
+	[self pushResponsesView];
+	
+	
 }
 
 

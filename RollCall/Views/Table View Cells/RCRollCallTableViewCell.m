@@ -46,7 +46,7 @@
 		self.responsesCollectionView.backgroundColor = RC_BACKGROUND_GRAY;
 		
 		UITapGestureRecognizer *tappedPreviewsGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPreviews)];
-		//[self.responsesCollectionView addGestureRecognizer:tappedPreviewsGesture];
+		[self.responsesCollectionView addGestureRecognizer:tappedPreviewsGesture];
 		
 		self.blackBar = [[UIView alloc] init];
 		self.blackBar.backgroundColor = [UIColor colorWithWhite:0.0 alpha:.6];
@@ -166,6 +166,20 @@
 }
 
 -(void)shareRollCall{
+	
+}
+
+//****************************************
+//****************************************
+#pragma mark - Notifications
+//****************************************
+//****************************************
+
+-(void)tappedPreviews{
+	
+	[[NSNotificationCenter defaultCenter]
+	 postNotificationName:@"TappedPreviews"
+	 object:self];
 	
 }
 

@@ -8,31 +8,51 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-RollCall-DBCamera.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods-RollCall-GPUImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>Pods-RollCall-MMRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-RollCall.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>17E700108B3A4E378CB2FDCB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5959BEB95570465FA7D2C195</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5B05BB024AFD412A9A3BB278</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +72,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>998A7FBFD6F24B0B8F43C356</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C99E211AA6AF40618014CF5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DB811B646E53435F86741393</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF6AF252E03F471B9BADA9F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
