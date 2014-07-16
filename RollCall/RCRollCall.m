@@ -8,6 +8,8 @@
 
 #import "RCRollCall.h"
 
+#import "RCRollCallRepresentation.h"
+
 @implementation RCRollCall
 
 @dynamic ended;
@@ -18,5 +20,9 @@
 @dynamic creator;
 @dynamic selfies;
 @dynamic group;
+
++ (Class)representationClass {
+    return [RCRollCallRepresentation class];
+}
 
 @end

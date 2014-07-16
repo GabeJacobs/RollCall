@@ -6,8 +6,10 @@
 //
 //
 
-#import "MMRecordRepresentation.h"
+#import "RCRepresentation.h"
 
-@interface RCUserRepresentation : MMRecordRepresentation
+@interface RCUserRepresentation : RCRepresentation
+
+
 
 @end

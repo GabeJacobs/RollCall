@@ -11,34 +11,40 @@
 #import "RCImage.h"
 #import "RCGroup.h"
 #import "RCUser.h"
+#import "RCRollCall.h"
 
 #import <MMRecord.h>
 
 @implementation RCRollCallRepresentation
 
-- (NSArray*)attributeDescriptions {
-    NSAttributeDescription* ended = [[NSAttributeDescription alloc] init];
-    [ended setName:@"ended"];
-    [ended setAttributeType:NSDateAttributeType];
-    [ended setAttributeValueClassName:NSStringFromClass([NSDate class])];
-    NSAttributeDescription* started = [ended copy];
-    [started setName:@"started"];
-    
-    NSAttributeDescription* text = [[NSAttributeDescription alloc] init];
-    [text setName:@"text"];
-    [text setAttributeType:NSStringAttributeType];
-    [text setAttributeValueClassName:NSStringFromClass([NSString class])];
-    [text.userInfo setValue:@"description"
-                     forKey:MMRecordAttributeAlternateNameKey];
-    
-    NSAttributeDescription* duration = [[NSAttributeDescription alloc] init];
-    [duration setName:@"duration"];
-    [duration setAttributeType:NSInteger64AttributeType];
-    [duration setAttributeValueClassName:NSStringFromClass([NSNumber class])];
-    NSAttributeDescription* rollCallID = [duration copy];
-    [rollCallID setName:@"rollCallID"];
-    
-    return @[ended, started, duration, text, rollCallID];
+- (NSEntityDescription*)entity {
+    return [NSEntityDescription entityForName:NSStringFromClass([RCRollCall class]) inManagedObjectContext:nil];
+}
+
+- (NSArray*)attributeNames {
+    return @[@"duration", @"ended", @"rollCallID", @"started", @"text"];
+}
+
+- (NSDictionary*)attributeTypes {
+    NSNumber* intAtt = @(NSInteger64AttributeType);
+    NSNumber* date = @(NSDateAttributeType);
+    NSNumber* string = @(NSStringAttributeType);
+    return @{@"duration": intAtt,
+             @"ended": date,
+             @"rollCallID": intAtt,
+             @"started": date,
+             @"text": string
+            };
+}
+
+- (NSDictionary*)alternateNames {
+    return @{@"rollCallID": @"id",
+             @"text": @"description"
+            };
+}
+
+- (NSString*)primaryKeyPropertyName {
+    return @"rollCallID";
 }
 
 - (NSArray*)relationshipDescriptions {

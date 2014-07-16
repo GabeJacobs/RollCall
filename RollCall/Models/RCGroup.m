@@ -7,6 +7,7 @@
 //
 
 #import "RCGroup.h"
+#import "RCGroupRepresentation.h"
 
 @implementation RCGroup
 
@@ -14,5 +15,9 @@
 @dynamic name;
 @dynamic lastActive;
 @dynamic groupID;
+
++ (Class)representationClass {
+    return [RCGroupRepresentation class];
+}
 
 @end

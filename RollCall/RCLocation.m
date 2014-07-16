@@ -8,9 +8,15 @@
 
 #import "RCLocation.h"
 
+#import "RCLocationRepresentation.h"
+
 @implementation RCLocation
 
 @dynamic latitude;
 @dynamic longitude;
+
++ (Class)representationClass {
+    return [RCLocationRepresentation class];
+}
 
 @end
