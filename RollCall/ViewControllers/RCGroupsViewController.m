@@ -66,7 +66,7 @@
 	self.navigationItem.leftBarButtonItem = backButton;
 	self.navigationItem.rightBarButtonItem = newGroupButton;
 
-	self.groupsTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width - 20, self.view.bounds.size.height - 10)];
+	self.groupsTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width - 20, self.view.bounds.size.height - 73)];
 	self.groupsTableView.separatorColor = [UIColor clearColor];
     self.groupsTableView.backgroundColor = RC_BACKGROUND_GRAY;
     self.groupsTableView.delegate = self;
