@@ -16,7 +16,7 @@
 
 @dynamic ended;
 @dynamic started;
-@dynamic text;
+@dynamic title;
 @dynamic duration;
 @dynamic rollCallID;
 @dynamic creator;

@@ -15,7 +15,7 @@
 // Attributes.
 @property (nonatomic) NSDate* ended;
 @property (nonatomic) NSDate* started;
-@property (nonatomic) NSString* text;  // Desciption - but that name can't be used with core data.
+@property (nonatomic) NSString* title;  // Desciption - but that name can't be used with core data.
 @property (nonatomic) NSNumber* duration; // Number of seconds? - ask David.
 @property (nonatomic) NSNumber* rollCallID;
 

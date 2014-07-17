@@ -10,10 +10,13 @@
 #import "RCRollCallTableViewCell.h"
 #import "RCResponsesViewController.h"
 
+#import "RCRollCall.h"
+
 @interface RCRollCallsViewController ()
 
 @property (nonatomic) UITableView* rollCallsTableView;
 @property (nonatomic) UIButton*	   startRollCallButton;
+@property (nonatomic) NSArray* rollCalls;
 
 
 @end
@@ -35,6 +38,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _rollCalls = [NSArray array];
 
 	self.view.backgroundColor = RC_BACKGROUND_GRAY;
 	
@@ -64,12 +69,30 @@
     self.rollCallsTableView.backgroundColor = RC_BACKGROUND_GRAY;
     self.rollCallsTableView.delegate = self;
     self.rollCallsTableView.dataSource = self;
-	[self.view addSubview:self.rollCallsTableView];}
+	[self.view addSubview:self.rollCallsTableView];
+    
+    [self loadData];
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadData {
+    [RCRollCall getRollCallsForGroup:nil withSuccessBlock:^(NSArray *rollCalls) {
+        self.rollCalls = rollCalls;
+        [self reloadTableData];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void)reloadTableData {
+    [self.rollCallsTableView performSelectorOnMainThread:@selector(reloadData)
+                                              withObject:nil
+                                           waitUntilDone:NO];
 }
 
 //****************************************
@@ -90,13 +113,13 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"MyReuseIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    RCRollCallTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
         cell = [[RCRollCallTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
     }
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	
-	//	[cell addDataToCell:data];
+	RCRollCall* rollCall = self.rollCalls[indexPath.row];
+	[cell setupWithRollCall:rollCall];
 	
     return cell;
 }
@@ -106,7 +129,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.rollCalls.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,8 +156,6 @@
 	// This is will be used to push the right group
 	
 	[self pushResponsesView];
-	
-	
 }
 
 

@@ -9,6 +9,8 @@
 #import "RCGroupTableViewCell.h"
 #import "RCGroupAvatarCollectionViewCell.h"
 
+#import "RCGroup.h"
+
 #define X_PADDIING 10.0f
 #define Y_PADDIING 10.0f
 
@@ -68,6 +70,10 @@
 
 - (void)addDataToCell:(NSDictionary *)data {
 	// REPLACE PLACEHOLDERS
+}
+
+- (void)setupCellWithGroup:(RCGroup*)group {
+    self.groupName.text = group.name;
 }
 
 //****************************************

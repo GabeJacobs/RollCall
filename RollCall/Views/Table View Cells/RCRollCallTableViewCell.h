@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class RCRollCall;
+
 @interface RCRollCallTableViewCell : UITableViewCell <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic) UILabel			*dateOfCreationLabel;
@@ -21,5 +23,7 @@
 @property (nonatomic) UIButton			*mapButton;
 @property (nonatomic) UIButton			*shareButton;
 @property (nonatomic) UIView			*seperator;
+
+- (void)setupWithRollCall:(RCRollCall*)rollCall;
 
 @end

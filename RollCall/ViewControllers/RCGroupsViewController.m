@@ -10,9 +10,11 @@
 #import "RCGroupTableViewCell.h"
 #import "RCRollCallsViewController.h"
 #import "RCNewGroupViewController.h"
+#import "RCGroup.h"
 
 @interface RCGroupsViewController ()
 
+@property (nonatomic) NSArray* groups;
 @property (nonatomic) UITableView* groupsTableView;
 
 @end
@@ -43,6 +45,8 @@
 	self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 
 	self.title = @"Groups";
+    
+    _groups = [NSArray array];
 	
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
 								  initWithTitle: @""
@@ -68,7 +72,8 @@
     self.groupsTableView.delegate = self;
     self.groupsTableView.dataSource = self;
 	[self.view addSubview:self.groupsTableView];
-
+    
+    [self loadData];
 }
 
 -(void)logout {
@@ -80,7 +85,21 @@
 	transition.subtype = kCATransitionFromLeft;
 	[self.navigationController.view.layer addAnimation:transition forKey:nil];
 	[self.navigationController popViewControllerAnimated:NO];
-	
+}
+
+- (void)loadData {
+    [RCGroup getGroupsWithSuccessBlock:^(NSArray *groups) {
+        self.groups = groups;
+        [self reloadTableData];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void)reloadTableData {
+    [self.groupsTableView performSelectorOnMainThread:@selector(reloadData)
+                                           withObject:nil
+                                        waitUntilDone:NO];
 }
 
 -(void)newGroup{
@@ -105,14 +124,15 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"MyReuseIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    RCGroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
         cell = [[RCGroupTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
     }
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-	//	[cell addDataToCell:data];
-
+    RCGroup* group = self.groups[indexPath.row];
+    [cell setupCellWithGroup:group];
+	
     return cell;
 }
 
@@ -121,7 +141,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.groups.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

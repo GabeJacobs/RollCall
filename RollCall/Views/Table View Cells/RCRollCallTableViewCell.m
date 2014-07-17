@@ -12,6 +12,10 @@
 #import "RCRollCallTableViewCell.h"
 #import "RCPreviewCollectionCell.h"
 
+#import "RCRollCall.h"
+
+static NSDateFormatter* RCRollCallDateFormatter;
+
 @implementation RCRollCallTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -83,6 +87,20 @@
 		
     }
     return self;
+}
+
+- (void)setupWithRollCall:(RCRollCall *)rollCall {
+    self.rollCallNameLabel.text = rollCall.title;
+    self.dateOfCreationLabel.text = [RCRollCallTableViewCell stringFromDate:rollCall.started];
+}
+
++ (NSString*)stringFromDate:(NSDate*)date {
+    if (!RCRollCallDateFormatter) {
+        RCRollCallDateFormatter = [[NSDateFormatter alloc] init];
+        RCRollCallDateFormatter.dateStyle = NSDateFormatterLongStyle;
+        RCRollCallDateFormatter.timeStyle = NSDateFormatterShortStyle;
+    }
+    return [RCRollCallDateFormatter stringFromDate:date];
 }
 
 - (void)awakeFromNib
