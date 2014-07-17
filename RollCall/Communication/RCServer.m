@@ -10,8 +10,6 @@
 #import "RCSession.h"
 #import <AFNetworking/AFNetworking.h>
 
-static BOOL kRCServerUsesLocalData = YES;
-
 @implementation RCServer
 
 + (void)startRequestWithURN:(NSString *)URN
@@ -22,8 +20,19 @@ static BOOL kRCServerUsesLocalData = YES;
               dispatchGroup:(dispatch_group_t)dispatchGroup
               responseBlock:(void (^)(id))responseBlock
                failureBlock:(void (^)(NSError *))failureBlock {
+    
     if (kRCServerUsesLocalData) {
-        responseBlock([self localJSONResponseForURN:URN]);
+        id responseObject = [self localJSONResponseForURN:URN];
+        if (responseObject) {
+            responseBlock(responseObject);
+        } else {
+            NSError* error =
+                [NSError errorWithDomain:[NSString stringWithFormat:
+                                            @"No local data for urn: %@", URN]
+                                    code:-1
+                                userInfo:nil];
+            failureBlock(error);
+        }
         return;
     }
     NSString* url = [kRCBaseUrl stringByAppendingPathExtension:URN];
@@ -41,6 +50,8 @@ static BOOL kRCServerUsesLocalData = YES;
     }];
 }
 
+// Local 'JSON' responses for URNs.
+// If you want these to be used instead of the server change kRCServerUsesLocalData to YES.
 + (id)localJSONResponseForURN:(NSString *)urn {
     if ([urn isEqualToString:@"groups"]) {
         return @[
@@ -63,8 +74,7 @@ static BOOL kRCServerUsesLocalData = YES;
                      @"datetime_last_activity": @"2014-07-04"
                   }
                  ];
-    }
-    else if ([urn isEqualToString:@"rollcalls"]) {
+    } else if ([urn isEqualToString:@"rollcalls"]) {
         return @[
                  @{
                      @"id": @(0),
@@ -88,11 +98,9 @@ static BOOL kRCServerUsesLocalData = YES;
                      @"description": @"YOLO POLO",
                   }
                  ];
-    }
-    else if ([urn isEqualToString:@"responses"]) {
+    } else if ([urn isEqualToString:@"responses"]) {
         return nil;
-    }
-    else if ([urn isEqualToString:@"image"]) {
+    } else if ([urn isEqualToString:@"image"]) {
         return nil;
     }
     NSAssert(NO, @"Create sample data to handle URN: %@", urn);

@@ -10,12 +10,19 @@
 
 @interface RCUser : RCRecord
 
-@property (nonatomic, strong) NSString* firstName;
-@property (nonatomic, strong) NSString* lastName;
-@property (nonatomic, strong) NSString* userID;
+// Attributes.
+@property (nonatomic) NSString* avatar;
+@property (nonatomic) NSString* firstName;
+@property (nonatomic) NSString* lastName;
 @property (nonatomic) NSDate* joined;
 @property (nonatomic) NSDate* lastActive;
-@property (nonatomic) NSString* avatar;
+@property (nonatomic) NSString* userID;
 @property (nonatomic) NSString* phoneNumber;
+
+// Relationships.
+@property (nonatomic) NSMutableSet* groups;
+@property (nonatomic) NSMutableSet* likes;
+@property (nonatomic) NSMutableSet* rollCalls;
+@property (nonatomic) NSMutableSet* selfies;
 
 @end

@@ -10,6 +10,7 @@
 
 @interface RCLocation : RCRecord
 
+// Attributes.
 @property (nonatomic) NSNumber* latitude;
 @property (nonatomic) NSNumber* longitude;
 

@@ -24,6 +24,7 @@
 @property (nonatomic) RCGroup* group;
 @property (nonatomic) RCUser* creator;
 
+// Functions.
 + (void)getRollCallsForGroup:(RCGroup*)group
             withSuccessBlock:(void (^)(NSArray *rollCalls))successBlock
                 failureBlock:(void (^)(NSError *error))failureBlock;

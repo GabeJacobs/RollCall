@@ -10,11 +10,17 @@
 
 @interface RCGroup : RCRecord
 
+// Attributes.
 @property (nonatomic) NSDate* created;
 @property (nonatomic) NSDate* lastActive;
 @property (nonatomic) NSString* name;
 @property (nonatomic) NSNumber* groupID;
 
+// Relationships.
+@property (nonatomic) NSMutableSet* rollCalls;
+@property (nonatomic) NSMutableSet* users;
+
+// Functions.
 + (void)getGroupsWithSuccessBlock:(void (^)(NSArray *groups))successBlock
                      failureBlock:(void (^)(NSError *error))errorBlock;
 

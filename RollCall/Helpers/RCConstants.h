@@ -17,4 +17,6 @@
 
 static NSString * const kRCBaseUrl = @"http://rollcallbe.herokuapp.com";
 
+static BOOL kRCServerUsesLocalData = YES;
+
 #endif

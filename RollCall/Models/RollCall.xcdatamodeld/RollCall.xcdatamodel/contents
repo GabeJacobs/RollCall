@@ -17,7 +17,7 @@
             </userInfo>
         </attribute>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="rollCalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGroup" syncable="YES">
+        <relationship name="rollCalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCRollCall" inverseName="group" inverseEntity="RCRollCall" syncable="YES">
             <userInfo>
                 <entry key="MMRecordAttributeAlternateNameKey" value="roll_calls"/>
             </userInfo>
@@ -90,12 +90,11 @@
             </userInfo>
         </attribute>
         <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="rollCalls" inverseEntity="RCUser" syncable="YES"/>
-        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGroup" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGroup" inverseName="rollCalls" inverseEntity="RCGroup" syncable="YES"/>
         <relationship name="selfies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCImage" inverseName="rollCall" inverseEntity="RCImage" syncable="YES"/>
     </entity>
     <entity name="RCUser" representedClassName="RCUser" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
                 <entry key="MMRecordAttributeAlternateNameKey" value="first_name"/>
@@ -137,6 +136,6 @@
         <element name="RCLike" positionX="-270" positionY="-378" width="128" height="103"/>
         <element name="RCLocation" positionX="-279" positionY="162" width="128" height="73"/>
         <element name="RCRollCall" positionX="-2" positionY="-297" width="128" height="163"/>
-        <element name="RCUser" positionX="-162" positionY="-243" width="128" height="223"/>
+        <element name="RCUser" positionX="-162" positionY="-243" width="128" height="208"/>
     </elements>
 </model>
