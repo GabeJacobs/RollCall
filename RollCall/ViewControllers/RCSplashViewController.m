@@ -10,12 +10,13 @@
 #import "RCNetworkManager.h"
 #import "RCSession.h"
 #import "RCSplashViewController.h"
+#import "RCRollCall.h"
 
 @interface RCSplashViewController ()
 
 @property (nonatomic) UIImageView*	backgroundView;
 @property (nonatomic) UIImageView*	logoView;
-@property (nonatomic) UIButton*		loginButton;
+@property (nonatomic) UIButton*     loginButton;
 @property (nonatomic) UIButton*		signupButton;
 @property (nonatomic) UIButton*		backButton;
 @property (nonatomic) BOOL			signingUp;
@@ -25,7 +26,7 @@
 @property (nonatomic) UITextField*	phoneFieldLogin;
 @property (nonatomic) UITextField*	passwordFieldLogin;
 
-@property (nonatomic) UIView*		signupWrapper;
+@property (nonatomic) UIView*       signupWrapper;
 @property (nonatomic) UITextField*	phoneFieldSignup;
 @property (nonatomic) UITextField*	firstNameFieldSignup;
 @property (nonatomic) UITextField*	lastNameFieldSignup;
@@ -89,6 +90,12 @@
 	
 	[self setupLoginFields];
 	[self setupSignupFields];
+    
+    [RCRollCall getRollCallsForGroup:nil withSuccessBlock:^(NSArray *rollCalls) {
+        NSLog(@"%@", rollCalls);
+    } failureBlock:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 #pragma mark - UI

@@ -15,5 +15,7 @@
 @property (nonatomic) NSString* name;
 @property (nonatomic) NSNumber* groupID;
 
++ (void)getGroupsWithSuccessBlock:(void (^)(NSArray *groups))successBlock
+                     failureBlock:(void (^)(NSError *error))errorBlock;
 
 @end

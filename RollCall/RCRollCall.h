@@ -23,4 +23,9 @@
 @property (nonatomic) NSMutableSet* selfies;
 @property (nonatomic) RCGroup* group;
 @property (nonatomic) RCUser* creator;
+
++ (void)getRollCallsForGroup:(RCGroup*)group
+            withSuccessBlock:(void (^)(NSArray *rollCalls))successBlock
+                failureBlock:(void (^)(NSError *error))failureBlock;
+
 @end

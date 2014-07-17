@@ -18,6 +18,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic) RCSplashViewController *splashViewController;
 
++ (NSManagedObjectContext*)mainManagedObjectContext;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

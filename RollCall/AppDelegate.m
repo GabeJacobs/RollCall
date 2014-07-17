@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <MMRecord/MMRecord.h>
 #import "RCServer.h"
+#import "RCRecord.h"
 #import "NSUserDefaults+MPSecureUserDefaults.h"
 
 static NSString * const kSecureNSUserDefaultsSecret = @"Clyd3@bow3rY3L3ctrIC";
@@ -19,7 +20,14 @@ static NSString * const kSecureNSUserDefaultsSecret = @"Clyd3@bow3rY3L3ctrIC";
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
++ (NSManagedObjectContext*)mainManagedObjectContext {
+    return [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [self setupMMRecord];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -33,13 +41,11 @@ static NSString * const kSecureNSUserDefaultsSecret = @"Clyd3@bow3rY3L3ctrIC";
     
     [NSUserDefaults setSecret:kSecureNSUserDefaultsSecret];
     
-    [self setupMMRecord];
-    
     return YES;
 }
 
 - (void)setupMMRecord {
-    [MMRecord registerServerClass:[RCServer class]];
+    [RCRecord registerServerClass:[RCServer class]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
