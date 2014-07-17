@@ -7,12 +7,16 @@
 //
 
 #import "RCResponsesViewController.h"
-#import "RCPreviewCollectionCell.h"
+#import "RCThumbnailCollectionCell.h"
 
 @interface RCResponsesViewController ()
 
 @property (nonatomic) UIImageView		*imageView;
 @property (nonatomic) UICollectionView	*responsesCollectionView;
+@property (nonatomic) UIView			*blackBar;
+@property (nonatomic) UILabel			*dateLabel;
+@property (nonatomic) UIButton			*heartButton;
+@property (nonatomic) NSIndexPath       *selectedCell;
 
 @end
 
@@ -58,7 +62,7 @@
 	[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
 	
 	self.responsesCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-	[self.responsesCollectionView registerClass:[RCPreviewCollectionCell class] forCellWithReuseIdentifier:@"previewCell"];
+	[self.responsesCollectionView registerClass:[RCThumbnailCollectionCell class] forCellWithReuseIdentifier:@"thumbnailCell"];
 	
 	self.responsesCollectionView.delegate = self;
 	self.responsesCollectionView.dataSource = self;
@@ -68,9 +72,32 @@
 	[self.view addSubview:self.responsesCollectionView];
 	self.responsesCollectionView.backgroundColor = [UIColor blackColor];
 	
+	self.selectedCell = [NSIndexPath indexPathForRow:0 inSection:0];
+	[self.responsesCollectionView selectItemAtIndexPath:self.selectedCell animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+	
 	UITapGestureRecognizer *tappedPreviewsGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPreviews)];
 	//[self.responsesCollectionView addGestureRecognizer:tappedPreviewsGesture];
     
+	self.blackBar= [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.imageView.frame) - 30, self.view.bounds.size.width, 30)];
+	self.blackBar.backgroundColor = [UIColor colorWithWhite:0.0 alpha:.6];
+	[self.view addSubview:self.blackBar];
+	
+	self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, self.blackBar.frame.origin.y, 200, self.blackBar.frame.size.height)];
+	self.dateLabel.font = [UIFont fontWithName:@"Avenir" size:14.0];
+	self.dateLabel.textColor = [UIColor whiteColor];
+	self.dateLabel.text = @"June 28th, 2014 at 3:45 PM";
+	[self.view addSubview:self.dateLabel];
+	
+	self.heartButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	self.heartButton.frame = CGRectMake(self.view.bounds.size.width - 25, self.blackBar.frame.origin.y, 20, self.blackBar.frame.size.height);
+	[self.heartButton setImage:[UIImage imageNamed:@"Heart"] forState:UIControlStateNormal];
+	self.heartButton.tag = 0;
+	[self.heartButton addTarget:self action:@selector(tappedHeart) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:self.heartButton];
+	
+
+
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,6 +106,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)tappedHeart{
+	if(self.heartButton.tag == 0){
+		[self.heartButton setImage:[UIImage imageNamed:@"RedHeart"] forState:UIControlStateNormal];
+		self.heartButton.tag = 1;
+	}
+	else{
+		[self.heartButton setImage:[UIImage imageNamed:@"Heart"] forState:UIControlStateNormal];
+		self.heartButton.tag = 0;
+
+	}
+}
 //****************************************
 //****************************************
 #pragma mark - Navigation
@@ -105,15 +143,45 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	
-    static NSString *cellIdentifier = @"previewCell";
+    static NSString *cellIdentifier = @"thumbnailCell";
 	
-    RCPreviewCollectionCell *cell = (RCPreviewCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    RCThumbnailCollectionCell *cell = (RCThumbnailCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 	
 	[cell addDataToCell];
+	
+	if(self.selectedCell == indexPath){
+		[cell hideBlackLayer];
+	}
+	else{
+		[cell unhideBlackLayer];
+	}
+	
     return cell;
 	
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+	
+	static NSString *cellIdentifier = @"thumbnailCell";
+	
+    RCThumbnailCollectionCell *cell = (RCThumbnailCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+	self.selectedCell = indexPath;
+	
+	[self.imageView setImage:cell.previewImageView.image];
+	[cell hideBlackLayer];
+	
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+	
+	static NSString *cellIdentifier = @"thumbnailCell";
+	
+	RCThumbnailCollectionCell *cell = (RCThumbnailCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+	
+	[cell unhideBlackLayer];
+
+		
+}
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(40, 50);
 }

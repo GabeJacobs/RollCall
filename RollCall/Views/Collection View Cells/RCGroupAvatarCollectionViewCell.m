@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
 		self.previewImageView = [[UIImageView alloc] init];
-		[self addSubview:self.previewImageView];
+		[self addSubview:self.previewImageView];		
     }
     return self;
 }
@@ -34,6 +34,5 @@
 	[self.previewImageView setImage:[UIImage imageNamed:fakeImage]];
 	
 }
-
 
 @end
