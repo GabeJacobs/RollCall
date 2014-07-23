@@ -90,12 +90,6 @@
 	
 	[self setupLoginFields];
 	[self setupSignupFields];
-    
-    [RCRollCall getRollCallsForGroup:nil withSuccessBlock:^(NSArray *rollCalls) {
-        NSLog(@"%@", rollCalls);
-    } failureBlock:^(NSError *error) {
-        NSLog(@"%@", error);
-    }];
 }
 
 #pragma mark - UI
@@ -338,13 +332,13 @@
     NSString* firstName = self.firstNameFieldSignup.text;
     NSString* lastName = self.lastNameFieldSignup.text;
     NSString* password = self.passwordFieldSignup.text;
+    // TODO(): add activity indicator before network call.
 	[RCNetworkManager signUpWithNumber:phone
                              firstName:firstName
                               lastName:lastName
                               password:password
                                success:^(RCUser *user) {
-	[self openCameraWithForceQuad];
-
+        [self openCameraWithForceQuad];
     } failure:^(NSError *error) {
         [[[UIAlertView alloc] initWithTitle:@"Sign Up Error"
                                     message:[error localizedDescription]

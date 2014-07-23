@@ -54,17 +54,17 @@
              @"Must pass valid phone number, first/last name, and password to this function");
     NSDictionary* params =
         @{
-          @"phone":phoneNumber,
-          @"first_name":firstName,
-          @"last_name":lastName,
+          @"phone_number":phoneNumber,
+          //@"first_name":firstName,
+          //@"last_name":lastName,
           @"password":password
         };
     AFHTTPRequestOperationManager* manager =
         [[AFHTTPRequestOperationManager alloc] init];
-    NSString* url = [kRCBaseUrl stringByAppendingPathComponent:@"/authentication"];
+    NSString* url = [kRCBaseUrl stringByAppendingPathComponent:@"/users.json"];
     // TODO(amadou): Remove this.
-    success(nil);
-    return;
+//    success(nil);
+//    return;
     [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // TODO(amadou): Turn the response object into an RCUser.
         // Save to core data.
