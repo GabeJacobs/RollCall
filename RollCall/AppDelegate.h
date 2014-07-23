@@ -19,6 +19,7 @@
 @property (nonatomic) RCSplashViewController *splashViewController;
 
 + (NSManagedObjectContext*)mainManagedObjectContext;
++ (void)saveContext;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

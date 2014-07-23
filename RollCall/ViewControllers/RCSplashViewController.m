@@ -134,7 +134,6 @@
 	self.passwordFieldLogin.secureTextEntry = YES;
 	self.passwordFieldLogin.tag = 2;
 	[self.loginWrapper addSubview:self.passwordFieldLogin];
-	
 }
 
 -(void)setupSignupFields{
@@ -420,7 +419,6 @@
 		
 		[UIView commitAnimations];
 	}
-	
 }
 
 //****************************************
@@ -429,8 +427,7 @@
 //****************************************
 //****************************************
 
-- (void) openCameraWithForceQuad
-{
+- (void) openCameraWithForceQuad {
     DBCameraViewController *cameraController = [DBCameraViewController initWithDelegate:self];
     [cameraController setForceQuadCrop:YES];
 	
@@ -440,13 +437,10 @@
 	
     [self.navigationController pushViewController:container animated:YES];
 	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-
 }
 
 
-- (void) camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata
-{
-	
+- (void) camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata {
 	[self pushGroupController];
 	NSMutableArray *vcs = [self.navigationController.viewControllers mutableCopy];
 	[vcs removeObjectAtIndex:[vcs count] - 2];

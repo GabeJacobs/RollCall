@@ -76,6 +76,10 @@ static NSString * const kSecureNSUserDefaultsSecret = @"Clyd3@bow3rY3L3ctrIC";
 	[self saveContext];
 }
 
++ (void)saveContext {
+    [(AppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
+}
+
 - (void)saveContext
 {
     NSError *error = nil;

@@ -17,5 +17,9 @@
 @dynamic lastActive;
 @dynamic phoneNumber;
 @dynamic joined;
+@dynamic likes;
+@dynamic selfies;
+@dynamic groups;
+@dynamic rollCalls;
 
 @end

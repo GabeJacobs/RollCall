@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Gabe Jacobs. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "RCSession.h"
 #import "NSUserDefaults+MPSecureUserDefaults.h"
 
@@ -112,10 +113,24 @@ static NSString * const kUserDefaultsLoggedInKey = @"UserDefaultsLoggedInKey";
 }
 
 // Fetches the user with the given ID. If it is not found - returns nil.
-+ (RCUser*)fetchSessionUserWithID:(NSNumber *)userID {
-    NSAssert(userID, @"+fetchSessionUserWithID userID cannot be nil");
-    // TODO(amadou): Should fetch the user here.
-    return nil;
++ (RCUser*)fetchSessionUserWithID:(NSString *)userID {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [AppDelegate mainManagedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([RCUser class])
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID ==  %@", userID];
+    [fetchRequest setPredicate:predicate];
+    fetchRequest.fetchLimit = 1;
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was no user found with fetch for ID %@", userID);
+        return nil;
+    }
+    return fetchedObjects.firstObject;
 }
 
 @end
