@@ -26,7 +26,6 @@
 		235FE60C1974A32C005CDF1C /* RCNewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235FE60B1974A32C005CDF1C /* RCNewGroupViewController.m */; };
 		239EBF3E19771B100075B3CB /* RCResponsesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 239EBF3D19771B100075B3CB /* RCResponsesViewController.m */; };
 		23D301A9197743DF00814C1E /* RCThumbnailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D301A8197743DF00814C1E /* RCThumbnailCollectionCell.m */; };
-		23F6850F19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F6850E19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m */; };
 		23F6851219709E0B009C2F56 /* RCRollCallsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F6851119709E0B009C2F56 /* RCRollCallsViewController.m */; };
 		23F685151970A633009C2F56 /* RCRollCallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F685141970A633009C2F56 /* RCRollCallTableViewCell.m */; };
 		23F685181970A67E009C2F56 /* RCPreviewCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */; };
@@ -84,8 +83,6 @@
 		239EBF3D19771B100075B3CB /* RCResponsesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCResponsesViewController.m; sourceTree = "<group>"; };
 		23D301A7197743DF00814C1E /* RCThumbnailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCThumbnailCollectionCell.h; sourceTree = "<group>"; };
 		23D301A8197743DF00814C1E /* RCThumbnailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCThumbnailCollectionCell.m; sourceTree = "<group>"; };
-		23F6850D19709274009C2F56 /* RCGroupAvatarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCGroupAvatarCollectionViewCell.h; path = "Views/Collection View Cells/RCGroupAvatarCollectionViewCell.h"; sourceTree = "<group>"; };
-		23F6850E19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGroupAvatarCollectionViewCell.m; path = "Views/Collection View Cells/RCGroupAvatarCollectionViewCell.m"; sourceTree = "<group>"; };
 		23F6851019709E0B009C2F56 /* RCRollCallsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRollCallsViewController.h; path = ViewControllers/RCRollCallsViewController.h; sourceTree = "<group>"; };
 		23F6851119709E0B009C2F56 /* RCRollCallsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRollCallsViewController.m; path = ViewControllers/RCRollCallsViewController.m; sourceTree = "<group>"; };
 		23F685131970A633009C2F56 /* RCRollCallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRollCallTableViewCell.h; path = "Views/Table View Cells/RCRollCallTableViewCell.h"; sourceTree = "<group>"; };
@@ -172,8 +169,6 @@
 		2315C0A319703D0A00ABA433 /* Collection View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				23F6850D19709274009C2F56 /* RCGroupAvatarCollectionViewCell.h */,
-				23F6850E19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m */,
 				23F685161970A67E009C2F56 /* RCPreviewCollectionCell.h */,
 				23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */,
 				23D301A7197743DF00814C1E /* RCThumbnailCollectionCell.h */,
@@ -510,7 +505,6 @@
 				C8E6EC98196CFB2200DAEE73 /* RCLocationManager.m in Sources */,
 				2315C0A919703E1600ABA433 /* RCGroupTableViewCell.m in Sources */,
 				C8E6ECB7196FA6CF00DAEE73 /* NSUserDefaults+MPSecureUserDefaults.m in Sources */,
-				23F6850F19709274009C2F56 /* RCGroupAvatarCollectionViewCell.m in Sources */,
 				C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */,
 				C8E6EC99196CFB2200DAEE73 /* RCNetworkManager.m in Sources */,
 				C8E6EC9D196CFB3600DAEE73 /* RCSession.m in Sources */,

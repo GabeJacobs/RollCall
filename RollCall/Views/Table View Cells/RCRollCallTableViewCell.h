@@ -24,6 +24,7 @@
 @property (nonatomic) UIButton			*shareButton;
 @property (nonatomic) UIView			*seperator;
 
+
 - (void)setupWithRollCall:(RCRollCall*)rollCall;
 
 @end

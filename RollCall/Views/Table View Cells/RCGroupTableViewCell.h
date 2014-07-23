@@ -10,12 +10,15 @@
 
 @class RCGroup;
 
-@interface RCGroupTableViewCell : UITableViewCell <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface RCGroupTableViewCell : UITableViewCell
 
 @property (nonatomic) UILabel			*groupName;
-@property (nonatomic) UICollectionView	*avatarsCollectionView;
 @property (nonatomic) UIView			*seperator;
 @property (nonatomic) UIButton			*startCallButton;
+@property (nonatomic) UIButton			*replyButton;
+@property (nonatomic) UIImageView		*clockIcon;
+@property (nonatomic) UILabel			*timeLabel;
+@property (nonatomic) BOOL				hasCurrentCall;
 
 - (void)setupCellWithGroup:(RCGroup*)group;
 

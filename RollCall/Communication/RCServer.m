@@ -57,19 +57,19 @@
         return @[
                  @{
                      @"id": @(0),
-                     @"name": @"ROLLCALL",
+                     @"name": @"Roll Call",
                      @"datetime_created": @"2014-07-04",
                      @"datetime_last_activity": @"2014-07-04"
                   },
                  @{
                      @"id": @(1),
-                     @"name": @"TUFTS",
+                     @"name": @"Tufts",
                      @"datetime_created": @"2014-07-04",
                      @"datetime_last_activity": @"2014-07-04"
                   },
                  @{
                      @"id": @(2),
-                     @"name": @"YALE",
+                     @"name": @"Yale",
                      @"datetime_created": @"2014-07-04",
                      @"datetime_last_activity": @"2014-07-04"
                   }

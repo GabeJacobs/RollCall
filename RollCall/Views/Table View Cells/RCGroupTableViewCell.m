@@ -7,7 +7,6 @@
 //
 
 #import "RCGroupTableViewCell.h"
-#import "RCGroupAvatarCollectionViewCell.h"
 
 #import "RCGroup.h"
 
@@ -21,45 +20,60 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.groupName = [[UILabel alloc] init];
-		self.groupName.font = [UIFont fontWithName:@"Avenir-Book" size:16.0];
+		self.groupName.font = [UIFont fontWithName:@"Avenir-Heavy" size:20.0];
 		self.groupName.textAlignment = NSTextAlignmentCenter;
 		self.groupName.text = @"Roll Call iOS Dev Team";
 		self.groupName.textColor = RC_DARKER_GRAY;
 		[self addSubview:self.groupName];
 		
-		UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-		[flowLayout setItemSize:CGSizeMake(200, 200)];
-		[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-		
-		self.avatarsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-		[self.avatarsCollectionView registerClass:[RCGroupAvatarCollectionViewCell class] forCellWithReuseIdentifier:@"avatarCell"];
 
-		self.avatarsCollectionView.delegate = self;
-		self.avatarsCollectionView.dataSource = self;
-		[self addSubview:self.avatarsCollectionView];
-		self.avatarsCollectionView.backgroundColor = RC_BACKGROUND_GRAY;
-		
-		UITapGestureRecognizer *tappedAvatarGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedAvatars)];
-		[self.avatarsCollectionView addGestureRecognizer:tappedAvatarGesture];
-		
 		self.seperator = [[UIView alloc] init];
 		self.seperator.backgroundColor = RC_DARKER_GRAY;
 		[self addSubview:self.seperator];
 		
+		
+		
+		self.clockIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Clock"]];
+		[self addSubview:self.clockIcon];
+		
+		self.timeLabel = [[UILabel alloc] init];
+		self.timeLabel.font = [UIFont fontWithName:@"Avenir" size:15.0];
+		self.timeLabel.text = @"24 mins left";
+		self.timeLabel.textColor = RC_DARKER_GRAY;
+		[self addSubview:self.timeLabel];
+		
 		self.startCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		UIImage *startCallImage = [UIImage imageNamed:@"StartCall"];
+		UIImage *startCallImage = [UIImage imageNamed:@"StartRollCall"];
 		[self.startCallButton setImage:startCallImage forState:UIControlStateNormal];
 		self.startCallButton.frame = CGRectMake(0, 0, startCallImage.size.width, startCallImage.size.height);
 		[self addSubview:self.startCallButton];
+		self.startCallButton.hidden = YES;
+		
+		self.replyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		UIImage *replyImage = [UIImage imageNamed:@"ReplyButton"];
+		[self.replyButton setImage:replyImage forState:UIControlStateNormal];
+		self.replyButton.frame = CGRectMake(0, 0, replyImage.size.width, replyImage.size.height);
+		[self addSubview:self.replyButton];
+		self.replyButton.hidden = YES;
+		
     }
     return self;
 }
 
 - (void)layoutSubviews {
 	self.groupName.frame = CGRectMake(X_PADDIING, Y_PADDIING, self.contentView.frame.size.width - (X_PADDIING * 2), 30);
-	self.avatarsCollectionView.frame = CGRectMake(X_PADDIING, Y_PADDIING + CGRectGetMaxY(self.groupName.frame), self.frame.size.width - (X_PADDIING * 2), 100);
-	self.seperator.frame = CGRectMake(X_PADDIING*2 , self.frame.size.height - 1 , self.frame.size.width - (X_PADDIING * 4), 1);
-	self.startCallButton.frame = CGRectMake(self.bounds.size.width/2 - self.startCallButton.frame.size.width/2, CGRectGetMaxY(self.avatarsCollectionView.frame) + Y_PADDIING, self.startCallButton.frame.size.width, self.startCallButton.frame.size.height);
+	[self.groupName sizeToFit];
+	
+	self.clockIcon.frame = CGRectMake(X_PADDIING, CGRectGetMaxY(self.groupName.frame) + Y_PADDIING, 15, 15);
+	self.seperator.frame = CGRectMake(0 , self.frame.size.height - 1 , self.frame.size.width, 1);
+	self.timeLabel.frame = CGRectMake(CGRectGetMaxX(self.clockIcon.frame) + X_PADDIING, self.clockIcon.frame.origin.y, 100, self.clockIcon.frame.size.height);
+	[self.timeLabel sizeToFit];
+	self.timeLabel.center = CGPointMake(self.timeLabel.center.x, self.clockIcon.center.y);
+	self.startCallButton.frame = CGRectMake(CGRectGetMaxX(self.frame) - X_PADDIING - self.startCallButton.frame.size.width + 5, self.frame.size.height/2 - self.startCallButton.frame.size.height/2, self.startCallButton.frame.size.width, self.startCallButton.frame.size.height);
+	
+	self.replyButton.frame = CGRectMake(CGRectGetMaxX(self.frame) - X_PADDIING - self.replyButton.frame.size.width + 5, self.frame.size.height/2 - self.replyButton.frame.size.height/2, self.replyButton.frame.size.width, self.replyButton.frame.size.height);
+	self.replyButton.center = CGPointMake(self.startCallButton.center.x, self.replyButton.center.y);
+	
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -74,39 +88,12 @@
 
 - (void)setupCellWithGroup:(RCGroup*)group {
     self.groupName.text = group.name;
-}
-
-//****************************************
-//****************************************
-#pragma mark - UICollectionView Datasource/Delegate
-//****************************************
-//****************************************
-
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return 5;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-	
-    static NSString *cellIdentifier = @"avatarCell";
-	
-    RCGroupAvatarCollectionViewCell *cell = (RCGroupAvatarCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-	
-	[cell addDataToCell];
-    return cell;
-	
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(70, 100);
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-	return 1;
+	if([group.name isEqual:@"Roll Call"]){
+		self.replyButton.hidden = NO;
+	}
+	else{
+		self.startCallButton.hidden = NO;
+	}
 }
 
 //****************************************
