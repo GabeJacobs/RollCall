@@ -12,6 +12,8 @@
 
 @implementation RCServer
 
+static BOOL kRCServerUsesLocalData = NO;
+
 + (void)startRequestWithURN:(NSString *)URN
                        data:(NSDictionary *)params
                       paged:(BOOL)paged
@@ -35,13 +37,14 @@
         }
         return;
     }
-    NSString* url = [kRCBaseUrl stringByAppendingPathExtension:URN];
+    NSString* url = [kRCBaseUrl stringByAppendingPathComponent:URN];
     AFHTTPRequestOperationManager *manager =
         [AFHTTPRequestOperationManager manager];
     AFHTTPRequestSerializer *requestSerializer =
-        [AFHTTPRequestSerializer serializer];
+        [AFJSONRequestSerializer serializer];
     [requestSerializer setValue:[RCSession accessToken] forHTTPHeaderField:@"auth_token"];
     manager.requestSerializer = requestSerializer;
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         responseBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

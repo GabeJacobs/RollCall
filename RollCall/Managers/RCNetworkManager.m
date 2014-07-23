@@ -108,6 +108,7 @@ static NSString * const kRCAuthResponsePhoneNumberKey = @"phone_number";
     [manager GET:url parameters:params
     success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         RCUser *user = [RCNetworkManager startSessionFromAuthResponse:responseObject];
+        // TODO(amadou): Remove the below line once server sends user info.
         success(user);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);

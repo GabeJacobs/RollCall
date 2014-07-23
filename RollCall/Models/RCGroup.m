@@ -15,11 +15,13 @@
 @dynamic name;
 @dynamic lastActive;
 @dynamic groupID;
+@dynamic users;
+@dynamic rollCalls;
 
 + (void)getGroupsWithSuccessBlock:(void (^)(NSArray *tweets))successBlock
                      failureBlock:(void (^)(NSError *error))errorBlock {
     NSManagedObjectContext *context = [AppDelegate mainManagedObjectContext];
-    [RCGroup startRequestWithURN:@"groups"
+    [RCGroup startRequestWithURN:@"/groups"
                             data:nil
                          context:context
                           domain:nil

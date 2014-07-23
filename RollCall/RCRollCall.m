@@ -28,7 +28,7 @@
                 failureBlock:(void (^)(NSError *))failureBlock {
     NSManagedObjectContext* context = [AppDelegate mainManagedObjectContext];
     // TODO(amadou): Use the group id in the url or data params.
-    [RCRollCall startRequestWithURN:@"rollcalls"
+    [RCRollCall startRequestWithURN:@"/rollcalls"
                                data:nil
                             context:context
                              domain:nil

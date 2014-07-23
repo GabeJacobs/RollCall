@@ -36,8 +36,7 @@
 
 @implementation RCSplashViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -321,8 +320,16 @@
 
 #pragma mark - verify Info
 
-- (void)verifyLoginInfo{
-	[self pushGroupController];
+- (void)verifyLoginInfo {
+    NSString* phone = self.phoneFieldLogin.text;
+    NSString* password = self.passwordFieldLogin.text;
+    [RCNetworkManager loginWithNumber:phone
+                             password:password
+    success:^(RCUser *user) {
+        [self pushGroupController];
+    } failure:^(NSError *error) {
+        NSLog(@"verifyLoginInfo Error: %@", error);
+    }];
 }
 
 - (void)verifySignupInfo {
