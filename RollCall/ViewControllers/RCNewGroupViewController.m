@@ -294,8 +294,7 @@
 -(void)createGroup{
 
 	NSAssert(self.numbersForGroup.count > 0, @"why no numbas");
-	// send this guy server
-	// self.numbersForGroup;
+	// TODO: senf self.numbersForGoup and self.groupNameLabel.text
 }
 
 @end
