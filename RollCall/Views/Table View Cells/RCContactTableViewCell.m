@@ -63,6 +63,15 @@
 
 
 -(void)contactTouched{
+	
+	[[NSNotificationCenter defaultCenter]
+	 postNotificationName:@"TappedContact"
+	 object:self];
+	
+}
+
+-(void)changeContactButton{
+	
 	if(self.contactSelected){
 		[self.selectButton setImage:[UIImage imageNamed:@"contactUnselected"] forState:UIControlStateNormal];
 		self.contactSelected = NO;
@@ -73,16 +82,9 @@
 	}
 }
 
+
 - (void)addDataToCell:(NSDictionary *)data {
 	// REPLACE PLACEHOLDERS
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-	[self contactTouched];
-	
-	[[NSNotificationCenter defaultCenter]
-	 postNotificationName:@"TappedContact"
-	 object:self];
 }
 
 

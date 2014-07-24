@@ -17,6 +17,6 @@
 @property (nonatomic) ABRecordRef contact;
 
 -(void)populateWithContact:(ABRecordRef)contact;
--(void)contactTouched;
+-(void)changeContactButton;
 
 @end

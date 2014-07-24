@@ -22,6 +22,10 @@
 @property (nonatomic) NSMutableArray	*numbersForGroup;
 @property (nonatomic) UIButton			*createGroupButton;
 @property (nonatomic) BOOL				canCreateGroup;
+@property (nonatomic) UILabel			*createGroupLabel;
+@property (nonatomic) UIImageView		*peopleSymbolView;
+@property (nonatomic) UILabel			*personCountLabel;
+
 
 @end
 
@@ -100,10 +104,33 @@
 	self.createGroupButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	self.createGroupButton.frame = CGRectMake(0, CGRectGetMaxY(self.view.frame) - 120, self.view.bounds.size.width, 60);
 	[self.createGroupButton addTarget:self action:@selector(createGroup) forControlEvents:UIControlEventTouchUpInside];
-	//self.createGroupButton.userInteractionEnabled = NO;
+	self.createGroupButton.userInteractionEnabled = NO;
 	self.createGroupButton.backgroundColor = RC_BACKGROUND_GRAY;
 	[self.view addSubview:self.createGroupButton];
+	
+	self.createGroupLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+	
+	self.createGroupLabel.backgroundColor = [UIColor clearColor];
+	self.createGroupLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:22.0f];
+	self.createGroupLabel.textColor = [UIColor whiteColor];
+	self.createGroupLabel.text = @"CREATE GROUP";
+	[self.createGroupLabel sizeToFit];
+	self.createGroupLabel.center = CGPointMake(self.createGroupButton.center.x + 3, self.createGroupButton.center.y);
+	[self.view addSubview:self.createGroupLabel];
 
+	self.peopleSymbolView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LittleGuy"]];
+	self.peopleSymbolView.backgroundColor = [UIColor clearColor];
+	self.peopleSymbolView.center = CGPointMake(self.createGroupLabel.center.x - 145, self.createGroupLabel.center.y + 3);
+	[self.view addSubview:self.peopleSymbolView];
+	
+	self.personCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+	self.personCountLabel.backgroundColor = [UIColor clearColor];
+	self.personCountLabel.font = [UIFont fontWithName:@"Avenir" size:12.0f];
+	self.personCountLabel.textColor = [UIColor whiteColor];
+	self.personCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.numbersForGroup.count];
+	[self.personCountLabel sizeToFit];
+	self.personCountLabel.center = CGPointMake(self.peopleSymbolView.center.x + 10, self.peopleSymbolView.center.y - 9);
+	[self.view addSubview:self.personCountLabel];
     // Do any additional setup after loading the view.
 }
 
@@ -132,8 +159,9 @@
 		// The user has previously denied access
 		// Send an alert telling user to change privacy setting in settings app
 	}
-	
-	self.contactsCount = CFArrayGetCount(self.allPeople);
+	if(self.allPeople){
+		self.contactsCount = CFArrayGetCount(self.allPeople);
+	}
 }
 - (void)didReceiveMemoryWarning
 {
@@ -146,8 +174,15 @@
 }
 
 -(void)checkIfCanCreateGroup{
-	if(self.numbersForGroup.count > 0){
+	if(self.numbersForGroup.count > 0 && ![self.groupNameField.text isEqual:@""]){
 		self.canCreateGroup = YES;
+		self.createGroupButton.backgroundColor = [UIColor colorWithRed:63.0f/255.0f green:152.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+		self.createGroupButton.userInteractionEnabled = YES;
+	}
+	else{
+		self.canCreateGroup = NO;
+		self.createGroupButton.backgroundColor = RC_BACKGROUND_GRAY;
+		self.createGroupButton.userInteractionEnabled = NO;
 	}
 }
 
@@ -164,14 +199,10 @@
 	return YES;
 }
 
--(BOOL) textFieldShouldBeginEditing:(UITextField *)textField{
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField{
 	
-	if (textField.text.length > 0) {
-		[self checkIfCanCreateGroup];
-	}
-	else{
-		self.canCreateGroup = NO;
-	}
+	[self checkIfCanCreateGroup];
+	
 	return YES;
 }
 
@@ -187,7 +218,8 @@
     if (cell == nil) {
         cell = [[RCContactTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
     }
-	//cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	
 	ABRecordRef person = CFArrayGetValueAtIndex(self.allPeople, indexPath.row );
 
 	[cell populateWithContact:person];
@@ -198,18 +230,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	RCContactTableViewCell *cell = (RCContactTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-	[cell contactTouched];
-	ABRecordRef person = cell.contact;
-	NSString *phoneNumber = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonPhoneProperty));
-
-	if(cell.contactSelected) {
-		[self.numbersForGroup addObject:phoneNumber];
-	}
-	else{
-		if([self.numbersForGroup containsObject:phoneNumber]){
-			[self.numbersForGroup removeObject:phoneNumber];
-		}
-	}
+	[self contactCellTapped:cell];
 
 }
 
@@ -228,10 +249,31 @@
 - (void)recieveContactTapNotification:(NSNotification *) notification {
 	
 	RCContactTableViewCell *cell = (RCContactTableViewCell *)[notification object];
-	[cell contactTouched];
+	[self contactCellTapped:cell];
+
 	
+}
+
+
+-(void)contactCellTapped:(RCContactTableViewCell*)cell{
+	
+	[cell changeContactButton];
+
 	ABRecordRef person = cell.contact;
-	NSString *phoneNumber = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonPhoneProperty));
+	
+	NSString *phone = @"";
+	NSString *phoneNumber = @"";
+	
+	ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    for(CFIndex j = 0; j < ABMultiValueGetCount(phones); j++)
+    {
+		phone = @""; // ???
+        CFStringRef phoneNumberRef = ABMultiValueCopyValueAtIndex(phones, j);
+        phoneNumber = (__bridge NSString *)phoneNumberRef;
+    }
+	
+	NSCharacterSet *charactersToRemove = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
+	phoneNumber = [[phoneNumber componentsSeparatedByCharactersInSet:charactersToRemove] componentsJoinedByString:@""];
 	
 	if(cell.contactSelected) {
 		[self.numbersForGroup addObject:phoneNumber];
@@ -241,13 +283,19 @@
 			[self.numbersForGroup removeObject:phoneNumber];
 		}
 	}
-	// This is will be used to push the right group
 	
+	[self checkIfCanCreateGroup];
+	
+	self.personCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.numbersForGroup.count];
+
 	
 }
+
 -(void)createGroup{
-	
-	self.numbersForGroup;
+
+	NSAssert(self.numbersForGroup.count > 0, @"why no numbas");
+	// send this guy server
+	// self.numbersForGroup;
 }
 
 @end

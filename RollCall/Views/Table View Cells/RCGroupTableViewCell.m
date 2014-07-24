@@ -48,6 +48,7 @@
 		UIImage *startCallImage = [UIImage imageNamed:@"StartRollCall"];
 		[self.startCallButton setImage:startCallImage forState:UIControlStateNormal];
 		self.startCallButton.frame = CGRectMake(0, 0, startCallImage.size.width, startCallImage.size.height);
+		[self.startCallButton addTarget:self action:@selector(startRollCall) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:self.startCallButton];
 		self.startCallButton.hidden = YES;
 		
@@ -117,6 +118,10 @@
 	[[NSNotificationCenter defaultCenter]
 	 postNotificationName:@"TappedAvatar"
 	 object:self];
+	
+}
+
+-(void)startRollCall{
 	
 }
 
