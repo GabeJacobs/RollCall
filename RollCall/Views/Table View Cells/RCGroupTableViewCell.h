@@ -14,6 +14,7 @@
 
 @property (nonatomic) UILabel			*groupName;
 @property (nonatomic) UIView			*seperator;
+@property (nonatomic) UIView			*horizontalSeperator;
 @property (nonatomic) UIButton			*startCallButton;
 @property (nonatomic) UIButton			*replyButton;
 @property (nonatomic) UIImageView		*clockIcon;

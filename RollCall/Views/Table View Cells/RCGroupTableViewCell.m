@@ -31,7 +31,9 @@
 		self.seperator.backgroundColor = RC_DARKER_GRAY;
 		[self addSubview:self.seperator];
 		
-		
+		self.horizontalSeperator = [[UIView alloc] init];
+		self.horizontalSeperator.backgroundColor = RC_DARKER_GRAY;
+		[self addSubview:self.horizontalSeperator];
 		
 		self.clockIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Clock"]];
 		[self addSubview:self.clockIcon];
@@ -56,6 +58,7 @@
 		[self addSubview:self.replyButton];
 		self.replyButton.hidden = YES;
 		
+		
     }
     return self;
 }
@@ -69,10 +72,17 @@
 	self.timeLabel.frame = CGRectMake(CGRectGetMaxX(self.clockIcon.frame) + X_PADDIING, self.clockIcon.frame.origin.y, 100, self.clockIcon.frame.size.height);
 	[self.timeLabel sizeToFit];
 	self.timeLabel.center = CGPointMake(self.timeLabel.center.x, self.clockIcon.center.y);
-	self.startCallButton.frame = CGRectMake(CGRectGetMaxX(self.frame) - X_PADDIING - self.startCallButton.frame.size.width + 5, self.frame.size.height/2 - self.startCallButton.frame.size.height/2, self.startCallButton.frame.size.width, self.startCallButton.frame.size.height);
 	
-	self.replyButton.frame = CGRectMake(CGRectGetMaxX(self.frame) - X_PADDIING - self.replyButton.frame.size.width + 5, self.frame.size.height/2 - self.replyButton.frame.size.height/2, self.replyButton.frame.size.width, self.replyButton.frame.size.height);
+	self.startCallButton.frame = CGRectMake(CGRectGetMaxX(self.frame) - X_PADDIING*1.5 - self.startCallButton.frame.size.width + 5, self.frame.size.height/2 - self.startCallButton.frame.size.height/2, self.startCallButton.frame.size.width, self.startCallButton.frame.size.height);
+	
+	self.replyButton.frame = CGRectMake(CGRectGetMaxX(self.frame) - X_PADDIING*1.5 - self.replyButton.frame.size.width + 5, self.frame.size.height/2 - self.replyButton.frame.size.height/2, self.replyButton.frame.size.width, self.replyButton.frame.size.height);
 	self.replyButton.center = CGPointMake(self.startCallButton.center.x, self.replyButton.center.y);
+
+	
+	self.horizontalSeperator.frame = CGRectMake( CGRectGetMinX(self.startCallButton.frame) - X_PADDIING*2, 0, 1, self.frame.size.height - Y_PADDIING *2 - 10);
+	self.horizontalSeperator.center = CGPointMake(self.horizontalSeperator.center.x, self.startCallButton.center.y);
+	
+	
 	
 }
 

@@ -12,7 +12,7 @@
 
 @implementation RCServer
 
-static BOOL kRCServerUsesLocalData = NO;
+static BOOL kRCServerUsesLocalData = YES;
 
 + (void)startRequestWithURN:(NSString *)URN
                        data:(NSDictionary *)params
@@ -56,7 +56,7 @@ static BOOL kRCServerUsesLocalData = NO;
 // Local 'JSON' responses for URNs.
 // If you want these to be used instead of the server change kRCServerUsesLocalData to YES.
 + (id)localJSONResponseForURN:(NSString *)urn {
-    if ([urn isEqualToString:@"groups"]) {
+    if ([urn isEqualToString:@"/groups"]) {
         return @[
                  @{
                      @"id": @(0),
@@ -77,7 +77,7 @@ static BOOL kRCServerUsesLocalData = NO;
                      @"datetime_last_activity": @"2014-07-04"
                   }
                  ];
-    } else if ([urn isEqualToString:@"rollcalls"]) {
+    } else if ([urn isEqualToString:@"/rollcalls"]) {
         return @[
                  @{
                      @"id": @(0),

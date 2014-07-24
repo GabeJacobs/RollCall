@@ -321,6 +321,10 @@
 #pragma mark - verify Info
 
 - (void)verifyLoginInfo {
+	
+	[self pushGroupController];
+
+	/*
     NSString* phone = self.phoneFieldLogin.text;
     NSString* password = self.passwordFieldLogin.text;
     [RCNetworkManager loginWithNumber:phone
@@ -330,6 +334,7 @@
     } failure:^(NSError *error) {
         NSLog(@"verifyLoginInfo Error: %@", error);
     }];
+	 */
 }
 
 - (void)verifySignupInfo {
