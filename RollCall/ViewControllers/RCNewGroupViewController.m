@@ -8,14 +8,20 @@
 
 #import "RCNewGroupViewController.h"
 #import <AddressBook/AddressBook.h>
+#import "RCContactTableViewCell.h"
 
 @interface RCNewGroupViewController ()
 
-@property (nonatomic) UIView*		nameWrapper;
-@property (nonatomic) UITextField*	groupNameField;
-@property (nonatomic) UITableView*	contactsTableView;
-@property (nonatomic) NSInteger		contactsCount;
-@property (nonatomic) CFArrayRef	allPeople;
+@property (nonatomic) UIView*			nameBackground;
+@property (nonatomic) UIView*			nameWrapper;
+@property (nonatomic) UITextField*		groupNameField;
+@property (nonatomic) UITableView*		contactsTableView;
+@property (nonatomic) NSInteger			contactsCount;
+@property (nonatomic) CFArrayRef		allPeople;
+@property (nonatomic) UILabel			*groupNameLabel;
+@property (nonatomic) NSMutableArray	*numbersForGroup;
+@property (nonatomic) UIButton			*createGroupButton;
+@property (nonatomic) BOOL				canCreateGroup;
 
 @end
 
@@ -26,6 +32,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		[self getContactsWithRollCall];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self
+												 selector:@selector(recieveContactTapNotification:)
+													 name:@"TappedContact"
+												   object:nil];
 
     }
     return self;
@@ -34,6 +45,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	self.numbersForGroup = [[NSMutableArray alloc] init];
 	
 	self.view.backgroundColor = RC_BACKGROUND_GRAY;
 	
@@ -53,23 +66,43 @@
 	
 	self.navigationItem.leftBarButtonItem = backButton;
 	
-	self.nameWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
-	self.nameWrapper.backgroundColor = [UIColor whiteColor];
-	[self.view addSubview:self.nameWrapper];
+	self.nameBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 85)];
+	self.nameBackground.backgroundColor = RC_DARKER_GRAY;
+	[self.view addSubview:self.nameBackground];
 	
-	self.groupNameField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, self.nameWrapper.bounds.size.width - 10, self.nameWrapper.frame.size.height)];
-	self.groupNameField.backgroundColor = [UIColor clearColor];
-	self.groupNameField.placeholder = @"Group Name";
+	self.groupNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 100, 30)];
+	self.groupNameLabel.backgroundColor = [UIColor clearColor];
+	self.groupNameLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:14.0f];
+	self.groupNameLabel.textColor = [UIColor whiteColor];
+	self.groupNameLabel.text = @"Group Name:";
+	[self.groupNameLabel sizeToFit];
+	[self.nameBackground addSubview:self.groupNameLabel];
+
+	self.groupNameField = [[UITextField alloc] initWithFrame:CGRectMake(17, self.nameBackground.frame.size.height/2 - self.nameBackground.frame.size.height/4 + 10, self.nameBackground.bounds.size.width - 32, self.nameBackground.frame.size.height/2)];
+	self.groupNameField.backgroundColor = [UIColor whiteColor];
 	self.groupNameField.font = [UIFont fontWithName:@"Avenir" size:16.0];
 	self.groupNameField.delegate = self;
-	[self.nameWrapper addSubview:self.groupNameField];
 	
-	self.contactsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 50, self.view.bounds.size.width, self.view.bounds.size.height)];
+	self.nameWrapper = [[UIView alloc] initWithFrame:self.groupNameField.frame];
+	self.nameWrapper.layer.cornerRadius = 4.0;
+	self.nameWrapper.frame = CGRectMake(10, self.nameWrapper.frame.origin.y, self.nameWrapper.frame.size.width + 10, self.nameWrapper.frame.size.height);
+	self.nameWrapper.backgroundColor = [UIColor whiteColor];
+	[self.nameBackground addSubview:self.nameWrapper];
+	[self.nameBackground addSubview:self.groupNameField];
+	
+
+	self.contactsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 85, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.contactsTableView.delegate = self;
     self.contactsTableView.dataSource = self;
 	[self.view addSubview:self.contactsTableView];
 	
 	
+	self.createGroupButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	self.createGroupButton.frame = CGRectMake(0, CGRectGetMaxY(self.view.frame) - 120, self.view.bounds.size.width, 60);
+	[self.createGroupButton addTarget:self action:@selector(createGroup) forControlEvents:UIControlEventTouchUpInside];
+	//self.createGroupButton.userInteractionEnabled = NO;
+	self.createGroupButton.backgroundColor = RC_BACKGROUND_GRAY;
+	[self.view addSubview:self.createGroupButton];
 
     // Do any additional setup after loading the view.
 }
@@ -112,6 +145,12 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)checkIfCanCreateGroup{
+	if(self.numbersForGroup.count > 0){
+		self.canCreateGroup = YES;
+	}
+}
+
 //****************************************
 //****************************************
 #pragma mark - UITextField Delegate
@@ -125,6 +164,17 @@
 	return YES;
 }
 
+-(BOOL) textFieldShouldBeginEditing:(UITextField *)textField{
+	
+	if (textField.text.length > 0) {
+		[self checkIfCanCreateGroup];
+	}
+	else{
+		self.canCreateGroup = NO;
+	}
+	return YES;
+}
+
 //****************************************
 //****************************************
 #pragma mark - UITableViewDelegate/DataSource
@@ -132,31 +182,35 @@
 //****************************************
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *MyIdentifier = @"MyReuseIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    static NSString *MyIdentifier = @"ContactReuseIdentifier";
+    RCContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
-
+        cell = [[RCContactTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
     }
-	cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+	//cell.selectionStyle = UITableViewCellSelectionStyleDefault;
 	ABRecordRef person = CFArrayGetValueAtIndex(self.allPeople, indexPath.row );
-	NSString *firstName = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonFirstNameProperty));
 
-	cell.textLabel.text = firstName;
+	[cell populateWithContact:person];
+	
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-	if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
-	{
-		cell.accessoryType = UITableViewCellAccessoryNone;
+	RCContactTableViewCell *cell = (RCContactTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+	[cell contactTouched];
+	ABRecordRef person = cell.contact;
+	NSString *phoneNumber = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonPhoneProperty));
+
+	if(cell.contactSelected) {
+		[self.numbersForGroup addObject:phoneNumber];
 	}
-	else
-	{
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	else{
+		if([self.numbersForGroup containsObject:phoneNumber]){
+			[self.numbersForGroup removeObject:phoneNumber];
+		}
 	}
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -169,6 +223,31 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return 50;
+}
+
+- (void)recieveContactTapNotification:(NSNotification *) notification {
+	
+	RCContactTableViewCell *cell = (RCContactTableViewCell *)[notification object];
+	[cell contactTouched];
+	
+	ABRecordRef person = cell.contact;
+	NSString *phoneNumber = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonPhoneProperty));
+	
+	if(cell.contactSelected) {
+		[self.numbersForGroup addObject:phoneNumber];
+	}
+	else{
+		if([self.numbersForGroup containsObject:phoneNumber]){
+			[self.numbersForGroup removeObject:phoneNumber];
+		}
+	}
+	// This is will be used to push the right group
+	
+	
+}
+-(void)createGroup{
+	
+	self.numbersForGroup;
 }
 
 @end

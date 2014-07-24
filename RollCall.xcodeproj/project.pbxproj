@@ -25,6 +25,7 @@
 		23553FE31967405B00CE49CD /* RollCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FE21967405B00CE49CD /* RollCallTests.m */; };
 		235FE60C1974A32C005CDF1C /* RCNewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235FE60B1974A32C005CDF1C /* RCNewGroupViewController.m */; };
 		239EBF3E19771B100075B3CB /* RCResponsesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 239EBF3D19771B100075B3CB /* RCResponsesViewController.m */; };
+		23C9AA4E1980AB9100498D07 /* RCContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C9AA4D1980AB9100498D07 /* RCContactTableViewCell.m */; };
 		23D301A9197743DF00814C1E /* RCThumbnailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D301A8197743DF00814C1E /* RCThumbnailCollectionCell.m */; };
 		23F6851219709E0B009C2F56 /* RCRollCallsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F6851119709E0B009C2F56 /* RCRollCallsViewController.m */; };
 		23F685151970A633009C2F56 /* RCRollCallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F685141970A633009C2F56 /* RCRollCallTableViewCell.m */; };
@@ -81,6 +82,8 @@
 		235FE60B1974A32C005CDF1C /* RCNewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCNewGroupViewController.m; path = ViewControllers/RCNewGroupViewController.m; sourceTree = "<group>"; };
 		239EBF3C19771B100075B3CB /* RCResponsesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCResponsesViewController.h; sourceTree = "<group>"; };
 		239EBF3D19771B100075B3CB /* RCResponsesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCResponsesViewController.m; sourceTree = "<group>"; };
+		23C9AA4C1980AB9100498D07 /* RCContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCContactTableViewCell.h; path = "Views/Table View Cells/RCContactTableViewCell.h"; sourceTree = "<group>"; };
+		23C9AA4D1980AB9100498D07 /* RCContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCContactTableViewCell.m; path = "Views/Table View Cells/RCContactTableViewCell.m"; sourceTree = "<group>"; };
 		23D301A7197743DF00814C1E /* RCThumbnailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCThumbnailCollectionCell.h; sourceTree = "<group>"; };
 		23D301A8197743DF00814C1E /* RCThumbnailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCThumbnailCollectionCell.m; sourceTree = "<group>"; };
 		23F6851019709E0B009C2F56 /* RCRollCallsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRollCallsViewController.h; path = ViewControllers/RCRollCallsViewController.h; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				2315C0A819703E1600ABA433 /* RCGroupTableViewCell.m */,
 				23F685131970A633009C2F56 /* RCRollCallTableViewCell.h */,
 				23F685141970A633009C2F56 /* RCRollCallTableViewCell.m */,
+				23C9AA4C1980AB9100498D07 /* RCContactTableViewCell.h */,
+				23C9AA4D1980AB9100498D07 /* RCContactTableViewCell.m */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				C892E7FC1972DAE20078762F /* RCImage.m in Sources */,
 				235FE60C1974A32C005CDF1C /* RCNewGroupViewController.m in Sources */,
 				2315C0B51970763A00ABA433 /* RCServer.m in Sources */,
+				23C9AA4E1980AB9100498D07 /* RCContactTableViewCell.m in Sources */,
 				C892E7F91972DAC50078762F /* RCGroup.m in Sources */,
 				C8E6ECAD196F595400DAEE73 /* RCRecord.m in Sources */,
 				C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */,
