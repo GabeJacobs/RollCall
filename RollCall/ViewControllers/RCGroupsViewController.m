@@ -105,6 +105,7 @@
 -(void)newGroup{
 	
 	RCNewGroupViewController *newGroupController = [[RCNewGroupViewController alloc] init];
+	
 	[self.navigationController pushViewController:newGroupController animated:YES];
 
 	
