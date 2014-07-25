@@ -101,7 +101,9 @@ static NSString * const kRCAuthResponsePhoneNumberKey = @"phone_number";
         @"password":password
     };
     AFHTTPRequestOperationManager* manager =
-    [[AFHTTPRequestOperationManager alloc] init];
+        [[AFHTTPRequestOperationManager alloc] init];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSString* url = [kRCBaseUrl stringByAppendingPathComponent:@"/login"];
     // TODO(amadou): same as stuff for pre signup callback calls.
     // Make functions to handle the work for this part.
