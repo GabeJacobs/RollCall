@@ -24,6 +24,7 @@
 		23553FE11967405B00CE49CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23553FDF1967405B00CE49CD /* InfoPlist.strings */; };
 		23553FE31967405B00CE49CD /* RollCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23553FE21967405B00CE49CD /* RollCallTests.m */; };
 		235FE60C1974A32C005CDF1C /* RCNewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235FE60B1974A32C005CDF1C /* RCNewGroupViewController.m */; };
+		236FB6001981E84600884ABD /* RCNewRollCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 236FB5FF1981E84600884ABD /* RCNewRollCallViewController.m */; };
 		239EBF3E19771B100075B3CB /* RCResponsesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 239EBF3D19771B100075B3CB /* RCResponsesViewController.m */; };
 		23C9AA4E1980AB9100498D07 /* RCContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C9AA4D1980AB9100498D07 /* RCContactTableViewCell.m */; };
 		23D301A9197743DF00814C1E /* RCThumbnailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D301A8197743DF00814C1E /* RCThumbnailCollectionCell.m */; };
@@ -80,6 +81,8 @@
 		23553FE21967405B00CE49CD /* RollCallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollCallTests.m; sourceTree = "<group>"; };
 		235FE60A1974A32C005CDF1C /* RCNewGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCNewGroupViewController.h; path = ViewControllers/RCNewGroupViewController.h; sourceTree = "<group>"; };
 		235FE60B1974A32C005CDF1C /* RCNewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCNewGroupViewController.m; path = ViewControllers/RCNewGroupViewController.m; sourceTree = "<group>"; };
+		236FB5FE1981E84600884ABD /* RCNewRollCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNewRollCallViewController.h; sourceTree = "<group>"; };
+		236FB5FF1981E84600884ABD /* RCNewRollCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNewRollCallViewController.m; sourceTree = "<group>"; };
 		239EBF3C19771B100075B3CB /* RCResponsesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCResponsesViewController.h; sourceTree = "<group>"; };
 		239EBF3D19771B100075B3CB /* RCResponsesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCResponsesViewController.m; sourceTree = "<group>"; };
 		23C9AA4C1980AB9100498D07 /* RCContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCContactTableViewCell.h; path = "Views/Table View Cells/RCContactTableViewCell.h"; sourceTree = "<group>"; };
@@ -286,8 +289,7 @@
 				C8E6EC8B196CFAD900DAEE73 /* RCSettingsViewController.m */,
 				C8E6EC8C196CFAD900DAEE73 /* RCSplashViewController.h */,
 				C8E6EC8D196CFAD900DAEE73 /* RCSplashViewController.m */,
-				235FE60A1974A32C005CDF1C /* RCNewGroupViewController.h */,
-				235FE60B1974A32C005CDF1C /* RCNewGroupViewController.m */,
+				236FB5FD1981E82300884ABD /* Creation */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -337,6 +339,17 @@
 				C8E6ECB2196FA6CF00DAEE73 /* Secure-NSUserDefaults */,
 			);
 			name = "3rd Party";
+			sourceTree = "<group>";
+		};
+		236FB5FD1981E82300884ABD /* Creation */ = {
+			isa = PBXGroup;
+			children = (
+				235FE60A1974A32C005CDF1C /* RCNewGroupViewController.h */,
+				235FE60B1974A32C005CDF1C /* RCNewGroupViewController.m */,
+				236FB5FE1981E84600884ABD /* RCNewRollCallViewController.h */,
+				236FB5FF1981E84600884ABD /* RCNewRollCallViewController.m */,
+			);
+			name = Creation;
 			sourceTree = "<group>";
 		};
 		C8E6EC7F196BAAB100DAEE73 /* Managers */ = {
@@ -503,6 +516,7 @@
 				23F6851219709E0B009C2F56 /* RCRollCallsViewController.m in Sources */,
 				23D301A9197743DF00814C1E /* RCThumbnailCollectionCell.m in Sources */,
 				23553FCA1967405B00CE49CD /* AppDelegate.m in Sources */,
+				236FB6001981E84600884ABD /* RCNewRollCallViewController.m in Sources */,
 				C892E7FF1972DB090078762F /* RCLike.m in Sources */,
 				C8E6EC91196CFAD900DAEE73 /* RCSplashViewController.m in Sources */,
 				C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */,

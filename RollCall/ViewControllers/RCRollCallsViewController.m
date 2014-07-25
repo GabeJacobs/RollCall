@@ -9,7 +9,7 @@
 #import "RCRollCallsViewController.h"
 #import "RCRollCallTableViewCell.h"
 #import "RCResponsesViewController.h"
-
+#import "RCNewRollCallViewController.h"
 #import "RCRollCall.h"
 
 @interface RCRollCallsViewController ()
@@ -61,6 +61,7 @@
 	self.startRollCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	UIImage *startCallImage = [UIImage imageNamed:@"StartCall"];
 	[self.startRollCallButton setImage:startCallImage forState:UIControlStateNormal];
+	[self.startRollCallButton addTarget:self action:@selector(startRollCall) forControlEvents:UIControlEventTouchUpInside];
 	self.startRollCallButton.frame = CGRectMake(self.view.bounds.size.width/2 - startCallImage.size.width/2, 10, startCallImage.size.width, startCallImage.size.height);
 	[self.view addSubview:self.startRollCallButton];
 
@@ -158,6 +159,12 @@
 	[self pushResponsesView];
 }
 
+-(void)startRollCall{
+	RCNewRollCallViewController *newRollCall = [[RCNewRollCallViewController alloc] init];
+	[self.navigationController pushViewController:newRollCall animated:YES];
+	//TODO: GIVE IT A GROUP
+	
+}
 
 
 @end

@@ -144,7 +144,18 @@
 		ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
 			if (granted) {
 				self.allPeople = ABAddressBookCopyArrayOfAllPeople(addressBookRef);
+				CFMutableArrayRef peopleMutable = CFArrayCreateMutableCopy(kCFAllocatorDefault,
+																		   CFArrayGetCount(self.allPeople),
+																		   self.allPeople);
 				
+				CFArraySortValues(peopleMutable,
+								  CFRangeMake(0, CFArrayGetCount(peopleMutable)),
+								  (CFComparatorFunction) ABPersonComparePeopleByName,
+								  kABPersonSortByFirstName);
+				
+				self.allPeople = peopleMutable;
+				
+								
 			} else {
 				// User denied access
 				// Display an alert telling user the contact could not be added
@@ -153,6 +164,16 @@
 	}
 	else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
 		self.allPeople = ABAddressBookCopyArrayOfAllPeople(addressBookRef);
+		CFMutableArrayRef peopleMutable = CFArrayCreateMutableCopy(kCFAllocatorDefault,
+																   CFArrayGetCount(self.allPeople),
+																   self.allPeople);
+		
+		CFArraySortValues(peopleMutable,
+						  CFRangeMake(0, CFArrayGetCount(peopleMutable)),
+						  (CFComparatorFunction) ABPersonComparePeopleByName,
+						  kABPersonSortByFirstName);
+		
+		self.allPeople = peopleMutable;
 		
 	}
 	else {
