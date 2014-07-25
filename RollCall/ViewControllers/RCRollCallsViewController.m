@@ -47,7 +47,7 @@
 	self.navigationItem.hidesBackButton = YES;
 	self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 	
-	self.title = @"Roll Call iOS Dev Team";
+	self.title = self.group.name;
 	
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
 								   initWithTitle: @""
@@ -161,7 +161,9 @@
 
 -(void)startRollCall{
 	RCNewRollCallViewController *newRollCall = [[RCNewRollCallViewController alloc] init];
+	newRollCall.group = self.group;
 	[self.navigationController pushViewController:newRollCall animated:YES];
+
 	//TODO: GIVE IT A GROUP
 	
 }

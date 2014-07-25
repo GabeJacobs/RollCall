@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCGroup.h"
 
 @interface RCRollCallsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic) RCGroup *group;
 
 @end

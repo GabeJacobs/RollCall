@@ -151,26 +151,19 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	
-	[self pushGroupView];
+	RCGroup* group = self.groups[indexPath.row];
+	[self pushGroup:group];
 	
 }
 
-- (void)pushGroupView{
+- (void)pushGroup:(RCGroup*)group{
 	
 	RCRollCallsViewController *rollCallsViewController = [[RCRollCallsViewController alloc] init];
+	[rollCallsViewController setGroup:group];
 	[self.navigationController pushViewController:rollCallsViewController animated:YES];
 	
 }
 
-- (void)receiveAvatarTapNotification:(NSNotification *) notification {
-	RCGroupTableViewCell *cell = (RCGroupTableViewCell *)[notification object];
-	NSIndexPath *indexPath = [self.groupsTableView indexPathForCell:cell];
-	// This is will be used to push the right group
-	
-	[self pushGroupView];
-
-
-}
 
 
 

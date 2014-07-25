@@ -11,6 +11,7 @@
 @interface RCNewRollCallViewController ()
 
 #define X_PADDIING 15.0f
+#define ITEM_SEPERATION 7.0f
 #define Y_PADDIING 15.0f
 
 @property (nonatomic) UILabel			*groupLabel;
@@ -19,7 +20,7 @@
 @property (nonatomic) UILabel			*titleLabel;
 @property (nonatomic) UIView			*titleSeperator;
 @property (nonatomic) UIView			*titleWrapper;
-@property (nonatomic) UITextView		*titleTextView;
+@property (nonatomic) UITextField		*titleTextField;
 @property (nonatomic) UILabel			*durationLabel;
 @property (nonatomic) UIView			*durationSeperator;
 @property (nonatomic) UIPickerView		*timePicker;
@@ -64,11 +65,50 @@
 	
 	self.groupLabel = [[UILabel alloc] initWithFrame:CGRectMake(X_PADDIING, Y_PADDIING*2, 100, 30)];
 	self.groupLabel.backgroundColor = [UIColor clearColor];
-	self.groupLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:16.0f];
+	self.groupLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:15.0f];
 	self.groupLabel.textColor = RC_DARKER_GRAY;
 	self.groupLabel.text = @"GROUP";
 	[self.groupLabel sizeToFit];
 	[self.view addSubview:self.groupLabel];
+	
+	self.groupSeperator = [[UIView alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.groupLabel.frame) + ITEM_SEPERATION, self.view.bounds.size.width - X_PADDIING*2, 1)];
+	self.groupSeperator.backgroundColor = RC_DARKER_GRAY;
+	[self.view addSubview:self.groupSeperator];
+	
+	self.groupNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.groupSeperator.frame) + ITEM_SEPERATION, 100, 30)];
+	self.groupNameLabel.backgroundColor = [UIColor clearColor];
+	self.groupNameLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:22.0f];
+	self.groupNameLabel.textColor = RC_DARKER_GRAY;
+	self.groupNameLabel.text = self.group.name;
+ 	[self.groupNameLabel sizeToFit];
+	[self.view addSubview:self.groupNameLabel];
+	
+	self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.groupNameLabel.frame) + Y_PADDIING*2, 100, 30)];
+	self.titleLabel.backgroundColor = [UIColor clearColor];
+	self.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:15.0f];
+	self.titleLabel.textColor = RC_DARKER_GRAY;
+	self.titleLabel.text = @"TITLE";
+	[self.titleLabel sizeToFit];
+	[self.view addSubview:self.titleLabel];
+	
+	self.titleSeperator = [[UIView alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.titleLabel.frame) + ITEM_SEPERATION, self.view.bounds.size.width - X_PADDIING*2, 1)];
+	self.titleSeperator.backgroundColor = RC_DARKER_GRAY;
+	[self.view addSubview:self.titleSeperator];
+	
+	self.titleWrapper = [[UIView alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.titleSeperator.frame) + Y_PADDIING, self.titleSeperator.frame.size.width, 40)];
+	self.titleWrapper.backgroundColor = [UIColor whiteColor];
+	self.titleWrapper.layer.borderColor = [UIColor colorWithRed:120.0f/255.0f green:120.0f/255.0f blue:120.0f/255.0f alpha:1.000].CGColor;
+	self.titleWrapper.layer.borderWidth = .5f;
+	self.titleWrapper.layer.cornerRadius = 6.0f;
+	[self.view addSubview:self.titleWrapper];
+	
+	self.titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 0, self.titleWrapper.frame.size.width - 10, self.titleWrapper.frame.size.height)];
+	self.titleTextField.placeholder = @"Friday Night";
+	self.titleTextField.backgroundColor = [UIColor clearColor];
+	self.titleTextField.font = [UIFont fontWithName:@"Avenir" size:16.0];
+	[self.titleWrapper addSubview:self.titleTextField];
+	//self.titleTextField.delegate = self;
+
 	
 	self.createCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	self.createCallButton.frame = CGRectMake(0, CGRectGetMaxY(self.view.frame) - 120, self.view.bounds.size.width, 60);

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCGroup.h"
 
 @interface RCNewRollCallViewController : UIViewController
+
+-(void)loadDataForGroup:(RCGroup*)group;
+@property (nonatomic) RCGroup *group;
 
 @end
