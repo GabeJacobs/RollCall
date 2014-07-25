@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RCUser.h"
+
+@class RCUser;
+@class AFHTTPRequestOperationManager;
 
 typedef void (^rcImageSuccessBlock) (UIImage* image);
 typedef void (^rcFailureBlock) (NSError* error);
@@ -30,5 +32,8 @@ typedef void (^rcAuthSuccessBlock) (RCUser* user);
                password:(NSString*)password
                 success:(rcAuthSuccessBlock)success
                 failure:(rcFailureBlock)failure;
+
+// AF Manager for JSON requests and responses with the auth token in the header.
++ (AFHTTPRequestOperationManager *)httpOperationManager;
 
 @end

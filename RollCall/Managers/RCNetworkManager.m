@@ -161,6 +161,18 @@ static NSString * const kRCAuthResponsePhoneNumberKey = @"phone_number";
     return fetchedObjects.firstObject;
 }
 
++ (AFHTTPRequestOperationManager *)httpOperationManager {
+    AFHTTPRequestOperationManager *manager =
+        [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestSerializer *requestSerializer =
+        [AFJSONRequestSerializer serializer];
+    [requestSerializer setValue:[RCSession accessToken] forHTTPHeaderField:@"auth_token"];
+    manager.requestSerializer = requestSerializer;
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    return manager;
+}
+
 #pragma mark - Setters and Getters
 
 - (NSCache*)imageCache {

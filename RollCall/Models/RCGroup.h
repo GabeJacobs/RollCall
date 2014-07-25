@@ -24,4 +24,9 @@
 + (void)getGroupsWithSuccessBlock:(void (^)(NSArray *groups))successBlock
                      failureBlock:(void (^)(NSError *error))errorBlock;
 
++ (void)createGroupWithName:(NSString *)name
+                    numbers:(NSArray *)numbers
+               successBlock:(void(^)(RCGroup *group))successBlock
+               failureBlock:(void(^)(NSError *error))failureBlock;
+
 @end

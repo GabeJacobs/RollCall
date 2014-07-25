@@ -9,6 +9,7 @@
 #import "RCNewGroupViewController.h"
 #import <AddressBook/AddressBook.h>
 #import "RCContactTableViewCell.h"
+#import "RCGroup.h"
 
 @interface RCNewGroupViewController ()
 
@@ -276,7 +277,7 @@
 }
 
 
--(void)contactCellTapped:(RCContactTableViewCell*)cell{
+- (void)contactCellTapped:(RCContactTableViewCell*)cell{
 	
 	[cell changeContactButton];
 
@@ -312,13 +313,20 @@
 	
 }
 
--(void)createGroup{
-
+- (void)createGroup{
 	// Show sucess before going back
-	
 	NSAssert(self.numbersForGroup.count > 0, @"why no numbas");
 	// TODO: send self.numbersForGoup and self.groupNameLabel.text
-	[self goBack];
+    [RCGroup createGroupWithName:self.groupNameField.text numbers:self.numbersForGroup successBlock:^(RCGroup *group) {
+        [self goBack];
+    } failureBlock:^(NSError *error) {
+        NSString *errorString = [NSString stringWithFormat:@"%@", error];
+        [[[UIAlertView alloc] initWithTitle:@"Error :("
+                                    message:errorString
+                                   delegate:nil
+                          cancelButtonTitle:@"word"
+                          otherButtonTitles:nil] show];
+    }];
 }
 
 @end
