@@ -183,32 +183,39 @@
 	
 }
 
--(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-	// Get the text of the row.
-	NSString *rowItem = [self.minsArray objectAtIndex: row];
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
 	
-	// Create and init a new UILabel.
-	// We must set our label's width equal to our picker's width.
-	// We'll give the default height in each row.
-	UILabel *lblRow = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView bounds].size.width, 44.0f)];
-	
-	// Center the text.
-	[lblRow setTextAlignment:NSTextAlignmentCenter];
-	
-	// Make the text color red.
-	[lblRow setTextColor: [UIColor redColor]];
-	
-	// Add the text.
-	[lblRow setText:rowItem];
-	
-	// Clear the background color to avoid problems with the display.
-	[lblRow setBackgroundColor:[UIColor clearColor]];
-	
-	// Return the label.
-	return lblRow;
+    switch (component)
+    {
+        case 0:
+            return [NSString stringWithFormat:@"%@ Hours", [self.hoursArray objectAtIndex:row]];
+            break;
+        case 1:
+            return [NSString stringWithFormat:@"%@ Mins", [self.minsArray objectAtIndex:row]];
+            break;
+        
+    }
+    return nil;
+}
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 37)];
+	if(component == 0){
+		label.text = [NSString stringWithFormat:@"%@ Hours", [self.hoursArray objectAtIndex:row]];
+	}
+	else{
+		label.text = [NSString stringWithFormat:@"%@ Mins", [self.minsArray objectAtIndex:row]];
+		
+	}
+    label.textAlignment = NSTextAlignmentCenter; //Changed to NS as UI is deprecated.
+    label.backgroundColor = [UIColor clearColor];
+    return label;
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+	
+	[self checkIfCanCreateRollCall];
 	
 	
 }
@@ -220,14 +227,14 @@
 	self.minsArray = [[NSMutableArray alloc] init];
     NSString *strVal = [[NSString alloc] init];
 	
-    for(int i=0; i<61; i++)
+    for(int i=0; i<60; i++)
     {
         strVal = [NSString stringWithFormat:@"%d", i];
 		
         //NSLog(@"strVal: %@", strVal);
 		
         //Create array with 0-12 hours
-        if (i < 13)
+        if (i < 24)
         {
             [self.hoursArray addObject:strVal];
         }
