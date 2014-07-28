@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RCGroup.h"
 
-@interface RCNewRollCallViewController : UIViewController
+@interface RCNewRollCallViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 -(void)loadDataForGroup:(RCGroup*)group;
 @property (nonatomic) RCGroup *group;

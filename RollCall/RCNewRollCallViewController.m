@@ -28,6 +28,12 @@
 @property (nonatomic) BOOL				canCreateCall;
 @property (nonatomic) UILabel			*createCallLabel;
 
+@property (nonatomic) NSMutableArray *hoursArray;
+@property (nonatomic) NSMutableArray *minsArray;
+@property (nonatomic) NSMutableArray *secsArray;
+
+@property (nonatomic) NSTimeInterval interval;
+
 @end
 
 @implementation RCNewRollCallViewController
@@ -102,12 +108,29 @@
 	self.titleWrapper.layer.cornerRadius = 6.0f;
 	[self.view addSubview:self.titleWrapper];
 	
-	self.titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 0, self.titleWrapper.frame.size.width - 10, self.titleWrapper.frame.size.height)];
+	self.titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(6, 0, self.titleWrapper.frame.size.width - 10, self.titleWrapper.frame.size.height)];
 	self.titleTextField.placeholder = @"Friday Night";
 	self.titleTextField.backgroundColor = [UIColor clearColor];
 	self.titleTextField.font = [UIFont fontWithName:@"Avenir" size:16.0];
 	[self.titleWrapper addSubview:self.titleTextField];
 	//self.titleTextField.delegate = self;
+	
+	self.durationLabel = [[UILabel alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.titleWrapper.frame) + Y_PADDIING*2, 100, 30)];
+	self.durationLabel.backgroundColor = [UIColor clearColor];
+	self.durationLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:15.0f];
+	self.durationLabel.textColor = RC_DARKER_GRAY;
+	self.durationLabel.text = @"DURATION";
+	[self.durationLabel sizeToFit];
+	[self.view addSubview:self.durationLabel];
+	
+	self.durationSeperator = [[UIView alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.durationLabel.frame) + ITEM_SEPERATION, self.view.bounds.size.width - X_PADDIING*2, 1)];
+	self.durationSeperator.backgroundColor = RC_DARKER_GRAY;
+	[self.view addSubview:self.durationSeperator];
+	
+	self.timePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.durationSeperator.frame) + ITEM_SEPERATION, self.view.bounds.size.width - X_PADDIING*2, 150)];
+	self.timePicker.delegate = self;
+	
+	[self.view addSubview:self.timePicker];
 
 	
 	self.createCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -126,7 +149,7 @@
 	self.createCallLabel.center = CGPointMake(self.createCallButton.center.x + 3, self.createCallButton.center.y);
 	[self.view addSubview:self.createCallLabel];
 
-
+	[self setupTimePicker];
 	
 	
     // Do any additional setup after loading the view.
@@ -146,6 +169,73 @@
 	
 }
 
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+	return 2;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent :(NSInteger)component{
+    if (component==0){
+        return [self.hoursArray count];
+    }
+    else{
+        return [self.minsArray count];
+    }
+	
+}
+
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+	// Get the text of the row.
+	NSString *rowItem = [self.minsArray objectAtIndex: row];
+	
+	// Create and init a new UILabel.
+	// We must set our label's width equal to our picker's width.
+	// We'll give the default height in each row.
+	UILabel *lblRow = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView bounds].size.width, 44.0f)];
+	
+	// Center the text.
+	[lblRow setTextAlignment:NSTextAlignmentCenter];
+	
+	// Make the text color red.
+	[lblRow setTextColor: [UIColor redColor]];
+	
+	// Add the text.
+	[lblRow setText:rowItem];
+	
+	// Clear the background color to avoid problems with the display.
+	[lblRow setBackgroundColor:[UIColor clearColor]];
+	
+	// Return the label.
+	return lblRow;
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+	
+	
+}
+
+
+-(void)setupTimePicker{
+	
+	self.hoursArray = [[NSMutableArray alloc] init];
+	self.minsArray = [[NSMutableArray alloc] init];
+    NSString *strVal = [[NSString alloc] init];
+	
+    for(int i=0; i<61; i++)
+    {
+        strVal = [NSString stringWithFormat:@"%d", i];
+		
+        //NSLog(@"strVal: %@", strVal);
+		
+        //Create array with 0-12 hours
+        if (i < 13)
+        {
+            [self.hoursArray addObject:strVal];
+        }
+		
+        //create arrays with 0-60 secs/mins
+        [self.minsArray addObject:strVal];
+    }
+}
 
 -(void)createGroup{
 	
