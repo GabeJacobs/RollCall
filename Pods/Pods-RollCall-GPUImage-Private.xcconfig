@@ -1,6 +1,6 @@
 #include "Pods-RollCall-GPUImage.xcconfig"
 CLANG_MODULES_AUTOLINK = ${PODS_ROLLCALL_GPUIMAGE_CLANG_MODULES_AUTOLINK}
 GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/GPUImage" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/DBCamera" "${PODS_ROOT}/Headers/GPUImage" "${PODS_ROOT}/Headers/MMRecord"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/GPUImage" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/DBCamera" "${PODS_ROOT}/Headers/GPUImage" "${PODS_ROOT}/Headers/MMRecord" "${PODS_ROOT}/Headers/SVProgressHUD"
 OTHER_LDFLAGS = -ObjC ${PODS_ROLLCALL_GPUIMAGE_OTHER_LDFLAGS}
 PODS_ROOT = ${SRCROOT}

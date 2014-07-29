@@ -8,86 +8,61 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-RollCall-DBCamera.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-RollCall-GPUImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Pods-RollCall-MMRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
+		</dict>
+		<key>Pods-RollCall-SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-RollCall.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>17E700108B3A4E378CB2FDCB</key>
+		<key>564F2D2327C144169473708C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5959BEB95570465FA7D2C195</key>
+		<key>5E97552E65BE408992C161A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5B05BB024AFD412A9A3BB278</key>
+		<key>BE4372FEF8C2436084A38805</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>60319526C59C478EA4443125</key>
+		<key>CE91D5AA23394B3FB9255702</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62C56A1363974A45BC411076</key>
+		<key>D3C95020B34F4849B2A8832F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>91A7017D96C547F385C7CF12</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>998A7FBFD6F24B0B8F43C356</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C99E211AA6AF40618014CF5A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DB811B646E53435F86741393</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FF6AF252E03F471B9BADA9F5</key>
+		<key>D5148941B746494890D19A98</key>
 		<dict>
 			<key>primary</key>
 			<true/>
