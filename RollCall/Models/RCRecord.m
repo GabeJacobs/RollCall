@@ -20,7 +20,7 @@ static NSDateFormatter* RCRecordDateFormatter;
     if (!RCRecordDateFormatter) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         // TODO(amadou): Change this to whatever format the server actually returns.
-        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
         RCRecordDateFormatter = dateFormatter;
     }
     

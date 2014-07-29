@@ -3,7 +3,7 @@
     <entity name="RCGroup" representedClassName="RCGroup" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES">
             <userInfo>
-                <entry key="MMRecordAttributeAlternateNameKey" value="datetime_created"/>
+                <entry key="MMRecordAttributeAlternateNameKey" value="created_at"/>
             </userInfo>
         </attribute>
         <attribute name="groupID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES">
@@ -13,7 +13,7 @@
         </attribute>
         <attribute name="lastActive" optional="YES" attributeType="Date" syncable="YES">
             <userInfo>
-                <entry key="MMRecordAttributeAlternateNameKey" value="datetime_last_activity"/>
+                <entry key="MMRecordAttributeAlternateNameKey" value="last_activity"/>
             </userInfo>
         </attribute>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -107,7 +107,7 @@
         </attribute>
         <attribute name="lastActive" optional="YES" attributeType="Date" syncable="YES">
             <userInfo>
-                <entry key="MMRecordAttributeAlternateNameKey" value="datetime_last_activity"/>
+                <entry key="MMRecordAttributeAlternateNameKey" value="last_activity"/>
             </userInfo>
         </attribute>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES">
@@ -131,11 +131,11 @@
         <relationship name="selfies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCImage" inverseName="user" inverseEntity="RCImage" syncable="YES"/>
     </entity>
     <elements>
-        <element name="RCGroup" positionX="34" positionY="-3" width="128" height="133"/>
+        <element name="RCGroup" positionX="34" positionY="-3" width="128" height="135"/>
         <element name="RCImage" positionX="-261" positionY="18" width="128" height="148"/>
         <element name="RCLike" positionX="-270" positionY="-378" width="128" height="103"/>
         <element name="RCLocation" positionX="-279" positionY="162" width="128" height="73"/>
         <element name="RCRollCall" positionX="-2" positionY="-297" width="128" height="163"/>
-        <element name="RCUser" positionX="-162" positionY="-243" width="128" height="208"/>
+        <element name="RCUser" positionX="-162" positionY="-243" width="128" height="210"/>
     </elements>
 </model>
