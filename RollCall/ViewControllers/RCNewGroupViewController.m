@@ -10,6 +10,7 @@
 #import <AddressBook/AddressBook.h>
 #import "RCContactTableViewCell.h"
 #import "RCGroup.h"
+#import "SVProgressHUD.h"
 
 @interface RCNewGroupViewController ()
 
@@ -316,10 +317,15 @@
 - (void)createGroup{
 	// Show sucess before going back
 	NSAssert(self.numbersForGroup.count > 0, @"why no numbas");
-	// TODO: send self.numbersForGoup and self.groupNameLabel.text
+	
+	[SVProgressHUD showWithStatus:@"Creating Group"];
+
+	
     [RCGroup createGroupWithName:self.groupNameField.text numbers:self.numbersForGroup successBlock:^(RCGroup *group) {
+		[SVProgressHUD showSuccessWithStatus:@"Success"];
         [self goBack];
     } failureBlock:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:@"Error"];
         NSString *errorString = [NSString stringWithFormat:@"%@", error];
         [[[UIAlertView alloc] initWithTitle:@"Error :("
                                     message:errorString

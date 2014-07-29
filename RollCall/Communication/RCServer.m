@@ -12,7 +12,7 @@
 
 @implementation RCServer
 
-static BOOL kRCServerUsesLocalData = YES;
+static BOOL kRCServerUsesLocalData = NO;
 
 + (void)startRequestWithURN:(NSString *)URN
                        data:(NSDictionary *)params

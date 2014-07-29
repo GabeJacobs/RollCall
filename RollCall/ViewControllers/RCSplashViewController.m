@@ -11,6 +11,7 @@
 #import "RCSession.h"
 #import "RCSplashViewController.h"
 #import "RCRollCall.h"
+#import "SVProgressHUD.h"
 
 @interface RCSplashViewController ()
 
@@ -322,17 +323,24 @@
 
 - (void)verifyLoginInfo {
 	
-	[self pushGroupController];
+	//[self pushGroupController];
 	
-//    NSString* phone = self.phoneFieldLogin.text;
-//    NSString* password = self.passwordFieldLogin.text;
-//    [RCNetworkManager loginWithNumber:phone
-//                             password:password
-//    success:^(RCUser *user) {
-//        [self pushGroupController];
-//    } failure:^(NSError *error) {
-//        NSLog(@"verifyLoginInfo Error: %@", error);
-//    }];
+	
+	
+    NSString* phone = self.phoneFieldLogin.text;
+    NSString* password = self.passwordFieldLogin.text;
+	
+	[SVProgressHUD showWithStatus:@"Loggin In"];
+	
+    [RCNetworkManager loginWithNumber:phone
+                             password:password
+    success:^(RCUser *user) {
+		[SVProgressHUD showSuccessWithStatus:@"Success"];
+        [self pushGroupController];
+    } failure:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:@"Error"];
+        NSLog(@"verifyLoginInfo Error: %@", error);
+    }];
 	 
 }
 
