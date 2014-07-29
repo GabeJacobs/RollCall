@@ -350,14 +350,19 @@
     NSString* firstName = self.firstNameFieldSignup.text;
     NSString* lastName = self.lastNameFieldSignup.text;
     NSString* password = self.passwordFieldSignup.text;
-    // TODO(): add activity indicator before network call.
+
+	[SVProgressHUD showWithStatus:@"Creating Group"];
+
+	
 	[RCNetworkManager signUpWithNumber:phone
                              firstName:firstName
                               lastName:lastName
                               password:password
                                success:^(RCUser *user) {
+		[SVProgressHUD showWithStatus:@"Signing Up"];
         [self openCameraWithForceQuad];
     } failure:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:@"Error"];
         [[[UIAlertView alloc] initWithTitle:@"Sign Up Error"
                                     message:[error localizedDescription]
                                    delegate:nil
