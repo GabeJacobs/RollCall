@@ -118,10 +118,9 @@
 	[[NSNotificationCenter defaultCenter]
 	 postNotificationName:@"TappedAvatar"
 	 object:self];
-	
 }
 
--(void)startRollCall{
+-(void)startRollCall {
 	
 }
 

@@ -12,7 +12,7 @@
 #import "RCNewGroupViewController.h"
 #import "RCGroup.h"
 
-@interface RCGroupsViewController ()
+@interface RCGroupsViewController () <RCNewGroupDelegate>
 
 @property (nonatomic) NSArray* groups;
 @property (nonatomic) UITableView* groupsTableView;
@@ -102,13 +102,17 @@
                                         waitUntilDone:NO];
 }
 
--(void)newGroup{
-	
+-(void)newGroup {
 	RCNewGroupViewController *newGroupController = [[RCNewGroupViewController alloc] init];
-	
+    newGroupController.delegate = self;
 	[self.navigationController pushViewController:newGroupController animated:YES];
+}
 
-	
+- (void)createdNewGroup:(RCGroup *)group {
+    NSMutableArray *groups = [NSMutableArray arrayWithArray:self.groups];
+    [groups insertObject:group atIndex:0];
+    self.groups = groups;
+    [self reloadTableData];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "RCNetworkManager.h"
 #import "RCSession.h"
+#import "RCRecord.h"
 #import <AFNetworking.h>
 
 @implementation RCGroup
@@ -47,10 +48,14 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSString *url = [kRCBaseUrl stringByAppendingPathComponent:@"/groups"];
-    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *groupDict) {
         // Turn response object into RCGroup.
         // Save to core data.
-        successBlock(responseObject);  // TODO(amadou): change to RCGroup.
+        RCGroup *group = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([RCGroup class]) inManagedObjectContext:[AppDelegate mainManagedObjectContext]];
+        group.name = groupDict[@"name"];
+        group.groupID = groupDict[@"id"];
+        group.created = [[RCRecord dateFormatter] dateFromString:groupDict[@"created_at"]];
+        successBlock(group);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Create Group Failure Reason: %@", operation.responseString);
         failureBlock(error);

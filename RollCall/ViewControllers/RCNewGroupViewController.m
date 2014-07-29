@@ -323,6 +323,7 @@
 	
     [RCGroup createGroupWithName:self.groupNameField.text numbers:self.numbersForGroup successBlock:^(RCGroup *group) {
 		[SVProgressHUD showSuccessWithStatus:@"Success"];
+        [self.delegate createdNewGroup:group];
         [self goBack];
     } failureBlock:^(NSError *error) {
 		[SVProgressHUD showErrorWithStatus:@"Error"];
