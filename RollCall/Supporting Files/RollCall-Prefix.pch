@@ -12,7 +12,9 @@
 
 #ifdef __OBJC__
 	#import <UIKit/UIKit.h>
-	#import "RCConstants.h"
 	#import <Foundation/Foundation.h>
 	#import <CoreData/CoreData.h>
+    #import "RCConstants.h"
+    #import "AppDelegate.h"
+    #import "RCDebugHelper.h"
 #endif

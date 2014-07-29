@@ -322,11 +322,7 @@
 #pragma mark - verify Info
 
 - (void)verifyLoginInfo {
-	
-	//[self pushGroupController];
-	
-	
-	
+
     NSString* phone = self.phoneFieldLogin.text;
     NSString* password = self.passwordFieldLogin.text;
 	

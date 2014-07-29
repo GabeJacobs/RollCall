@@ -36,6 +36,7 @@
 		C892E7FF1972DB090078762F /* RCLike.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E7FE1972DB090078762F /* RCLike.m */; };
 		C892E8021972DB300078762F /* RCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E8011972DB300078762F /* RCLocation.m */; };
 		C892E8051972DB850078762F /* RCRollCall.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E8041972DB850078762F /* RCRollCall.m */; };
+		C89637B11987599F0088FD22 /* RCDebugHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C89637B01987599F0088FD22 /* RCDebugHelper.m */; };
 		C8E6EC8E196CFAD900DAEE73 /* RCGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC87196CFAD900DAEE73 /* RCGroupsViewController.m */; };
 		C8E6EC90196CFAD900DAEE73 /* RCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8B196CFAD900DAEE73 /* RCSettingsViewController.m */; };
 		C8E6EC91196CFAD900DAEE73 /* RCSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6EC8D196CFAD900DAEE73 /* RCSplashViewController.m */; };
@@ -107,6 +108,8 @@
 		C892E8011972DB300078762F /* RCLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLocation.m; sourceTree = "<group>"; };
 		C892E8031972DB850078762F /* RCRollCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRollCall.h; sourceTree = "<group>"; };
 		C892E8041972DB850078762F /* RCRollCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRollCall.m; sourceTree = "<group>"; };
+		C89637AF1987599F0088FD22 /* RCDebugHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDebugHelper.h; path = Helpers/RCDebugHelper.h; sourceTree = "<group>"; };
+		C89637B01987599F0088FD22 /* RCDebugHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDebugHelper.m; path = Helpers/RCDebugHelper.m; sourceTree = "<group>"; };
 		C8E6EC86196CFAD900DAEE73 /* RCGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCGroupsViewController.h; path = ViewControllers/RCGroupsViewController.h; sourceTree = "<group>"; };
 		C8E6EC87196CFAD900DAEE73 /* RCGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGroupsViewController.m; path = ViewControllers/RCGroupsViewController.m; sourceTree = "<group>"; };
 		C8E6EC8A196CFAD900DAEE73 /* RCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSettingsViewController.h; path = ViewControllers/RCSettingsViewController.h; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 		23553FF01967425100CE49CD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C89637AF1987599F0088FD22 /* RCDebugHelper.h */,
+				C89637B01987599F0088FD22 /* RCDebugHelper.m */,
 				C8E6EC9A196CFB3600DAEE73 /* RCConstants.h */,
 				C8E6EC9B196CFB3600DAEE73 /* RCSession.h */,
 				C8E6EC9C196CFB3600DAEE73 /* RCSession.m */,
@@ -539,6 +544,7 @@
 				C8E6ECA7196CFB6D00DAEE73 /* main.m in Sources */,
 				23F685151970A633009C2F56 /* RCRollCallTableViewCell.m in Sources */,
 				C8E6ECA2196CFB5600DAEE73 /* RCUser.m in Sources */,
+				C89637B11987599F0088FD22 /* RCDebugHelper.m in Sources */,
 				23F685181970A67E009C2F56 /* RCPreviewCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

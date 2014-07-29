@@ -9,6 +9,7 @@
 #import "RCGroup.h"
 #import "AppDelegate.h"
 #import "RCNetworkManager.h"
+#import "RCSession.h"
 #import <AFNetworking.h>
 
 @implementation RCGroup
@@ -20,10 +21,12 @@
 @dynamic users;
 @dynamic rollCalls;
 
+#pragma mark - Network Calls
+
 + (void)getGroupsWithSuccessBlock:(void (^)(NSArray *tweets))successBlock
                      failureBlock:(void (^)(NSError *error))errorBlock {
     NSManagedObjectContext *context = [AppDelegate mainManagedObjectContext];
-    [RCGroup startRequestWithURN:@"/groups"
+    [RCGroup startRequestWithURN:@"/groups.json"
                             data:nil
                          context:context
                           domain:nil
@@ -39,8 +42,10 @@
     NSAssert(numbers, @"numbers cannot be nil - create group");
     // TODO(amadou): Make sure there are enough contacts.
     // Also check that the name is good.
-    NSDictionary *params = @{@"name":name, @"members":numbers};
+    NSDictionary *params = @{@"name":name, @"users":numbers, @"auth_key":[RCSession accessToken]};
     AFHTTPRequestOperationManager *manager = [RCNetworkManager httpOperationManager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSString *url = [kRCBaseUrl stringByAppendingPathComponent:@"/groups"];
     [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // Turn response object into RCGroup.

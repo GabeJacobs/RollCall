@@ -42,10 +42,12 @@ static BOOL kRCServerUsesLocalData = NO;
         [AFHTTPRequestOperationManager manager];
     AFHTTPRequestSerializer *requestSerializer =
         [AFJSONRequestSerializer serializer];
-    [requestSerializer setValue:[RCSession accessToken] forHTTPHeaderField:@"auth_token"];
+    //[requestSerializer setValue:[RCSession accessToken] forHTTPHeaderField:@"auth_key"];
     manager.requestSerializer = requestSerializer;
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableDictionary *params_auth = [NSMutableDictionary dictionaryWithDictionary:params];
+    params_auth[@"auth_key"] = [RCSession accessToken];
+    [manager GET:url parameters:params_auth success:^(AFHTTPRequestOperation *operation, id responseObject) {
         responseBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO(amadou): make the error RC specific so it makes more sense.
