@@ -27,6 +27,7 @@
 @property (nonatomic) UIButton			*createCallButton;
 @property (nonatomic) BOOL				canCreateCall;
 @property (nonatomic) UILabel			*createCallLabel;
+@property (nonatomic) int				duration;
 
 @property (nonatomic) NSMutableArray *hoursArray;
 @property (nonatomic) NSMutableArray *minsArray;
@@ -113,7 +114,7 @@
 	self.titleTextField.backgroundColor = [UIColor clearColor];
 	self.titleTextField.font = [UIFont fontWithName:@"Avenir" size:16.0];
 	[self.titleWrapper addSubview:self.titleTextField];
-	//self.titleTextField.delegate = self;
+	self.titleTextField.delegate = self;
 	
 	self.durationLabel = [[UILabel alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.titleWrapper.frame) + Y_PADDIING*2, 100, 30)];
 	self.durationLabel.backgroundColor = [UIColor clearColor];
@@ -127,7 +128,7 @@
 	self.durationSeperator.backgroundColor = RC_DARKER_GRAY;
 	[self.view addSubview:self.durationSeperator];
 	
-	self.timePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.durationSeperator.frame) + ITEM_SEPERATION, self.view.bounds.size.width - X_PADDIING*2, 150)];
+	self.timePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(X_PADDIING, CGRectGetMaxY(self.durationSeperator.frame) + ITEM_SEPERATION, self.view.bounds.size.width - X_PADDIING*2, 160)];
 	self.timePicker.delegate = self;
 	
 	[self.view addSubview:self.timePicker];
@@ -167,6 +168,17 @@
 
 -(void)checkIfCanCreateRollCall{
 	
+	if(![self.titleTextField.text isEqual:@""]){
+		self.canCreateCall = YES;
+		self.createCallButton.backgroundColor = [UIColor colorWithRed:63.0f/255.0f green:152.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+		self.createCallButton.userInteractionEnabled = YES;
+	}
+	else{
+		self.canCreateCall = NO;
+		self.createCallButton.backgroundColor = RC_BACKGROUND_GRAY;
+		self.createCallButton.userInteractionEnabled = NO;
+	}
+	
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -181,22 +193,6 @@
         return [self.minsArray count];
     }
 	
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-	
-    switch (component)
-    {
-        case 0:
-            return [NSString stringWithFormat:@"%@ Hours", [self.hoursArray objectAtIndex:row]];
-            break;
-        case 1:
-            return [NSString stringWithFormat:@"%@ Mins", [self.minsArray objectAtIndex:row]];
-            break;
-        
-    }
-    return nil;
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
@@ -218,8 +214,19 @@
 	[self checkIfCanCreateRollCall];
 	
 	
+	
 }
 
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+	
+	[self checkIfCanCreateRollCall];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+	
+	[self.titleTextField resignFirstResponder];
+	return YES;
+}
 
 -(void)setupTimePicker{
 	
@@ -244,11 +251,32 @@
     }
 }
 
+-(int)getDurationFromPicker{
+	
+	int mins = 0;
+	
+	NSInteger hourRow = [self.timePicker selectedRowInComponent:0];
+	NSInteger minsRow = [self.timePicker selectedRowInComponent:1];
+	
+	mins += hourRow * 60;
+	mins += minsRow;
+	
+	if(!mins){
+		mins = 0;
+	}
+	return mins;
+
+}
+
+
 -(void)createGroup{
 	
 	// Show sucess before going back
 	
-	// TODO: send self.numbersForGoup and self.groupNameLabel.text
+	// TODO: send self.duration and self.titleTextField.text
+	self.duration = [self getDurationFromPicker];
+	
+	
 	[self goBack];
 }
 
