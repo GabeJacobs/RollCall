@@ -66,7 +66,7 @@
 	self.navigationItem.leftBarButtonItem = backButton;
 	self.navigationItem.rightBarButtonItem = newGroupButton;
 
-	self.groupsTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width - 20, self.view.bounds.size.height - 73)];
+	self.groupsTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 0, self.view.bounds.size.width - 20, self.view.bounds.size.height - 73) style:UITableViewStyleGrouped];
 	self.groupsTableView.separatorColor = [UIColor clearColor];
     self.groupsTableView.backgroundColor = RC_BACKGROUND_GRAY;
     self.groupsTableView.delegate = self;
@@ -151,6 +151,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return 80;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10.0f;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

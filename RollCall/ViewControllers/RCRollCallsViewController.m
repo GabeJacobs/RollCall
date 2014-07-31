@@ -64,7 +64,8 @@
 	[self.startRollCallButton addTarget:self action:@selector(startRollCall) forControlEvents:UIControlEventTouchUpInside];
 	self.startRollCallButton.frame = CGRectMake(self.view.bounds.size.width/2 - startCallImage.size.width/2, 10, startCallImage.size.width, startCallImage.size.height);
 	[self.view addSubview:self.startRollCallButton];
-
+	
+	
 	self.rollCallsTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.startRollCallButton.frame) + 10, self.view.bounds.size.width - 20, self.view.bounds.size.height - 120)];
 	self.rollCallsTableView.separatorColor = [UIColor clearColor];
     self.rollCallsTableView.backgroundColor = RC_BACKGROUND_GRAY;
