@@ -356,7 +356,9 @@
                               password:password
                                success:^(RCUser *user) {
 		[SVProgressHUD showWithStatus:@"Signing Up"];
-        [self openCameraWithForceQuad];
+		[self pushGroupController];
+
+        //[self openCameraWithForceQuad];
     } failure:^(NSError *error) {
 		[SVProgressHUD showErrorWithStatus:@"Error"];
         [[[UIAlertView alloc] initWithTitle:@"Sign Up Error"
