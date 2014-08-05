@@ -136,7 +136,7 @@
 	
 	self.createCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	self.createCallButton.frame = CGRectMake(0, CGRectGetMaxY(self.view.frame) - 120, self.view.bounds.size.width, 60);
-	[self.createCallButton addTarget:self action:@selector(createGroup) forControlEvents:UIControlEventTouchUpInside];
+	[self.createCallButton addTarget:self action:@selector(createCall) forControlEvents:UIControlEventTouchUpInside];
 	self.createCallButton.userInteractionEnabled = NO;
 	self.createCallButton.backgroundColor = RC_BACKGROUND_GRAY;
 	[self.view addSubview:self.createCallButton];
@@ -269,7 +269,7 @@
 }
 
 
--(void)createGroup{
+-(void)createCall{
 	
 	// Show sucess before going back
 	

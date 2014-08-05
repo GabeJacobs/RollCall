@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class RCUser;
 @class AFHTTPRequestOperationManager;
@@ -20,6 +21,13 @@ typedef void (^rcAuthSuccessBlock) (RCUser* user);
 + (void)getImageAtURL:(NSString*)url
               success:(rcImageSuccessBlock)completion
               failure:(rcFailureBlock)failure;
+
++ (void)sendImage:(UIImage*)image
+		 location:(NSString*)location
+		    group:(NSNumber*)groupID
+		 rollCall:(NSNumber*)rollCallID
+		 success:(rcImageSuccessBlock)completion
+	     failure:(rcFailureBlock)failure;
 
 + (void)signUpWithNumber:(NSString*)phoneNumber
                firstName:(NSString*)firstName

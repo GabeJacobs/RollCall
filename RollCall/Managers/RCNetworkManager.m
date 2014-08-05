@@ -51,6 +51,35 @@ static NSString * const kRCAuthResponsePhoneNumberKey = @"phone_number";
     }];
 }
 
++ (void)sendImage:(UIImage*)image
+		 location:(NSString*)location
+		    group:(NSNumber*)groupID
+		 rollCall:(NSNumber*)rollCallID
+		  success:(rcImageSuccessBlock)completion
+		  failure:(rcFailureBlock)failure{
+	
+	//NSAssert(image && groupID && rollCallID, @"Must pass valid image, groupID and RollCall ID");
+	
+    NSDictionary *params = @{@"group_id":groupID, @"roll_call_id":rollCallID, @"location":location, @"auth_key":[RCSession accessToken]};
+	
+	AFHTTPRequestOperationManager* manager =
+	[[AFHTTPRequestOperationManager alloc] init];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSString* url = [kRCBaseUrl stringByAppendingPathComponent:@"/photos"];
+
+	NSData *imageData = UIImageJPEGRepresentation(image, 0.2);
+	
+	[manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+		[formData appendPartWithFormData:imageData name:@"image_data"];
+	} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		NSLog(@"Success: %@", responseObject);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		NSLog(@"Error: %@", error);
+	}];
+	
+}
+
 + (void)signUpWithNumber:(NSString*)phoneNumber
                firstName:(NSString*)firstName
                 lastName:(NSString*)lastName
@@ -172,6 +201,7 @@ static NSString * const kRCAuthResponsePhoneNumberKey = @"phone_number";
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     return manager;
 }
+
 
 #pragma mark - Setters and Getters
 
