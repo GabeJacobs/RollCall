@@ -51,7 +51,8 @@
     [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *groupDict) {
         // Turn response object into RCGroup.
         // Save to core data.
-        RCGroup *group = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([RCGroup class]) inManagedObjectContext:[AppDelegate mainManagedObjectContext]];
+        RCGroup *group = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([RCGroup class])
+                                                       inManagedObjectContext:[AppDelegate mainManagedObjectContext]];
         group.name = groupDict[@"name"];
         group.groupID = groupDict[@"id"];
         group.created = [[RCRecord dateFormatter] dateFromString:groupDict[@"created_at"]];

@@ -22,7 +22,6 @@ static BOOL kRCServerUsesLocalData = NO;
               dispatchGroup:(dispatch_group_t)dispatchGroup
               responseBlock:(void (^)(id))responseBlock
                failureBlock:(void (^)(NSError *))failureBlock {
-    
     if (kRCServerUsesLocalData) {
         id responseObject = [self localJSONResponseForURN:URN];
         if (responseObject) {

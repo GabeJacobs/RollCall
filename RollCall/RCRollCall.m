@@ -26,10 +26,11 @@
 + (void)getRollCallsForGroup:(RCGroup *)group
             withSuccessBlock:(void (^)(NSArray *))successBlock
                 failureBlock:(void (^)(NSError *))failureBlock {
+    NSAssert(group, @"Must provide a group +getRollCallsForGroup:::");
     NSManagedObjectContext* context = [AppDelegate mainManagedObjectContext];
     // TODO(amadou): Use the group id in the url or data params.
     [RCRollCall startRequestWithURN:@"/rollcalls"
-                               data:nil
+                               data:@{@"roll_call_id":group.groupID}
                             context:context
                              domain:nil
                         resultBlock:successBlock

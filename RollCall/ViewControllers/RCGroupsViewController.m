@@ -30,7 +30,6 @@
 												 selector:@selector(receiveAvatarTapNotification:)
 													 name:@"TappedAvatar"
 												   object:nil];
-		
 	}
     return self;
 }
@@ -158,21 +157,15 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	
 	RCGroup* group = self.groups[indexPath.row];
 	[self pushGroup:group];
 	
 }
 
-- (void)pushGroup:(RCGroup*)group{
-	
+- (void)pushGroup:(RCGroup*)group {
 	RCRollCallsViewController *rollCallsViewController = [[RCRollCallsViewController alloc] init];
 	[rollCallsViewController setGroup:group];
 	[self.navigationController pushViewController:rollCallsViewController animated:YES];
-	
 }
-
-
-
 
 @end

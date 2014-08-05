@@ -23,6 +23,9 @@
             </userInfo>
         </relationship>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCUser" inverseName="groups" inverseEntity="RCUser" syncable="YES"/>
+        <userInfo>
+            <entry key="MMRecordEntityPrimaryAttributeKey" value="groupID"/>
+        </userInfo>
     </entity>
     <entity name="RCImage" representedClassName="RCImage" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES">
@@ -48,6 +51,9 @@
             </userInfo>
         </relationship>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="selfies" inverseEntity="RCUser" syncable="YES"/>
+        <userInfo>
+            <entry key="MMRecordEntityPrimaryAttributeKey" value="url"/>
+        </userInfo>
     </entity>
     <entity name="RCLike" representedClassName="RCLike" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES">
@@ -62,6 +68,9 @@
         </attribute>
         <relationship name="selfie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCImage" inverseName="likes" inverseEntity="RCImage" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="likes" inverseEntity="RCUser" syncable="YES"/>
+        <userInfo>
+            <entry key="MMRecordEntityPrimaryAttributeKey" value="likeID"/>
+        </userInfo>
     </entity>
     <entity name="RCLocation" representedClassName="RCLocation" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -92,6 +101,9 @@
         <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCUser" inverseName="rollCalls" inverseEntity="RCUser" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGroup" inverseName="rollCalls" inverseEntity="RCGroup" syncable="YES"/>
         <relationship name="selfies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCImage" inverseName="rollCall" inverseEntity="RCImage" syncable="YES"/>
+        <userInfo>
+            <entry key="MMRecordEntityPrimaryAttributeKey" value="rollCallID"/>
+        </userInfo>
     </entity>
     <entity name="RCUser" representedClassName="RCUser" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
@@ -129,12 +141,15 @@
         <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCLike" inverseName="user" inverseEntity="RCLike" syncable="YES"/>
         <relationship name="rollCalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCRollCall" inverseName="creator" inverseEntity="RCRollCall" syncable="YES"/>
         <relationship name="selfies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCImage" inverseName="user" inverseEntity="RCImage" syncable="YES"/>
+        <userInfo>
+            <entry key="MMRecordEntityPrimaryAttributeKey" value="userID"/>
+        </userInfo>
     </entity>
     <elements>
         <element name="RCGroup" positionX="34" positionY="-3" width="128" height="135"/>
-        <element name="RCImage" positionX="-261" positionY="18" width="128" height="148"/>
-        <element name="RCLike" positionX="-270" positionY="-378" width="128" height="103"/>
-        <element name="RCLocation" positionX="-279" positionY="162" width="128" height="73"/>
+        <element name="RCImage" positionX="-261" positionY="18" width="128" height="150"/>
+        <element name="RCLike" positionX="-270" positionY="-378" width="128" height="105"/>
+        <element name="RCLocation" positionX="-279" positionY="162" width="128" height="75"/>
         <element name="RCRollCall" positionX="-2" positionY="-297" width="128" height="163"/>
         <element name="RCUser" positionX="-162" positionY="-243" width="128" height="210"/>
     </elements>
