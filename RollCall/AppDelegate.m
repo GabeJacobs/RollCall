@@ -27,6 +27,7 @@ static NSString * const kSecureNSUserDefaultsSecret = @"Clyd3@bow3rY3L3ctrIC";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self setupMMRecord];
+    [NSUserDefaults setSecret:@"shh, this is secret!"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -38,8 +39,6 @@ static NSString * const kSecureNSUserDefaultsSecret = @"Clyd3@bow3rY3L3ctrIC";
 
 	self.window.rootViewController = rootNavigationController;
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    [NSUserDefaults setSecret:kSecureNSUserDefaultsSecret];
     
     return YES;
 }

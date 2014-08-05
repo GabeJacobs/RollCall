@@ -113,31 +113,31 @@ static NSString * const kRCAuthResponsePhoneNumberKey = @"phone_number";
         // TODO(amadou): Remove the below line once server sends user info.
         success(user);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Login response: %@", operation.responseString);
         failure(error);
     }];
 }
 
 // TODO(amadou): This should not return anything - just this way until David returns all user info.
 + (RCUser*)startSessionFromAuthResponse:(NSDictionary*)response {
-    RCUser *user = [self userFromAuthResponse:response];
-    NSString *authToken = response[kRCAuthResponseAuthTokenKey];
+    RCUser *user = [self userFromAuthResponse:response[@"user"]];
+    NSString *authToken = response[@"auth_key"][@"auth_key"];
     [RCSession startSessionWithAccessToken:authToken user:user];
     return user;
 }
 
-+ (RCUser*)userFromAuthResponse:(NSDictionary*)responseDict {
-    // user id should probably be a number not a string.
-    NSString *userID = responseDict[kRCAuthResponseUserIDKey];
++ (RCUser*)userFromAuthResponse:(NSDictionary*)userDict {
+    // TODO(amadou): user id should probably be a number not a string.
+    NSString *userID = userDict[@"id"];
     RCUser *user = [RCNetworkManager userWithUserID:userID];
     if (!user) {
         user = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([RCUser class])
                                              inManagedObjectContext:[AppDelegate mainManagedObjectContext]];
     }
-    // TODO(amadou): Get David to return all the relevant user data as shown below.
-//    user.firstName = responseDict[kRCAuthResponseFirstNameKey];
-//    user.lastName = responseDict[kRCAuthResponseLastNameKey];
-//    user.phoneNumber = responseDict[kRCAuthResponsePhoneNumberKey];
-    user.userID = responseDict[kRCAuthResponseUserIDKey];
+    user.firstName = userDict[@"first_name"];
+    user.lastName = userDict[@"last_name"];
+    user.phoneNumber = userDict[@"phone_number"];
+    user.userID = userID;
     [AppDelegate saveContext];
     return user;
 }

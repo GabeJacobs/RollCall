@@ -133,4 +133,8 @@ static NSString * const kUserDefaultsLoggedInKey = @"UserDefaultsLoggedInKey";
     return fetchedObjects.firstObject;
 }
 
++ (BOOL)isSignedIn {
+    return [RCSession currentSession].loggedIn;
+}
+
 @end

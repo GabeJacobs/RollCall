@@ -90,6 +90,9 @@
 	
 	[self setupLoginFields];
 	[self setupSignupFields];
+    if ([RCSession isSignedIn]) {
+        [self pushGroupController];
+    }
 }
 
 #pragma mark - UI
@@ -347,15 +350,14 @@
     NSString* lastName = self.lastNameFieldSignup.text;
     NSString* password = self.passwordFieldSignup.text;
 
-	[SVProgressHUD showWithStatus:@"Creating Group"];
-
+    [SVProgressHUD showWithStatus:@"Signing Up"];
 	
 	[RCNetworkManager signUpWithNumber:phone
                              firstName:firstName
                               lastName:lastName
                               password:password
                                success:^(RCUser *user) {
-		[SVProgressHUD showWithStatus:@"Signing Up"];
+        [SVProgressHUD dismiss];
 		[self pushGroupController];
 
         //[self openCameraWithForceQuad];

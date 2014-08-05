@@ -16,5 +16,6 @@
 + (void)storeSession;
 + (void)endSession;
 + (NSString*)accessToken;
++ (BOOL)isSignedIn;
 
 @end
