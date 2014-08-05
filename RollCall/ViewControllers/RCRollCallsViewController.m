@@ -11,6 +11,7 @@
 #import "RCResponsesViewController.h"
 #import "RCNewRollCallViewController.h"
 #import "RCRollCall.h"
+#import "RCGroup.h"
 
 @interface RCRollCallsViewController ()
 
@@ -83,7 +84,7 @@
 }
 
 - (void)loadData {
-    [RCRollCall getRollCallsForGroup:nil withSuccessBlock:^(NSArray *rollCalls) {
+    [RCRollCall getRollCallsForGroup:self.group withSuccessBlock:^(NSArray *rollCalls) {
         self.rollCalls = rollCalls;
         [self reloadTableData];
     } failureBlock:^(NSError *error) {

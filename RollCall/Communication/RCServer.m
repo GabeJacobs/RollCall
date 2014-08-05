@@ -50,6 +50,8 @@ static BOOL kRCServerUsesLocalData = NO;
         responseBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO(amadou): make the error RC specific so it makes more sense.
+        NSLog(@"Failure!!!!");
+        NSLog(@"Response: %@", operation.responseString);
         failureBlock(error);
     }];
 }

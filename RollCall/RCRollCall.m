@@ -28,8 +28,7 @@
                 failureBlock:(void (^)(NSError *))failureBlock {
     NSAssert(group, @"Must provide a group +getRollCallsForGroup:::");
     NSManagedObjectContext* context = [AppDelegate mainManagedObjectContext];
-    // TODO(amadou): Use the group id in the url or data params.
-    [RCRollCall startRequestWithURN:@"/rollcalls"
+    [RCRollCall startRequestWithURN:[NSString stringWithFormat:@"/roll_calls.json", group.groupID]
                                data:@{@"roll_call_id":group.groupID}
                             context:context
                              domain:nil
