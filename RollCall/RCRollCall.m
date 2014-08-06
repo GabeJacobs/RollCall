@@ -32,8 +32,8 @@
     NSAssert(group, @"Must provide a group +getRollCallsForGroup:::");
     NSManagedObjectContext* context = [AppDelegate mainManagedObjectContext];
     // TODO(amadou): When david codes getting roll calls for a specific group change this.
-    [RCRollCall startRequestWithURN:[NSString stringWithFormat:@"/roll_calls.json", group.groupID]
-                               data:@{@"roll_call_id":group.groupID}
+    [RCRollCall startRequestWithURN:@"/roll_calls/show_group.json"
+                               data:@{@"group_id":group.groupID}
                             context:context
                              domain:nil
                         resultBlock:successBlock
