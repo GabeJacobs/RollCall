@@ -379,14 +379,15 @@
 	RCGroupsViewController *groupsViewController = [[RCGroupsViewController alloc] init];
 	
 	//Standard pushViewController is acting really werid. Tried on both phone and simualtor. Super choppy. This works
-	
+	/*
 	CATransition *transition = [CATransition animation];
 	transition.duration = 0.25;
 	transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	transition.type = kCATransitionPush;
 	transition.subtype = kCATransitionFromRight;
 	[self.navigationController.view.layer addAnimation:transition forKey:nil];
-	[self.navigationController pushViewController:groupsViewController animated:NO];
+     */
+	[self.navigationController pushViewController:groupsViewController animated:YES];
 	
 	[self reset];
 	

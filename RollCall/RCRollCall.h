@@ -29,4 +29,10 @@
             withSuccessBlock:(void (^)(NSArray *rollCalls))successBlock
                 failureBlock:(void (^)(NSError *error))failureBlock;
 
++ (void)createRollCallWithDescription:(NSString*)description
+                             duration:(NSNumber*)duration
+                             forGroup:(RCGroup*)group
+                     withSuccessBlock:(void (^)(RCRollCall*))successBlock
+                         failureBlock:(void (^)(NSError*))failureBlock;
+
 @end

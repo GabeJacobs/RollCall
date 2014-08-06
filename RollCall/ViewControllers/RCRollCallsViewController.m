@@ -161,13 +161,10 @@
 	[self pushResponsesView];
 }
 
--(void)startRollCall{
+- (void)startRollCall{
 	RCNewRollCallViewController *newRollCall = [[RCNewRollCallViewController alloc] init];
 	newRollCall.group = self.group;
-	[self.navigationController pushViewController:newRollCall animated:YES];
-
-	//TODO: GIVE IT A GROUP
-	
+	[self.navigationController pushViewController:newRollCall animated:YES];	
 }
 
 

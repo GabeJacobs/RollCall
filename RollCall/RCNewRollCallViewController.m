@@ -7,6 +7,8 @@
 //
 
 #import "RCNewRollCallViewController.h"
+#import "RCRollCall.h"
+#import "SVProgressHUD.h"
 
 @interface RCNewRollCallViewController ()
 
@@ -136,7 +138,7 @@
 	
 	self.createCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	self.createCallButton.frame = CGRectMake(0, CGRectGetMaxY(self.view.frame) - 120, self.view.bounds.size.width, 60);
-	[self.createCallButton addTarget:self action:@selector(createCall) forControlEvents:UIControlEventTouchUpInside];
+	[self.createCallButton addTarget:self action:@selector(createRollCall) forControlEvents:UIControlEventTouchUpInside];
 	self.createCallButton.userInteractionEnabled = NO;
 	self.createCallButton.backgroundColor = RC_BACKGROUND_GRAY;
 	[self.view addSubview:self.createCallButton];
@@ -209,7 +211,7 @@
     return label;
 }
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 	
 	[self checkIfCanCreateRollCall];
 	
@@ -217,7 +219,7 @@
 	
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField{
+- (void)textFieldDidEndEditing:(UITextField *)textField{
 	
 	[self checkIfCanCreateRollCall];
 }
@@ -228,7 +230,7 @@
 	return YES;
 }
 
--(void)setupTimePicker{
+- (void)setupTimePicker{
 	
 	self.hoursArray = [[NSMutableArray alloc] init];
 	self.minsArray = [[NSMutableArray alloc] init];
@@ -251,7 +253,7 @@
     }
 }
 
--(int)getDurationFromPicker{
+- (int)getDurationFromPicker{
 	
 	int mins = 0;
 	
@@ -268,16 +270,22 @@
 
 }
 
-
--(void)createCall{
-	
+- (void)createRollCall {
 	// Show sucess before going back
-	
+	[SVProgressHUD showWithStatus:@"Creating RollCall"];
 	// TODO: send self.duration and self.titleTextField.text
 	self.duration = [self getDurationFromPicker];
-	
-	
-	[self goBack];
+	[RCRollCall createRollCallWithDescription:self.titleTextField.text
+                                     duration:@(self.duration)
+                                     forGroup:self.group
+    withSuccessBlock:^(RCRollCall *rollCall) {
+        [SVProgressHUD showSuccessWithStatus:@"Created"];
+        [self goBack];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Create roll call error");
+        NSLog(@"%@", error);
+        [SVProgressHUD showErrorWithStatus:@"Failed :("];
+    }];
 }
 
 @end
