@@ -13,6 +13,12 @@
 #import "RCPreviewCollectionCell.h"
 
 #import "RCRollCall.h"
+#import "RCImage.h"
+
+@interface RCRollCallTableViewCell ()
+@property(nonatomic) RCRollCall* rollCall;
+@property(nonatomic) NSArray* selfies;
+@end
 
 static NSDateFormatter* RCRollCallDateFormatter;
 
@@ -90,6 +96,10 @@ static NSDateFormatter* RCRollCallDateFormatter;
 }
 
 - (void)setupWithRollCall:(RCRollCall *)rollCall {
+    self.rollCall = rollCall;
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created"
+                                                                   ascending:YES];
+    self.selfies = [[self.rollCall.selfies allObjects] sortedArrayUsingDescriptors:@[sortDescriptor]];
     self.rollCallNameLabel.text = rollCall.title;
     self.dateOfCreationLabel.text = [RCRollCallTableViewCell stringFromDate:rollCall.started];
 }
@@ -146,7 +156,7 @@ static NSDateFormatter* RCRollCallDateFormatter;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return 5;
+	return [self.selfies count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -154,8 +164,8 @@ static NSDateFormatter* RCRollCallDateFormatter;
     static NSString *cellIdentifier = @"previewCell";
 	
     RCPreviewCollectionCell *cell = (RCPreviewCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-	
-	[cell addDataToCell];
+	RCImage* selfie = self.selfies[indexPath.row];
+	[cell setImageAtURL:selfie.url];
     return cell;
 	
 }

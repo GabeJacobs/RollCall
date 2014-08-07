@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef RollCall_Constants_h
-#define RollCall_Constants_h
+// Function Defines.
+#define RCLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 
 // Colors.
 #define RC_BLUE [UIColor colorWithRed:0.002 green:0.000 blue:0.585 alpha:1.000];
@@ -19,4 +19,3 @@
 // Strings.
 static NSString * const kRCBaseUrl = @"http://rollcallbe.herokuapp.com";
 
-#endif

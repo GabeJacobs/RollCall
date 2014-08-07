@@ -20,19 +20,22 @@
     return self;
 }
 
--(void)layoutSubviews{
+- (void)layoutSubviews{
 	
 	self.previewImageView.frame = self.bounds;
 	
 }
 
--(void)addDataToCell{
+- (void)gotImageForCurrentURL:(UIImage *)image {
+    self.previewImageView.image = image;
+}
+
++ (UIImage*)randomImage {
 	int rando = rand();
 	rando %= 3;
 	rando += 1;
 	NSString * fakeImage = [NSString stringWithFormat:@"Placeholder%d.png", rando];
-	[self.previewImageView setImage:[UIImage imageNamed:fakeImage]];
-	
+    return [UIImage imageNamed:fakeImage];
 }
 
 @end

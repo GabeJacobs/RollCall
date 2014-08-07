@@ -19,7 +19,6 @@
 @property (nonatomic) UIButton*	   startRollCallButton;
 @property (nonatomic) NSArray* rollCalls;
 
-
 @end
 
 @implementation RCRollCallsViewController
@@ -77,12 +76,6 @@
     [self loadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)loadData {
     [RCRollCall getRollCallsForGroup:self.group withSuccessBlock:^(NSArray *rollCalls) {
         self.rollCalls = rollCalls;
@@ -104,7 +97,7 @@
 //****************************************
 //****************************************
 
--(void)goBack{
+- (void)goBack{
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -120,7 +113,7 @@
     if (cell == nil) {
         cell = [[RCRollCallTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
     }
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	RCRollCall* rollCall = self.rollCalls[indexPath.row];
 	[cell setupWithRollCall:rollCall];
 	
@@ -139,17 +132,13 @@
 	return 260;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[self pushResponsesView];
-	
 }
 
-- (void)pushResponsesView{
-	
+- (void)pushResponsesView {
 	RCResponsesViewController *responsesViewController = [[RCResponsesViewController alloc] init];
 	[self.navigationController pushViewController:responsesViewController animated:YES];
-	
 }
 
 
@@ -166,6 +155,5 @@
 	newRollCall.group = self.group;
 	[self.navigationController pushViewController:newRollCall animated:YES];	
 }
-
 
 @end

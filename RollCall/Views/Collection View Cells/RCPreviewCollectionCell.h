@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCCollectionViewCell.h"
 
-@interface RCPreviewCollectionCell : UICollectionViewCell
+@interface RCPreviewCollectionCell : RCCollectionViewCell
 
 @property UIImageView *previewImageView;
-
--(void)addDataToCell;
-
 
 @end

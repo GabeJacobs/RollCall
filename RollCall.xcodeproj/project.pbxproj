@@ -31,6 +31,7 @@
 		23F6851219709E0B009C2F56 /* RCRollCallsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F6851119709E0B009C2F56 /* RCRollCallsViewController.m */; };
 		23F685151970A633009C2F56 /* RCRollCallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F685141970A633009C2F56 /* RCRollCallTableViewCell.m */; };
 		23F685181970A67E009C2F56 /* RCPreviewCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */; };
+		C80BC58B1992FCC3008F09EC /* RCCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C80BC58A1992FCC3008F09EC /* RCCollectionViewCell.m */; };
 		C892E7F91972DAC50078762F /* RCGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E7F81972DAC50078762F /* RCGroup.m */; };
 		C892E7FC1972DAE20078762F /* RCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E7FB1972DAE20078762F /* RCImage.m */; };
 		C892E7FF1972DB090078762F /* RCLike.m in Sources */ = {isa = PBXBuildFile; fileRef = C892E7FE1972DB090078762F /* RCLike.m */; };
@@ -98,6 +99,8 @@
 		23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPreviewCollectionCell.m; path = "Views/Collection View Cells/RCPreviewCollectionCell.m"; sourceTree = "<group>"; };
 		4B8C3DF46FA541FFB1819743 /* libPods-RollCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RollCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD06B5FAE8FD4EE3AB9B4C5D /* Pods-RollCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RollCall.xcconfig"; path = "Pods/Pods-RollCall.xcconfig"; sourceTree = "<group>"; };
+		C80BC5891992FCC3008F09EC /* RCCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCCollectionViewCell.h; path = "Views/Collection View Cells/RCCollectionViewCell.h"; sourceTree = "<group>"; };
+		C80BC58A1992FCC3008F09EC /* RCCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCCollectionViewCell.m; path = "Views/Collection View Cells/RCCollectionViewCell.m"; sourceTree = "<group>"; };
 		C892E7F71972DAC50078762F /* RCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCGroup.h; path = Models/RCGroup.h; sourceTree = "<group>"; };
 		C892E7F81972DAC50078762F /* RCGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGroup.m; path = Models/RCGroup.m; sourceTree = "<group>"; };
 		C892E7FA1972DAE20078762F /* RCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCImage.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				23F685171970A67E009C2F56 /* RCPreviewCollectionCell.m */,
 				23D301A7197743DF00814C1E /* RCThumbnailCollectionCell.h */,
 				23D301A8197743DF00814C1E /* RCThumbnailCollectionCell.m */,
+				C80BC5891992FCC3008F09EC /* RCCollectionViewCell.h */,
+				C80BC58A1992FCC3008F09EC /* RCCollectionViewCell.m */,
 			);
 			name = "Collection View Cells";
 			sourceTree = "<group>";
@@ -331,9 +336,9 @@
 			children = (
 				C89637AF1987599F0088FD22 /* RCDebugHelper.h */,
 				C89637B01987599F0088FD22 /* RCDebugHelper.m */,
-				C8E6EC9A196CFB3600DAEE73 /* RCConstants.h */,
 				C8E6EC9B196CFB3600DAEE73 /* RCSession.h */,
 				C8E6EC9C196CFB3600DAEE73 /* RCSession.m */,
+				C8E6EC9A196CFB3600DAEE73 /* RCConstants.h */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				C892E8021972DB300078762F /* RCLocation.m in Sources */,
 				C892E8051972DB850078762F /* RCRollCall.m in Sources */,
 				239EBF3E19771B100075B3CB /* RCResponsesViewController.m in Sources */,
+				C80BC58B1992FCC3008F09EC /* RCCollectionViewCell.m in Sources */,
 				C892E7FC1972DAE20078762F /* RCImage.m in Sources */,
 				235FE60C1974A32C005CDF1C /* RCNewGroupViewController.m in Sources */,
 				2315C0B51970763A00ABA433 /* RCServer.m in Sources */,
